@@ -1,0 +1,2493 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NamKyBet 🎄 Sảnh Chính Giáng Sinh 2026</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Be Vietnam Pro & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800;900&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* =====================================================================
+           NAMKYBET CHRISTMAS 2026 - LUXURY MOBILE LOBBY THEME
+           Deep Pine Night (#061913) + Burgundy Wine (#300811) + Festive Gold (#f5c542)
+        ===================================================================== */
+        :root {
+            --pine-dark: #061913;
+            --pine-mid: #0d2b20;
+            --wine-dark: #320812;
+            --wine-bright: #9e152c;
+            --gold: #f5c542;
+            --gold-soft: #fef08a;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        input, textarea, select {
+            user-select: text;
+        }
+
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
+            background:
+                radial-gradient(circle at 18% 8%, rgba(168, 22, 46, 0.34) 0%, transparent 45%),
+                radial-gradient(circle at 85% 20%, rgba(16, 110, 74, 0.32) 0%, transparent 48%),
+                linear-gradient(180deg, #1b070e 0%, #0b1e18 45%, #050f0d 100%);
+            color: #f8fafc;
+            min-height: 100vh;
+        }
+
+        .font-mono-num {
+            font-family: 'JetBrains Mono', 'Be Vietnam Pro', monospace;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Background Snowfall & Top Celebration Coin Canvas */
+        #snowCanvas {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        #coinCanvas {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 65;
+        }
+
+        /* Mobile-First Centered App Shell */
+        .app-shell {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 84px;
+            background: linear-gradient(180deg, rgba(35, 8, 17, 0.52) 0%, rgba(7, 25, 19, 0.72) 55%, rgba(5, 14, 12, 0.88) 100%);
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.75);
+        }
+
+        @media (min-width: 481px) {
+            .app-shell {
+                border-left: 1px solid rgba(245, 197, 66, 0.22);
+                border-right: 1px solid rgba(245, 197, 66, 0.22);
+            }
+        }
+
+        /* =====================================================================
+           CHRISTMAS STRING LIGHTS & CANDY CANE ACCENTS
+        ===================================================================== */
+        .christmas-lights {
+            position: relative;
+            height: 16px;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            padding: 0 6px;
+            overflow: hidden;
+            background: rgba(16, 4, 8, 0.85);
+            border-bottom: 1px solid rgba(245, 197, 66, 0.25);
+        }
+
+        .christmas-lights::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .bulb {
+            width: 7px;
+            height: 11px;
+            margin-top: 2px;
+            border-radius: 50% 50% 60% 60%;
+            animation: bulbTwinkle 1.6s ease-in-out infinite alternate;
+        }
+        .bulb:nth-child(4n+1) { background: #ff3b5c; box-shadow: 0 0 10px #ff3b5c; animation-delay: 0s; }
+        .bulb:nth-child(4n+2) { background: #ffd24c; box-shadow: 0 0 10px #ffd24c; animation-delay: 0.4s; }
+        .bulb:nth-child(4n+3) { background: #34d399; box-shadow: 0 0 10px #34d399; animation-delay: 0.8s; }
+        .bulb:nth-child(4n+4) { background: #38bdf8; box-shadow: 0 0 10px #38bdf8; animation-delay: 1.2s; }
+
+        @keyframes bulbTwinkle {
+            0% { opacity: 0.35; transform: scale(0.84); }
+            100% { opacity: 1; transform: scale(1.14); }
+        }
+
+        .candy-cane-bar {
+            height: 5px;
+            background: repeating-linear-gradient(
+                -45deg,
+                #c91c2e 0px,
+                #c91c2e 9px,
+                #ffffff 9px,
+                #ffffff 18px,
+                #166534 18px,
+                #166534 22px,
+                #ffffff 22px,
+                #ffffff 31px
+            );
+        }
+
+        .candy-cane-border {
+            padding: 2.5px;
+            background: repeating-linear-gradient(
+                -45deg,
+                #c91c2e 0px,
+                #c91c2e 10px,
+                #fff7ed 10px,
+                #fff7ed 20px,
+                #166534 20px,
+                #166534 24px,
+                #fff7ed 24px,
+                #fff7ed 34px
+            );
+            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.55), 0 0 18px rgba(245, 197, 66, 0.25);
+        }
+
+        /* =====================================================================
+           MARQUEE TICKER
+        ===================================================================== */
+        .marquee-wrap {
+            overflow: hidden;
+            white-space: nowrap;
+            background: linear-gradient(90deg, #5c0a19, #9b132a, #690c1c);
+            border-top: 1px solid rgba(245, 197, 66, 0.38);
+            border-bottom: 1.5px solid rgba(245, 197, 66, 0.65);
+        }
+
+        .marquee-track {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marqueeRun 34s linear infinite;
+            font-size: 11.5px;
+            font-weight: 700;
+            color: #fff8db;
+        }
+
+        @keyframes marqueeRun {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* =====================================================================
+           LUXURY CARDS, GAME CARDS & INTERACTIVE BUTTONS
+        ===================================================================== */
+        .glass-card {
+            background: linear-gradient(155deg, rgba(16, 44, 34, 0.88), rgba(12, 23, 20, 0.95));
+            border: 1px solid rgba(245, 197, 66, 0.32);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+        }
+
+        .wine-card {
+            background: linear-gradient(145deg, rgba(78, 12, 26, 0.92), rgba(26, 7, 13, 0.96));
+            border: 1.5px solid rgba(245, 197, 66, 0.55);
+            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.52);
+        }
+
+        .game-card {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.16s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .game-card:active {
+            transform: scale(0.95);
+        }
+
+        .game-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -70%;
+            width: 45%;
+            height: 200%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.14), transparent);
+            transform: rotate(24deg);
+            animation: cardShimmer 4.5s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes cardShimmer {
+            0%, 72% { left: -70%; }
+            100% { left: 145%; }
+        }
+
+        .btn-press {
+            transition: transform 0.1s ease, filter 0.15s ease;
+        }
+        .btn-press:active:not(:disabled) {
+            transform: scale(0.94);
+            filter: brightness(1.1);
+        }
+        .btn-press:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Bailout Pulse Animation */
+        @keyframes bailoutPulse {
+            0%, 100% { box-shadow: 0 0 12px rgba(239, 68, 68, 0.8), 0 0 24px rgba(245, 197, 66, 0.45); transform: scale(1); }
+            50% { box-shadow: 0 0 26px rgba(239, 68, 68, 1), 0 0 40px rgba(245, 197, 66, 0.95); transform: scale(1.018); }
+        }
+        .bailout-glow {
+            animation: bailoutPulse 1.15s ease-in-out infinite;
+        }
+
+        /* Gift Shake Animation */
+        @keyframes giftWobble {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            20% { transform: rotate(-9deg) scale(1.06); }
+            40% { transform: rotate(9deg) scale(1.08); }
+            60% { transform: rotate(-6deg) scale(1.05); }
+            80% { transform: rotate(6deg) scale(1.03); }
+        }
+        .gift-wobble {
+            animation: giftWobble 1.6s ease-in-out infinite;
+        }
+
+        /* Modal & Toast Animations */
+        @keyframes popIn {
+            0% { transform: scale(0.65); opacity: 0; }
+            72% { transform: scale(1.04); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .pop-in {
+            animation: popIn 0.26s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes shakeErr {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-8px); }
+            40% { transform: translateX(8px); }
+            60% { transform: translateX(-6px); }
+            80% { transform: translateX(6px); }
+        }
+        .shake-error {
+            animation: shakeErr 0.34s ease;
+        }
+
+        /* Fixed Bottom Navigation Bar aligned with 480px shell */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 480px;
+            z-index: 40;
+            background: linear-gradient(180deg, rgba(16, 34, 28, 0.96), rgba(7, 16, 13, 0.99));
+            border-top: 1.5px solid rgba(245, 197, 66, 0.48);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 -10px 28px rgba(0, 0, 0, 0.65);
+        }
+
+        .nav-tab-active {
+            color: #f5c542;
+            background: radial-gradient(circle at top, rgba(245, 197, 66, 0.22), transparent 72%);
+        }
+
+        .thin-scroll::-webkit-scrollbar { width: 4px; height: 4px; }
+        .thin-scroll::-webkit-scrollbar-track { background: rgba(7, 18, 15, 0.5); border-radius: 99px; }
+        .thin-scroll::-webkit-scrollbar-thumb { background: rgba(245, 197, 66, 0.45); border-radius: 99px; }
+    </style>
+</head>
+<body>
+    <!-- Background Snowfall Canvas & Top Coin Rain Canvas -->
+    <canvas id="snowCanvas"></canvas>
+    <canvas id="coinCanvas"></canvas>
+
+    <!-- Floating Toast Stack (Zero alert() / confirm()) -->
+    <div id="toastContainer" class="fixed top-12 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-[440px] flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- Main Mobile-First Vertical App Shell -->
+    <div class="app-shell">
+
+        <!-- 1. ANIMATED CHRISTMAS STRING LIGHTS -->
+        <div class="christmas-lights" aria-hidden="true">
+            <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+            <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+            <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+            <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+            <span class="bulb"></span><span class="bulb"></span>
+        </div>
+
+        <!-- 2. HEADER: USER AVATAR WITH SANTA HAT, VIP BADGE, BALANCE & TOP-RIGHT "TND" -->
+        <header class="px-3 pt-2.5 pb-2">
+            <!-- Row 1: Brand + Sound + Subtle "TND" -->
+            <div class="flex items-center justify-between gap-2 mb-2">
+                <div class="flex items-center gap-2 min-w-0">
+                    <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-red-600 via-red-700 to-amber-600 border border-[#f5c542] flex items-center justify-center shadow-md shrink-0">
+                        <span class="text-base leading-none">🎄</span>
+                    </div>
+                    <div class="min-w-0 leading-tight">
+                        <div class="text-sm font-black tracking-wider bg-gradient-to-r from-yellow-100 via-[#f5c542] to-red-400 bg-clip-text text-transparent truncate">
+                            NAMKYBET
+                        </div>
+                        <div class="text-[9.5px] font-extrabold text-emerald-300 tracking-widest uppercase">
+                            NOEL 2026 • SẢNH QUỐC TẾ
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-1.5 shrink-0">
+                    <button id="soundBtn" aria-label="Bật tắt âm thanh" class="btn-press w-8 h-8 rounded-xl bg-[#0b231b]/95 border border-[#f5c542]/45 text-sm flex items-center justify-center shadow">
+                        🔊
+                    </button>
+                    <!-- Discreet Top-Right "TND" Watermark (Secret Admin Trigger) -->
+                    <button id="tndLogoBtn" title="TND" class="btn-press px-2.5 h-8 rounded-xl bg-black/45 border border-white/15 hover:border-[#f5c542]/45 text-[10px] font-black tracking-widest text-slate-300/85 flex items-center justify-center">
+                        TND
+                    </button>
+                </div>
+            </div>
+
+            <!-- Row 2: Player Profile Card & Shared Wallet Balance -->
+            <div class="glass-card rounded-2xl p-2.5 flex items-center justify-between gap-2">
+                <!-- Avatar with Inline SVG Santa Hat + Clickable Username + VIP Badge -->
+                <button id="editNameTrigger" class="btn-press flex items-center gap-2.5 min-w-0 text-left">
+                    <div class="relative w-11 h-11 shrink-0">
+                        <!-- Circular Festive Avatar -->
+                        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-amber-400 via-red-700 to-emerald-900 border-2 border-[#f5c542] flex items-center justify-center shadow-lg overflow-hidden">
+                            <svg viewBox="0 0 40 40" class="w-9 h-9">
+                                <circle cx="20" cy="17" r="7.5" fill="#fde68a"/>
+                                <path d="M8 37 C9 28, 31 28, 32 37 Z" fill="#b91c1c"/>
+                                <circle cx="17.5" cy="16" r="1.2" fill="#1e293b"/>
+                                <circle cx="22.5" cy="16" r="1.2" fill="#1e293b"/>
+                                <path d="M17 20 Q20 22.5 23 20" stroke="#9a3412" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <!-- Cute Santa Hat SVG on top of Avatar -->
+                        <svg viewBox="0 0 36 24" class="w-9 h-6 absolute -top-2.5 -left-0.5 drop-shadow">
+                            <path d="M5 17 Q14 1 30 9 Q23 12 22 17 Z" fill="#dc2626" stroke="#7f1d1d" stroke-width="1.2"/>
+                            <rect x="3" y="15" width="21" height="5" rx="2.5" fill="#ffffff"/>
+                            <circle cx="30" cy="10" r="3.4" fill="#ffffff"/>
+                        </svg>
+                    </div>
+
+                    <div class="min-w-0">
+                        <div class="flex items-center gap-1">
+                            <span id="usernameDisplay" class="text-xs sm:text-[13px] font-black text-white truncate max-w-[115px]">Đại Gia VIP</span>
+                            <span class="text-[10px] text-yellow-300/80">✏️</span>
+                        </div>
+                        <div id="vipBadge" class="inline-flex items-center gap-1 mt-0.5 px-2 py-0.5 rounded-full text-[9.5px] font-black tracking-wide bg-slate-700/90 text-slate-100 border border-slate-400/50">
+                            🥈 VIP 2 BẠC
+                        </div>
+                    </div>
+                </button>
+
+                <!-- Glowing Gold Balance Pill + Quick Deposit "+" Button -->
+                <div class="flex items-center gap-1.5 bg-black/55 border border-[#f5c542]/70 rounded-2xl pl-2.5 pr-1.5 py-1.5 shadow-inner shrink-0">
+                    <div class="text-right">
+                        <div class="text-[8.5px] font-extrabold text-amber-200/80 uppercase tracking-wider leading-none">Số dư ví</div>
+                        <div id="balanceDisplay" class="font-mono-num text-xs sm:text-sm font-extrabold text-[#f5c542] leading-tight mt-0.5">
+                            20.000.000đ
+                        </div>
+                    </div>
+                    <button id="quickPlusBtn" aria-label="Nạp tiền nhanh" class="btn-press w-7 h-7 rounded-xl bg-gradient-to-b from-[#fef08a] via-[#f5c542] to-amber-600 text-slate-950 font-black text-base flex items-center justify-center shadow">
+                        +
+                    </button>
+                </div>
+            </div>
+
+            <!-- Prominent "Báo Nhà (+10 Củ)" Rescue Button (Auto visible when balance < 500,000đ) -->
+            <div id="bailoutWrap" class="mt-2 hidden">
+                <button id="bailoutBtn" class="btn-press bailout-glow w-full py-2.5 px-4 rounded-2xl bg-gradient-to-r from-red-700 via-rose-600 to-amber-600 border-2 border-[#fef08a] text-white font-black text-xs sm:text-sm tracking-wide flex items-center justify-center gap-2">
+                    <span>🆘</span>
+                    <span>BÁO NHÀ (+10 CỦ ĂN NOEL)</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- 3. CONTINUOUS FAKE BIG WIN MARQUEE -->
+        <div class="marquee-wrap py-1.5">
+            <div id="marqueeTrack" class="marquee-track">
+                🔥 [Tài Xỉu] anhba_cuchi vừa húp 45,000,000đ cầu Bệt Tài 8 tay! &nbsp;&nbsp;•&nbsp;&nbsp;
+                💎 [Nổ Hũ] meobeo99 nổ hũ GRAND 388,500,000đ phòng 500K! &nbsp;&nbsp;•&nbsp;&nbsp;
+                🚀 [Aviator] tuananh_2k9 chốt lời 32,400,000đ ở mốc 16.20x! &nbsp;&nbsp;•&nbsp;&nbsp;
+                ⚽ [Neymar Sút Bóng] long_saigon đóng thẳng Gôn #4 nổ Max Cap 75,000,000đ! &nbsp;&nbsp;•&nbsp;&nbsp;
+                🎁 Sự kiện Giáng Sinh 2026: Nhập code NOEL2026, NAMKYBET nhận ngay lộc tân thủ!
+            </div>
+        </div>
+
+        <!-- =================================================================
+             DYNAMIC TAB VIEWS CONTAINER
+        ================================================================= -->
+        <main class="flex-1 px-3 pt-2.5">
+
+            <!-- =============================================================
+                 TAB 1: SẢNH GAME (MAIN LOBBY)
+            ============================================================= -->
+            <section id="view-lobby" class="tab-view space-y-3">
+
+                <!-- Christmas Festive Hero Banner with Daily Gift CTA -->
+                <div class="candy-cane-border rounded-3xl">
+                    <div class="rounded-[21px] p-3.5 relative overflow-hidden bg-gradient-to-br from-[#6a0e20] via-[#340914] to-[#0a261c]">
+                        <!-- Subtle Decorative Tree Silhouette SVG -->
+                        <svg viewBox="0 0 120 120" class="w-28 h-28 absolute -right-4 -bottom-5 opacity-20 pointer-events-none">
+                            <polygon points="60,8 22,55 38,55 14,92 106,92 82,55 98,55" fill="#34d399"/>
+                            <rect x="52" y="92" width="16" height="20" fill="#b45309"/>
+                            <circle cx="60" cy="10" r="7" fill="#f5c542"/>
+                        </svg>
+
+                        <div class="relative z-10 flex items-center justify-between gap-2.5">
+                            <div class="min-w-0">
+                                <span class="inline-block px-2 py-0.5 rounded-full bg-[#f5c542]/20 border border-[#f5c542]/65 text-[9.5px] font-black text-[#fef08a] tracking-wider uppercase">
+                                    🎄 SỰ KIỆN GIÁNG SINH 2026
+                                </span>
+                                <h1 class="text-base sm:text-lg font-black text-white leading-snug mt-1">
+                                    Mở Hộp Quà Noel<br>
+                                    <span class="text-[#f5c542]">Húp Lộc 2 – 10 Củ Mỗi Ngày!</span>
+                                </h1>
+                                <p class="text-[10.5px] text-rose-100/85 font-semibold mt-0.5">
+                                    Dùng chung 1 ví xuyên suốt 4 sảnh game cực mượt
+                                </p>
+                            </div>
+
+                            <button id="bannerGiftBtn" class="btn-press shrink-0 flex flex-col items-center justify-center px-3 py-2.5 rounded-2xl bg-gradient-to-b from-[#fef08a] via-[#f5c542] to-amber-600 border-2 border-white/80 text-slate-950 shadow-xl">
+                                <span class="text-2xl leading-none gift-wobble">🎁</span>
+                                <span class="text-[10px] font-black uppercase tracking-tight mt-1 leading-none">MỞ QUÀ</span>
+                                <span class="text-[9px] font-extrabold text-red-900 mt-0.5 leading-none">NOEL</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4 Quick Action Buttons (Nạp Tiền / Rút Tiền / Quà Ngày / Giftcode) -->
+                <div class="grid grid-cols-4 gap-2">
+                    <button id="actDepositBtn" class="btn-press glass-card rounded-2xl py-2.5 px-1 flex flex-col items-center justify-center gap-1 hover:border-[#f5c542]/70">
+                        <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-800 border border-emerald-300/60 flex items-center justify-center text-lg shadow">💳</span>
+                        <span class="text-[10.5px] font-extrabold text-emerald-200">Nạp Tiền</span>
+                    </button>
+
+                    <button id="actWithdrawBtn" class="btn-press glass-card rounded-2xl py-2.5 px-1 flex flex-col items-center justify-center gap-1 hover:border-[#f5c542]/70">
+                        <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-500 to-blue-800 border border-sky-300/60 flex items-center justify-center text-lg shadow">🏦</span>
+                        <span class="text-[10.5px] font-extrabold text-sky-200">Rút Tiền</span>
+                    </button>
+
+                    <button id="actDailyGiftBtn" class="btn-press glass-card rounded-2xl py-2.5 px-1 flex flex-col items-center justify-center gap-1 relative hover:border-[#f5c542]/70">
+                        <span id="giftDotIndicator" class="w-2.5 h-2.5 rounded-full bg-red-500 border border-white absolute top-1.5 right-2 animate-ping"></span>
+                        <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-red-500 to-rose-800 border border-yellow-300/70 flex items-center justify-center text-lg shadow">🎁</span>
+                        <span class="text-[10.5px] font-extrabold text-yellow-200">Quà Ngày</span>
+                    </button>
+
+                    <button id="actGiftcodeBtn" class="btn-press glass-card rounded-2xl py-2.5 px-1 flex flex-col items-center justify-center gap-1 hover:border-[#f5c542]/70">
+                        <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-400 to-orange-700 border border-yellow-200/70 flex items-center justify-center text-lg shadow">🎟️</span>
+                        <span class="text-[10.5px] font-extrabold text-amber-200">Giftcode</span>
+                    </button>
+                </div>
+
+                <!-- Section Header -->
+                <div class="flex items-center justify-between px-0.5 pt-0.5">
+                    <div class="flex items-center gap-1.5">
+                        <span class="text-sm">🔥</span>
+                        <h2 class="text-xs sm:text-sm font-black uppercase tracking-wider text-[#f5c542]">
+                            SẢNH GAME NỔI BẬT
+                        </h2>
+                    </div>
+                    <span class="text-[10px] font-bold text-emerald-300/90 flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span id="totalOnlineLobby">3,420</span> đang chơi
+                    </span>
+                </div>
+
+                <!-- 2x2 MAIN GAME CARDS GRID -->
+                <div class="grid grid-cols-2 gap-2.5">
+
+                    <!-- CARD 1: TÀI XỈU GIÁNG SINH -> taixiu.html -->
+                    <a href="taixiu.html" data-candidates="taixiu.html|NamKyBet - Tài Xỉu Giáng Sinh.html" data-game-name="Tài Xỉu Giáng Sinh" class="game-link game-card rounded-3xl p-2.5 flex flex-col justify-between bg-gradient-to-b from-[#6e1022] via-[#340a14] to-[#13060a] border-2 border-[#f5c542]/75 shadow-[0_10px_24px_rgba(185,28,28,0.38)] min-h-[212px]">
+                        <div class="flex items-center justify-between gap-1">
+                            <span class="px-2 py-0.5 rounded-full bg-gradient-to-r from-red-600 to-orange-500 border border-yellow-200/70 text-[9px] font-black text-white tracking-wider shadow">
+                                HOT 🔥
+                            </span>
+                            <span class="text-[9.5px] font-bold text-emerald-300 bg-black/45 px-1.5 py-0.5 rounded-full flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                                <span id="online-taixiu">1,482</span>
+                            </span>
+                        </div>
+
+                        <!-- Inline SVG: 3 Red/White Dice + Plate + Santa Hat -->
+                        <div class="my-1.5 flex items-center justify-center">
+                            <svg viewBox="0 0 140 96" class="w-full h-24 drop-shadow-[0_6px_12px_rgba(0,0,0,0.65)]">
+                                <defs>
+                                    <radialGradient id="txPlate" cx="50%" cy="45%" r="55%">
+                                        <stop offset="0%" stop-color="#fff7ed"/>
+                                        <stop offset="75%" stop-color="#cbd5e1"/>
+                                        <stop offset="100%" stop-color="#64748b"/>
+                                    </radialGradient>
+                                    <linearGradient id="diceBody" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0%" stop-color="#ffffff"/>
+                                        <stop offset="100%" stop-color="#e2e8f0"/>
+                                    </linearGradient>
+                                </defs>
+                                <ellipse cx="70" cy="70" rx="56" ry="20" fill="rgba(245,197,66,0.22)"/>
+                                <ellipse cx="70" cy="68" rx="52" ry="18" fill="url(#txPlate)" stroke="#f5c542" stroke-width="2.2"/>
+                                <ellipse cx="70" cy="68" rx="38" ry="11" fill="none" stroke="#c91c2e" stroke-width="1.2" stroke-dasharray="4 3"/>
+
+                                <g transform="translate(30,40) rotate(-14)">
+                                    <rect width="26" height="26" rx="6" fill="url(#diceBody)" stroke="#1e293b" stroke-width="1.6"/>
+                                    <circle cx="13" cy="13" r="3.4" fill="#dc2626"/>
+                                </g>
+                                <g transform="translate(83,39) rotate(16)">
+                                    <rect width="26" height="26" rx="6" fill="url(#diceBody)" stroke="#1e293b" stroke-width="1.6"/>
+                                    <circle cx="7" cy="7" r="2.2" fill="#1e293b"/>
+                                    <circle cx="19" cy="7" r="2.2" fill="#1e293b"/>
+                                    <circle cx="7" cy="19" r="2.2" fill="#1e293b"/>
+                                    <circle cx="19" cy="19" r="2.2" fill="#1e293b"/>
+                                    <circle cx="13" cy="13" r="2.3" fill="#dc2626"/>
+                                </g>
+                                <g transform="translate(56,43) rotate(4)">
+                                    <rect width="28" height="28" rx="6.5" fill="url(#diceBody)" stroke="#1e293b" stroke-width="1.8"/>
+                                    <circle cx="8" cy="7.5" r="2.2" fill="#1e293b"/>
+                                    <circle cx="20" cy="7.5" r="2.2" fill="#1e293b"/>
+                                    <circle cx="8" cy="14" r="2.2" fill="#1e293b"/>
+                                    <circle cx="20" cy="14" r="2.2" fill="#1e293b"/>
+                                    <circle cx="8" cy="20.5" r="2.2" fill="#1e293b"/>
+                                    <circle cx="20" cy="20.5" r="2.2" fill="#1e293b"/>
+                                </g>
+                                <g transform="translate(54,18)">
+                                    <path d="M5 24 Q14 2 34 11 Q24 15 24 24 Z" fill="#dc2626" stroke="#7f1d1d" stroke-width="1.4"/>
+                                    <rect x="2" y="21" width="24" height="6" rx="3" fill="#ffffff"/>
+                                    <circle cx="34" cy="12" r="4.2" fill="#ffffff"/>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <div>
+                            <div class="text-[13px] font-black text-yellow-200 leading-tight">Tài Xỉu Giáng Sinh</div>
+                            <div class="text-[10px] text-rose-200/85 font-semibold mt-0.5">Nặn bát tay • Soi cầu bệt</div>
+                            <div class="mt-2 py-1.5 rounded-xl bg-gradient-to-r from-[#f5c542] to-amber-500 text-slate-950 font-black text-[10.5px] text-center uppercase tracking-wider shadow">
+                                VÀO SẢNH ▶
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- CARD 2: NỔ HŨ GIÁNG SINH -> nohu.html / quayhugiangsinh.html -->
+                    <a href="nohu.html" data-candidates="nohu.html|quayhugiangsinh.html|NamKyBet - Nổ Hũ Giáng Sinh.html" data-game-name="Nổ Hũ Giáng Sinh" class="game-link game-card rounded-3xl p-2.5 flex flex-col justify-between bg-gradient-to-b from-[#5e2908] via-[#2b1005] to-[#120705] border-2 border-amber-400/85 shadow-[0_10px_24px_rgba(245,158,11,0.34)] min-h-[212px]">
+                        <div class="flex items-center justify-between gap-1">
+                            <span class="px-2 py-0.5 rounded-full bg-gradient-to-r from-amber-400 to-yellow-300 border border-white/80 text-[9px] font-black text-slate-950 tracking-wider shadow">
+                                JACKPOT 💎
+                            </span>
+                            <span class="text-[9.5px] font-bold text-amber-200 bg-black/45 px-1.5 py-0.5 rounded-full flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                                <span id="online-nohu">1,124</span>
+                            </span>
+                        </div>
+
+                        <!-- Inline SVG: Slot 777 Machine + Noel Gift Box -->
+                        <div class="my-1 flex items-center justify-center">
+                            <svg viewBox="0 0 140 86" class="w-full h-[76px] drop-shadow-[0_6px_12px_rgba(0,0,0,0.65)]">
+                                <defs>
+                                    <linearGradient id="slotFrame" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#facc15"/>
+                                        <stop offset="50%" stop-color="#d97706"/>
+                                        <stop offset="100%" stop-color="#78350f"/>
+                                    </linearGradient>
+                                </defs>
+                                <rect x="112" y="34" width="6" height="22" rx="3" fill="#cbd5e1"/>
+                                <circle cx="115" cy="28" r="6.5" fill="#dc2626" stroke="#fef08a" stroke-width="1.5"/>
+                                <rect x="18" y="14" width="96" height="62" rx="12" fill="url(#slotFrame)" stroke="#fef08a" stroke-width="2"/>
+                                <rect x="24" y="20" width="84" height="44" rx="8" fill="#0b132b" stroke="#f5c542" stroke-width="1.5"/>
+                                <rect x="29" y="25" width="22" height="34" rx="4" fill="#fffbeb"/>
+                                <rect x="55" y="25" width="22" height="34" rx="4" fill="#fffbeb"/>
+                                <rect x="81" y="25" width="22" height="34" rx="4" fill="#fffbeb"/>
+                                <text x="40" y="49" text-anchor="middle" font-size="22" font-weight="900" fill="#dc2626">7</text>
+                                <text x="66" y="49" text-anchor="middle" font-size="22" font-weight="900" fill="#dc2626">7</text>
+                                <text x="92" y="49" text-anchor="middle" font-size="22" font-weight="900" fill="#dc2626">7</text>
+                                <circle cx="66" cy="12" r="9" fill="#dc2626" stroke="#fef08a" stroke-width="1.6"/>
+                                <text x="66" y="16" text-anchor="middle" font-size="11" fill="#fef08a">★</text>
+                                <g transform="translate(8,52)">
+                                    <rect x="0" y="6" width="22" height="20" rx="3" fill="#dc2626" stroke="#fef08a" stroke-width="1.3"/>
+                                    <rect x="9" y="6" width="4" height="20" fill="#f5c542"/>
+                                    <rect x="0" y="14" width="22" height="4" fill="#f5c542"/>
+                                    <path d="M11 6 Q5 -2 2 4 Q6 7 11 6 Q16 -2 20 4 Q16 7 11 6" fill="#fef08a"/>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <!-- Live Ticking GRAND Jackpot Bar -->
+                        <div class="mb-1.5 px-2 py-1 rounded-xl bg-black/65 border border-[#f5c542]/70 text-center">
+                            <div class="text-[8px] font-black text-amber-300 uppercase tracking-widest leading-none">👑 HŨ GRAND LIVE</div>
+                            <div id="grandPotDisplay" class="font-mono-num text-[11px] font-extrabold text-[#fef08a] mt-0.5 leading-none">
+                                388,542,900 đ
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="text-[13px] font-black text-yellow-200 leading-tight">Nổ Hũ Giáng Sinh</div>
+                            <div class="mt-1.5 py-1.5 rounded-xl bg-gradient-to-r from-[#f5c542] to-amber-500 text-slate-950 font-black text-[10.5px] text-center uppercase tracking-wider shadow">
+                                QUAY NGAY ▶
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- CARD 3: NEYMAR SÚT BÓNG -> sutbong.html -->
+                    <a href="sutbong.html" data-candidates="sutbong.html|NamKyBet - Neymar Sút Bóng Giáng Sinh.html" data-game-name="Neymar Sút Bóng" class="game-link game-card rounded-3xl p-2.5 flex flex-col justify-between bg-gradient-to-b from-[#0d4a2d] via-[#09281c] to-[#05140f] border-2 border-emerald-400/75 shadow-[0_10px_24px_rgba(16,185,129,0.3)] min-h-[212px]">
+                        <div class="flex items-center justify-between gap-1">
+                            <span class="px-2 py-0.5 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 border border-emerald-100/70 text-[9px] font-black text-slate-950 tracking-wider shadow">
+                                HARDCORE ⚽
+                            </span>
+                            <span class="text-[9.5px] font-bold text-emerald-300 bg-black/45 px-1.5 py-0.5 rounded-full flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                                <span id="online-sutbong">684</span>
+                            </span>
+                        </div>
+
+                        <!-- Inline SVG: Flaming Soccer Ball flying toward Candy-Cane Goalpost -->
+                        <div class="my-1.5 flex items-center justify-center">
+                            <svg viewBox="0 0 140 96" class="w-full h-24 drop-shadow-[0_6px_12px_rgba(0,0,0,0.65)]">
+                                <defs>
+                                    <linearGradient id="fireTrail" x1="0" y1="1" x2="1" y2="0">
+                                        <stop offset="0%" stop-color="rgba(249,115,22,0)"/>
+                                        <stop offset="50%" stop-color="#f97316"/>
+                                        <stop offset="100%" stop-color="#fef08a"/>
+                                    </linearGradient>
+                                </defs>
+                                <path d="M6 84 Q70 74 134 84 L134 94 L6 94 Z" fill="#14532d"/>
+                                <path d="M6 84 Q70 74 134 84" stroke="#e2e8f0" stroke-width="2" fill="none" opacity="0.65"/>
+
+                                <g transform="translate(92,26)">
+                                    <polygon points="8,4 36,12 36,54 8,54" fill="rgba(255,255,255,0.18)" stroke="rgba(255,255,255,0.55)" stroke-width="1"/>
+                                    <line x1="17" y1="7" x2="17" y2="54" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+                                    <line x1="26" y1="10" x2="26" y2="54" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+                                    <line x1="8" y1="22" x2="36" y2="26" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+                                    <line x1="8" y1="38" x2="36" y2="41" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+                                    <rect x="4" y="2" width="7" height="53" rx="3" fill="#ffffff" stroke="#0f172a" stroke-width="1.2"/>
+                                    <path d="M4 12 L11 8 L11 14 L4 18 Z M4 26 L11 22 L11 28 L4 32 Z M4 40 L11 36 L11 42 L4 46 Z" fill="#dc2626"/>
+                                    <circle cx="7.5" cy="3" r="4" fill="#f5c542"/>
+                                </g>
+
+                                <path d="M12 72 Q40 58 64 38" stroke="url(#fireTrail)" stroke-width="13" stroke-linecap="round" fill="none"/>
+                                <path d="M18 70 Q42 57 62 39" stroke="#fef08a" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+
+                                <g transform="translate(65,36)">
+                                    <circle r="15" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+                                    <polygon points="0,-6 6,-2 4,5 -4,5 -6,-2" fill="#0f172a"/>
+                                    <line x1="0" y1="-6" x2="0" y2="-15" stroke="#0f172a" stroke-width="1.5"/>
+                                    <line x1="6" y1="-2" x2="14" y2="-5" stroke="#0f172a" stroke-width="1.5"/>
+                                    <line x1="4" y1="5" x2="10" y2="12" stroke="#0f172a" stroke-width="1.5"/>
+                                    <line x1="-4" y1="5" x2="-10" y2="12" stroke="#0f172a" stroke-width="1.5"/>
+                                    <line x1="-6" y1="-2" x2="-14" y2="-5" stroke="#0f172a" stroke-width="1.5"/>
+                                </g>
+                                <g transform="translate(22,18)">
+                                    <circle r="11" fill="#f5c542" stroke="#78350f" stroke-width="1.6"/>
+                                    <text x="0" y="4" text-anchor="middle" font-size="10" font-weight="900" fill="#451a03">x2</text>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <div>
+                            <div class="text-[13px] font-black text-emerald-200 leading-tight">Neymar Sút Bóng</div>
+                            <div class="text-[10px] text-emerald-100/80 font-semibold mt-0.5">Đa gôn vô hạn • Cap 15x</div>
+                            <div class="mt-2 py-1.5 rounded-xl bg-gradient-to-r from-emerald-400 to-teal-400 text-slate-950 font-black text-[10.5px] text-center uppercase tracking-wider shadow">
+                                SÚT NGAY ▶
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- CARD 4: AVIATOR PHI CÔNG -> aviator.html -->
+                    <a href="aviator.html" data-candidates="aviator.html|NamKyBet - Aviator Giáng Sinh.html" data-game-name="Aviator Phi Công" class="game-link game-card rounded-3xl p-2.5 flex flex-col justify-between bg-gradient-to-b from-[#3d1254] via-[#1b0b33] to-[#0b071c] border-2 border-fuchsia-400/75 shadow-[0_10px_24px_rgba(192,38,211,0.34)] min-h-[212px]">
+                        <div class="flex items-center justify-between gap-1">
+                            <span class="px-2 py-0.5 rounded-full bg-gradient-to-r from-pink-500 to-amber-400 border border-white/75 text-[9px] font-black text-slate-950 tracking-wider shadow">
+                                X100 🚀
+                            </span>
+                            <span class="text-[9.5px] font-bold text-pink-200 bg-black/45 px-1.5 py-0.5 rounded-full flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-pink-400"></span>
+                                <span id="online-aviator">928</span>
+                            </span>
+                        </div>
+
+                        <!-- Inline SVG: Red Reindeer Turbo Plane soaring on Multiplier Curve -->
+                        <div class="my-1.5 flex items-center justify-center">
+                            <svg viewBox="0 0 140 96" class="w-full h-24 drop-shadow-[0_6px_12px_rgba(0,0,0,0.65)]">
+                                <defs>
+                                    <linearGradient id="avFill" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="rgba(225,29,72,0.55)"/>
+                                        <stop offset="100%" stop-color="rgba(225,29,72,0.02)"/>
+                                    </linearGradient>
+                                    <linearGradient id="avStroke" x1="0" y1="1" x2="1" y2="0">
+                                        <stop offset="0%" stop-color="#e11d48"/>
+                                        <stop offset="65%" stop-color="#f59e0b"/>
+                                        <stop offset="100%" stop-color="#fef08a"/>
+                                    </linearGradient>
+                                </defs>
+                                <line x1="12" y1="14" x2="12" y2="82" stroke="rgba(255,255,255,0.22)" stroke-width="1.2"/>
+                                <line x1="12" y1="82" x2="132" y2="82" stroke="rgba(255,255,255,0.22)" stroke-width="1.2"/>
+                                <path d="M12 82 Q72 78 104 34 L104 82 Z" fill="url(#avFill)"/>
+                                <path d="M12 82 Q72 78 104 34" stroke="url(#avStroke)" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                <text x="48" y="34" text-anchor="middle" font-size="16" font-weight="900" fill="#fef08a">12.50x</text>
+                                <g transform="translate(105,30) rotate(-28)">
+                                    <polygon points="-18,0 -33,-5 -33,5" fill="#f59e0b"/>
+                                    <polygon points="-14,-4 -22,-13 -13,-13 -6,-4" fill="#10b981"/>
+                                    <path d="M-18,-3 Q-10,-10 12,-7 Q24,-4 26,2 Q20,9 8,9 L-15,9 Z" fill="#e11d48" stroke="#f5c542" stroke-width="1.5"/>
+                                    <path d="M-16,13 L15,13 Q22,13 23,7" stroke="#f5c542" stroke-width="2" fill="none"/>
+                                    <circle cx="26" cy="2" r="3" fill="#ff3b5c"/>
+                                    <circle cx="0" cy="-10" r="5" fill="#fed7aa"/>
+                                    <path d="M-5,-12 Q-11,-21 -17,-15 L-2,-15 Z" fill="#dc2626"/>
+                                    <circle cx="-17" cy="-15" r="2.2" fill="#ffffff"/>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <div>
+                            <div class="text-[13px] font-black text-pink-200 leading-tight">Aviator Phi Công</div>
+                            <div class="text-[10px] text-fuchsia-200/80 font-semibold mt-0.5">2 tay cược • Auto rút x100</div>
+                            <div class="mt-2 py-1.5 rounded-xl bg-gradient-to-r from-pink-500 to-amber-400 text-slate-950 font-black text-[10.5px] text-center uppercase tracking-wider shadow">
+                                BAY NGAY ▶
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Lobby Info Footer -->
+                <div class="text-center text-[10px] text-slate-400/80 pt-1 pb-2">
+                    NamKyBet Noel 2026 • Cổng game giả lập giải trí tiền ảo, không quy đổi tiền thật.
+                </div>
+            </section>
+
+            <!-- =============================================================
+                 TAB 2: XẾP HẠNG (LEADERBOARD TOP ĐẠI GIA)
+            ============================================================= -->
+            <section id="view-rank" class="tab-view hidden space-y-3">
+                <div class="wine-card rounded-3xl p-4 text-center relative overflow-hidden">
+                    <div class="text-xs font-black uppercase tracking-widest text-amber-300">🏆 BẢNG VÀNG GIÁNG SINH 2026</div>
+                    <h2 class="text-lg font-black text-white mt-0.5">TOP ĐẠI GIA SÒNG BÀI</h2>
+                    <p class="text-[11px] text-rose-100/80 mt-0.5">Tự động cập nhật thứ hạng theo ví <span class="text-[#f5c542] font-bold">namkybet_balance</span></p>
+                </div>
+
+                <!-- Dynamic Top 10 List -->
+                <div id="leaderboardList" class="space-y-1.5"></div>
+
+                <!-- Pinned Player Rank (shown if outside Top 10) -->
+                <div id="myRankOutsideWrap" class="hidden pt-1 border-t border-[#f5c542]/30">
+                    <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1 px-1">Hạng hiện tại của bạn:</div>
+                    <div id="myRankOutsideCard"></div>
+                </div>
+            </section>
+
+            <!-- =============================================================
+                 TAB 3: SỰ KIỆN (GIFTS, GIFTCODE & CHRISTMAS MISSIONS)
+            ============================================================= -->
+            <section id="view-events" class="tab-view hidden space-y-3">
+                <!-- Daily Gift Shortcut Card -->
+                <div class="wine-card rounded-3xl p-3.5 flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-3 min-w-0">
+                        <div class="w-12 h-12 rounded-2xl bg-red-900/90 border border-[#f5c542] flex items-center justify-center text-2xl shrink-0 gift-wobble">🎁</div>
+                        <div class="min-w-0">
+                            <div class="text-sm font-black text-[#f5c542]">Điểm Danh Noel Hàng Ngày</div>
+                            <div id="eventGiftStatus" class="text-[11px] text-rose-100/85 font-semibold mt-0.5">Chưa nhận hôm nay (2 – 10 Củ)</div>
+                        </div>
+                    </div>
+                    <button id="eventOpenGiftBtn" class="btn-press shrink-0 px-3.5 py-2 rounded-xl bg-gradient-to-r from-[#f5c542] to-amber-500 text-slate-950 font-black text-xs">
+                        Mở Quà
+                    </button>
+                </div>
+
+                <!-- Giftcode Shortcut Card -->
+                <div class="glass-card rounded-3xl p-3.5">
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                        <div class="text-sm font-black text-amber-300">🎟️ Nhập Giftcode Tân Thủ</div>
+                        <span class="text-[10px] font-bold text-emerald-300 bg-emerald-950/90 px-2 py-0.5 rounded-full border border-emerald-500/40">4 mã đang mở</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <input id="eventCodeInput" type="text" maxlength="20" placeholder="Nhập mã (vd: NOEL2026)..." class="flex-1 bg-black/60 border border-[#f5c542]/45 focus:border-[#f5c542] focus:outline-none rounded-xl px-3 py-2 text-xs font-extrabold uppercase text-[#f5c542]" />
+                        <button id="eventRedeemBtn" class="btn-press px-4 py-2 rounded-xl bg-[#f5c542] text-slate-950 font-black text-xs">
+                            Nhận
+                        </button>
+                    </div>
+                    <div class="mt-2 flex flex-wrap gap-1.5 text-[10px]">
+                        <button type="button" data-quickcode="NOEL2026" class="quick-code-pill btn-press px-2 py-0.5 rounded-lg bg-white/10 text-yellow-200 font-bold border border-white/15">NOEL2026 (+5M)</button>
+                        <button type="button" data-quickcode="NAMKYBET" class="quick-code-pill btn-press px-2 py-0.5 rounded-lg bg-white/10 text-yellow-200 font-bold border border-white/15">NAMKYBET (+10M)</button>
+                        <button type="button" data-quickcode="TANTHU" class="quick-code-pill btn-press px-2 py-0.5 rounded-lg bg-white/10 text-yellow-200 font-bold border border-white/15">TANTHU (+3M)</button>
+                        <button type="button" data-quickcode="TNDVIP" class="quick-code-pill btn-press px-2 py-0.5 rounded-lg bg-rose-950/70 text-rose-200 font-bold border border-rose-400/35">TNDVIP (+50M)</button>
+                    </div>
+                </div>
+
+                <!-- Fun Fake Christmas Missions -->
+                <div class="glass-card rounded-3xl p-3.5">
+                    <div class="text-sm font-black text-emerald-300 mb-2.5 flex items-center gap-1.5">
+                        <span>🎄</span> Nhiệm Vụ Giáng Sinh Vui Nhộn
+                    </div>
+                    <div id="missionsList" class="space-y-2"></div>
+                </div>
+            </section>
+
+            <!-- =============================================================
+                 TAB 4: CHAT SÒNG (LIVE LOBBY CHAT WITH BOTS)
+            ============================================================= -->
+            <section id="view-chat" class="tab-view hidden">
+                <div class="glass-card rounded-3xl overflow-hidden flex flex-col" style="height: calc(100vh - 245px); min-height: 360px;">
+                    <div class="px-3.5 py-2.5 bg-black/45 border-b border-[#f5c542]/25 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="text-base">💬</span>
+                            <div>
+                                <div class="text-xs font-black text-[#f5c542]">PHÒNG CHAT TỔNG NAMKYBET</div>
+                                <div class="text-[10px] text-emerald-300 font-semibold flex items-center gap-1">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                                    <span id="chatOnlineNum">846</span> anh em đang chém gió
+                                </div>
+                            </div>
+                        </div>
+                        <span class="text-[10px] font-bold text-slate-400">Noel 2026</span>
+                    </div>
+
+                    <div id="chatMessages" class="flex-1 overflow-y-auto thin-scroll p-3 flex flex-col gap-2 text-xs bg-black/30"></div>
+
+                    <form id="chatForm" class="p-2.5 bg-[#071712] border-t border-[#f5c542]/25 flex items-center gap-2">
+                        <input
+                            id="chatInput"
+                            type="text"
+                            maxlength="140"
+                            placeholder="Hỏi cầu Tài Xỉu, khoe nổ hũ hay gáy..."
+                            class="flex-1 bg-black/70 border border-slate-700 focus:border-[#f5c542] focus:outline-none rounded-xl px-3 py-2.5 text-xs text-white"
+                        />
+                        <button type="submit" class="btn-press px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#f5c542] to-amber-500 text-slate-950 font-black text-xs">
+                            Gửi
+                        </button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- =====================================================================
+         BOTTOM NAVIGATION BAR (4 TABS)
+    ===================================================================== -->
+    <nav class="bottom-nav">
+        <div class="candy-cane-bar w-full"></div>
+        <div class="grid grid-cols-4 h-16">
+            <button data-tab="lobby" class="nav-btn nav-tab-active btn-press flex flex-col items-center justify-center gap-0.5 text-[10.5px] font-extrabold">
+                <span class="text-xl leading-none">🎰</span>
+                <span>Sảnh Game</span>
+            </button>
+            <button data-tab="rank" class="nav-btn btn-press flex flex-col items-center justify-center gap-0.5 text-[10.5px] font-bold text-slate-400">
+                <span class="text-xl leading-none">🏆</span>
+                <span>Xếp Hạng</span>
+            </button>
+            <button data-tab="events" class="nav-btn btn-press flex flex-col items-center justify-center gap-0.5 text-[10.5px] font-bold text-slate-400 relative">
+                <span id="navEventDot" class="w-2 h-2 rounded-full bg-red-500 absolute top-2 right-6"></span>
+                <span class="text-xl leading-none">🎁</span>
+                <span>Sự Kiện</span>
+            </button>
+            <button data-tab="chat" class="nav-btn btn-press flex flex-col items-center justify-center gap-0.5 text-[10.5px] font-bold text-slate-400 relative">
+                <span id="navChatDot" class="hidden w-2 h-2 rounded-full bg-emerald-400 absolute top-2 right-6 animate-pulse"></span>
+                <span class="text-xl leading-none">💬</span>
+                <span>Chat Sòng</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- =====================================================================
+         MODAL 1: EDIT USERNAME
+    ===================================================================== -->
+    <div id="editNameModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+        <div class="w-full max-w-xs rounded-3xl glass-card border-2 border-[#f5c542]/75 p-5 pop-in">
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-sm font-black text-[#f5c542]">✏️ ĐỔI TÊN HIỂN THỊ</h3>
+                <button data-close-modal="editNameModal" class="w-7 h-7 rounded-full bg-slate-800 text-slate-300 text-xs font-bold">✕</button>
+            </div>
+            <form id="editNameForm" class="space-y-3">
+                <input id="editNameInput" type="text" maxlength="18" placeholder="Nhập tên đại gia..." class="w-full bg-black/75 border border-[#f5c542]/50 focus:border-[#f5c542] focus:outline-none rounded-xl px-3.5 py-2.5 text-sm font-bold text-white" />
+                <button type="submit" class="btn-press w-full py-2.5 rounded-xl bg-gradient-to-r from-[#f5c542] to-amber-500 text-slate-950 font-black text-xs uppercase">
+                    Lưu Tên Mới
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         MODAL 2: DEPOSIT (MB BANK REAL VIETQR DONATE + FAKE OTHER BANKS)
+    ===================================================================== -->
+    <div id="depositModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/82 backdrop-blur-sm p-3">
+        <div class="w-full max-w-sm rounded-3xl glass-card border-2 border-[#f5c542]/80 p-4 shadow-2xl max-h-[90vh] overflow-y-auto thin-scroll pop-in">
+            <div class="flex items-center justify-between border-b border-[#f5c542]/25 pb-2.5">
+                <h3 class="text-sm font-black text-[#f5c542]">💳 NẠP TIỀN NHANH 24/7</h3>
+                <button data-close-modal="depositModal" class="w-7 h-7 rounded-full bg-slate-800 text-slate-300 text-xs font-bold">✕</button>
+            </div>
+
+            <!-- Bank Selector Tabs -->
+            <div class="grid grid-cols-3 gap-1.5 mt-3">
+                <button data-bank="MB Bank" class="dep-bank-btn btn-press py-2 rounded-xl text-[11px] font-black border-2 bg-[#f5c542] text-slate-950 border-yellow-100">MB Bank</button>
+                <button data-bank="Vietcombank" class="dep-bank-btn btn-press py-2 rounded-xl text-[11px] font-bold border bg-slate-900 text-slate-300 border-slate-700">Vietcombank</button>
+                <button data-bank="MoMo" class="dep-bank-btn btn-press py-2 rounded-xl text-[11px] font-bold border bg-slate-900 text-slate-300 border-slate-700">Ví MoMo</button>
+            </div>
+
+            <!-- Real VietQR (MB Bank Donate) / Procedural SVG QR Code (Other Banks) -->
+            <div class="mt-3 bg-white rounded-2xl p-3 flex flex-col items-center">
+                <div id="depBankTitle" class="text-xs font-black text-slate-900 mb-1.5">MB BANK • QUÉT MÃ VIETQR</div>
+                <img id="realQrImg" alt="VietQR MB Bank" class="w-44 h-44 object-contain rounded-xl hidden" />
+                <svg id="fakeQrSvg" viewBox="0 0 150 150" class="w-36 h-36"></svg>
+                <div id="depDonateHint" class="mt-1 px-2.5 py-0.5 rounded-full bg-amber-100 border border-amber-400 text-[9.5px] font-extrabold text-amber-900">
+                    ☕ Quét mã ủng hộ Dev ly cà phê Noel!
+                </div>
+                <div class="text-[10.5px] font-bold text-slate-600 mt-1.5">Chủ TK: <b id="depAccHolder" class="text-slate-900">TRAN NHAT DUONG</b></div>
+                <div class="flex items-center gap-2 mt-0.5">
+                    <div class="text-sm font-black font-mono-num text-red-700" id="depAccNum">00025069999</div>
+                    <button id="copyAccBtn" type="button" class="btn-press px-2 py-0.5 rounded-md bg-slate-900 text-[#f5c542] font-black text-[9.5px]">Copy STK</button>
+                </div>
+            </div>
+
+            <!-- Transfer Note + Copy -->
+            <div class="mt-3 bg-black/55 rounded-xl p-2.5 border border-[#f5c542]/35 flex items-center justify-between gap-2">
+                <div class="min-w-0">
+                    <div class="text-[9.5px] text-slate-400 font-bold uppercase">Nội dung chuyển khoản (Bắt buộc):</div>
+                    <div id="depMemoText" class="font-mono-num text-xs font-black text-[#f5c542] truncate mt-0.5">DONATE_VIP</div>
+                </div>
+                <button id="copyMemoBtn" class="btn-press shrink-0 px-3 py-1.5 rounded-lg bg-emerald-600 text-white font-black text-[10.5px]">
+                    Copy
+                </button>
+            </div>
+
+            <!-- Feedback Box -->
+            <div id="depStatusBox" class="hidden mt-3 p-3 rounded-xl bg-amber-950/90 border border-amber-400 text-xs font-bold text-amber-200 text-center leading-relaxed"></div>
+
+            <button id="depConfirmBtn" class="btn-press w-full mt-3.5 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-700 border border-emerald-200 text-white font-black text-xs uppercase tracking-wider shadow-lg">
+                ✅ Đã Chuyển Khoản
+            </button>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         MODAL 3: FAKE WITHDRAW (RÚT TIỀN + PRANK 999 VÒNG CƯỢC / BIÊN LAI ẢO)
+    ===================================================================== -->
+    <div id="withdrawModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/82 backdrop-blur-sm p-3">
+        <div class="w-full max-w-sm rounded-3xl glass-card border-2 border-sky-400/75 p-4 shadow-2xl max-h-[90vh] overflow-y-auto thin-scroll pop-in">
+            <div class="flex items-center justify-between border-b border-sky-400/25 pb-2.5">
+                <h3 class="text-sm font-black text-sky-300">🏦 RÚT TIỀN VỀ NGÂN HÀNG</h3>
+                <button data-close-modal="withdrawModal" class="w-7 h-7 rounded-full bg-slate-800 text-slate-300 text-xs font-bold">✕</button>
+            </div>
+
+            <form id="withdrawForm" class="mt-3 space-y-2.5">
+                <div>
+                    <label class="text-[10px] font-bold text-slate-300 uppercase">Ngân hàng nhận</label>
+                    <select id="wdBankSelect" class="w-full mt-1 bg-black/75 border border-slate-700 focus:border-sky-400 rounded-xl px-3 py-2 text-xs font-bold text-white focus:outline-none">
+                        <option>MB Bank</option>
+                        <option>Vietcombank</option>
+                        <option>Techcombank</option>
+                        <option>BIDV</option>
+                        <option>ACB</option>
+                        <option>Ví MoMo</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="text-[10px] font-bold text-slate-300 uppercase">Số tài khoản</label>
+                    <input id="wdAccInput" type="text" inputmode="numeric" maxlength="20" placeholder="Nhập số tài khoản..." class="w-full mt-1 bg-black/75 border border-slate-700 focus:border-sky-400 rounded-xl px-3 py-2 text-xs font-bold text-white focus:outline-none" />
+                </div>
+
+                <div>
+                    <label class="text-[10px] font-bold text-slate-300 uppercase">Số tiền muốn rút (VND)</label>
+                    <input id="wdAmountInput" type="number" min="100000" step="100000" placeholder="Tối thiểu 100,000đ" class="w-full mt-1 bg-black/75 border border-slate-700 focus:border-sky-400 rounded-xl px-3 py-2 text-xs font-black font-mono-num text-[#f5c542] focus:outline-none" />
+                </div>
+
+                <div id="wdResultBox" class="hidden p-3 rounded-2xl text-xs leading-relaxed"></div>
+
+                <div class="grid grid-cols-2 gap-2 pt-1">
+                    <button type="submit" id="wdSubmitBtn" class="btn-press py-2.5 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 text-white font-black text-xs">
+                        Rút Tiền Ngay
+                    </button>
+                    <button type="button" id="wdFakeReceiptBtn" class="btn-press py-2.5 rounded-xl bg-gradient-to-r from-[#f5c542] to-amber-500 text-slate-950 font-black text-xs">
+                        🧾 In Biên Lai Ảo
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         MODAL 4: DAILY NOEL GIFT BOX (QUÀ NGÀY)
+    ===================================================================== -->
+    <div id="giftModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/82 backdrop-blur-sm p-4">
+        <div class="w-full max-w-xs rounded-3xl wine-card p-5 text-center shadow-2xl pop-in">
+            <div class="flex justify-end -mt-1 -mr-1">
+                <button data-close-modal="giftModal" class="w-7 h-7 rounded-full bg-black/50 text-slate-200 text-xs font-bold">✕</button>
+            </div>
+            <div id="giftEmojiBox" class="text-6xl my-2 gift-wobble">🎁</div>
+            <h3 id="giftModalTitle" class="text-lg font-black text-[#f5c542]">HỘP QUÀ GIÁNG SINH</h3>
+            <p id="giftModalDesc" class="text-xs text-rose-100/90 font-semibold mt-1.5 leading-relaxed">
+                Bấm mở hộp quà điểm danh hôm nay để nhận ngẫu nhiên từ <b class="text-yellow-300">2 Củ</b> đến <b class="text-yellow-300">10 Củ</b>!
+            </p>
+            <div id="giftRewardAmt" class="hidden font-mono-num text-3xl font-black text-emerald-300 my-3 drop-shadow">
+                +0đ
+            </div>
+            <button id="claimGiftBtn" class="btn-press w-full mt-4 py-3 rounded-2xl bg-gradient-to-r from-[#fef08a] via-[#f5c542] to-amber-500 text-slate-950 font-black text-sm uppercase tracking-wider shadow-lg">
+                🎅 MỞ HỘP QUÀ NGAY!
+            </button>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         MODAL 5: GIFTCODE REDEMPTION
+    ===================================================================== -->
+    <div id="giftcodeModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/82 backdrop-blur-sm p-4">
+        <div class="w-full max-w-sm rounded-3xl glass-card border-2 border-[#f5c542]/80 p-5 shadow-2xl pop-in">
+            <div class="flex items-center justify-between border-b border-[#f5c542]/25 pb-2.5">
+                <h3 class="text-sm font-black text-[#f5c542]">🎟️ NHẬP GIFTCODE NOEL</h3>
+                <button data-close-modal="giftcodeModal" class="w-7 h-7 rounded-full bg-slate-800 text-slate-300 text-xs font-bold">✕</button>
+            </div>
+
+            <form id="modalGiftcodeForm" class="mt-3 space-y-3">
+                <input id="modalGiftcodeInput" type="text" maxlength="20" placeholder="Nhập mã (vd: NOEL2026)..." class="w-full bg-black/75 border border-[#f5c542]/55 focus:border-[#f5c542] focus:outline-none rounded-xl px-3.5 py-2.5 text-sm font-black uppercase text-[#f5c542] text-center tracking-widest" />
+                <button type="submit" class="btn-press w-full py-2.5 rounded-xl bg-gradient-to-r from-[#f5c542] to-amber-500 text-slate-950 font-black text-xs uppercase tracking-wider">
+                    Xác Nhận Nhận Quà
+                </button>
+            </form>
+
+            <div class="mt-3 pt-3 border-t border-white/10">
+                <div class="text-[10px] font-bold text-slate-400 uppercase mb-1.5">Mã gợi ý tân thủ (Bấm để điền):</div>
+                <div class="grid grid-cols-2 gap-1.5 text-[11px]">
+                    <button type="button" data-fillcode="NOEL2026" class="fill-code-btn btn-press py-1.5 px-2 rounded-xl bg-black/45 border border-[#f5c542]/35 text-yellow-200 font-extrabold">NOEL2026 • +5M</button>
+                    <button type="button" data-fillcode="NAMKYBET" class="fill-code-btn btn-press py-1.5 px-2 rounded-xl bg-black/45 border border-[#f5c542]/35 text-yellow-200 font-extrabold">NAMKYBET • +10M</button>
+                    <button type="button" data-fillcode="TANTHU" class="fill-code-btn btn-press py-1.5 px-2 rounded-xl bg-black/45 border border-[#f5c542]/35 text-yellow-200 font-extrabold">TANTHU • +3M</button>
+                    <button type="button" data-fillcode="TNDVIP" class="fill-code-btn btn-press py-1.5 px-2 rounded-xl bg-black/45 border border-rose-500/45 text-rose-300 font-extrabold">TNDVIP • +50M</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         MODAL 6: SECRET PASSWORD PROMPT ("TND" -> "memaybeo123")
+    ===================================================================== -->
+    <div id="adminPassModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/82 backdrop-blur-md p-4">
+        <div id="adminPassBox" class="w-full max-w-xs rounded-3xl bg-[#07110e] border-2 border-slate-700 p-5 shadow-2xl pop-in">
+            <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-black tracking-widest text-slate-400 uppercase">TND ACCESS</span>
+                <button data-close-modal="adminPassModal" class="w-7 h-7 rounded-full bg-slate-800 text-slate-300 text-xs font-bold">✕</button>
+            </div>
+            <form id="adminPassForm" class="space-y-3">
+                <input id="adminPassInput" type="password" autocomplete="off" placeholder="Nhập mật khẩu..." class="w-full bg-black border border-slate-700 focus:border-[#f5c542] focus:outline-none rounded-xl px-3.5 py-2.5 text-sm font-bold text-white" />
+                <div id="adminPassError" class="text-[11px] font-bold text-red-400 hidden">❌ Sai mật khẩu truy cập!</div>
+                <button type="submit" class="btn-press w-full py-2.5 rounded-xl bg-gradient-to-r from-[#f5c542] to-amber-500 text-slate-950 font-black text-xs uppercase tracking-wider">
+                    Xác Nhận
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         MODAL 7: SECRET ADMIN CONTROL PANEL (UNLOCKED WITH "memaybeo123")
+    ===================================================================== -->
+    <div id="adminModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/88 backdrop-blur-md p-3">
+        <div class="w-full max-w-md rounded-3xl bg-gradient-to-b from-slate-900 via-[#081511] to-black border-2 border-[#f5c542] p-4 shadow-2xl max-h-[92vh] overflow-y-auto thin-scroll pop-in">
+            <div class="flex items-start justify-between border-b border-[#f5c542]/30 pb-2.5 gap-2">
+                <div>
+                    <span class="text-[10px] font-black text-rose-400 uppercase tracking-widest">TND BACKDOOR • LOBBY</span>
+                    <h2 class="text-base font-black text-[#f5c542] tracking-wide mt-0.5">👑 ADMIN CONTROL - NAMKYBET</h2>
+                </div>
+                <button data-close-modal="adminModal" class="w-8 h-8 rounded-full bg-slate-800 text-slate-300 font-bold shrink-0">✕</button>
+            </div>
+
+            <!-- 1. Wallet Quick Manager -->
+            <div class="mt-3 bg-black/50 p-3 rounded-2xl border border-[#f5c542]/30">
+                <div class="text-xs font-extrabold text-yellow-200 mb-2">💵 Bơm / Chỉnh Ví Tiền Nhanh:</div>
+                <div class="grid grid-cols-3 gap-1.5">
+                    <button data-addbal="10000000" class="admin-add-btn btn-press py-2 rounded-xl bg-emerald-950 border border-emerald-500/50 text-[11px] font-black text-emerald-300">+10 Củ</button>
+                    <button data-addbal="50000000" class="admin-add-btn btn-press py-2 rounded-xl bg-teal-950 border border-teal-500/50 text-[11px] font-black text-teal-300">+50 Củ</button>
+                    <button data-addbal="500000000" class="admin-add-btn btn-press py-2 rounded-xl bg-amber-950 border border-amber-500/50 text-[11px] font-black text-amber-300">+500 Củ</button>
+                    <button data-addbal="1000000000" class="admin-add-btn btn-press col-span-2 py-2 rounded-xl bg-yellow-500/20 border border-[#f5c542] text-[11px] font-black text-[#fef08a]">👑 +1 TỶ (LÊN VUA SÒNG BÀI)</button>
+                    <button id="adminSetZeroBtn" class="btn-press py-2 rounded-xl bg-red-950 border border-red-500/60 text-[11px] font-black text-red-300">Set 0đ</button>
+                </div>
+
+                <div class="flex gap-2 mt-2.5">
+                    <input id="adminCustomBalInput" type="number" min="0" step="100000" placeholder="Nhập số dư tùy ý..." class="flex-1 bg-black border border-[#f5c542]/45 rounded-xl px-3 py-2 text-xs font-bold font-mono-num text-[#f5c542] focus:outline-none focus:border-[#f5c542]" />
+                    <button id="adminSetCustomBalBtn" class="btn-press px-3.5 py-2 rounded-xl bg-[#f5c542] text-slate-950 font-black text-xs">Áp Dụng</button>
+                </div>
+            </div>
+
+            <!-- 2. Global Megaphone (Push Custom Marquee) -->
+            <div class="mt-3 bg-black/50 p-3 rounded-2xl border border-[#f5c542]/30">
+                <div class="text-xs font-extrabold text-yellow-200 mb-2">📢 Phát Loa Toàn Sảnh (Chạy Chữ Đỉnh):</div>
+                <div class="flex gap-2">
+                    <input id="adminMarqueeInput" type="text" maxlength="160" placeholder="VD: 👑 ADMIN vừa phát lộc 500 củ toàn server!" class="flex-1 bg-black border border-slate-700 focus:border-[#f5c542] rounded-xl px-3 py-2 text-xs text-white focus:outline-none" />
+                    <button id="adminPushMarqueeBtn" class="btn-press px-3 py-2 rounded-xl bg-rose-600 text-white font-black text-xs shrink-0">Bắn Chạy Chữ</button>
+                </div>
+            </div>
+
+            <!-- 3. Reset Daily Gift & Giftcodes -->
+            <div class="mt-3 bg-black/50 p-3 rounded-2xl border border-[#f5c542]/30 flex items-center justify-between gap-2">
+                <div>
+                    <div class="text-xs font-extrabold text-yellow-200">🔄 Reset Quà Noel &amp; Giftcode</div>
+                    <div class="text-[10px] text-slate-400">Xóa lịch sử nhận quà ngày, code &amp; nhiệm vụ để test lại</div>
+                </div>
+                <button id="adminResetGiftsBtn" class="btn-press px-3 py-2 rounded-xl bg-sky-700 border border-sky-400/60 text-white font-black text-[11px] shrink-0">
+                    Reset Ngay
+                </button>
+            </div>
+
+            <!-- 4. LocalStorage Sync Diagnostic Info -->
+            <div class="mt-3 bg-slate-950/95 p-3 rounded-2xl border border-emerald-500/35 text-[11px] space-y-1">
+                <div class="font-extrabold text-emerald-300">🔗 Đồng Bộ Ví LocalStorage:</div>
+                <div class="flex items-center justify-between text-slate-300">
+                    <span>Key ví chung:</span>
+                    <code class="px-1.5 py-0.5 rounded bg-black text-[#f5c542] font-mono-num font-bold">namkybet_balance</code>
+                </div>
+                <div class="flex items-center justify-between text-slate-300">
+                    <span>Giá trị đang lưu:</span>
+                    <code id="adminDiagBal" class="px-1.5 py-0.5 rounded bg-black text-emerald-300 font-mono-num font-bold">20000000</code>
+                </div>
+                <div class="flex items-center justify-between text-slate-300">
+                    <span>Key tên người chơi:</span>
+                    <code class="px-1.5 py-0.5 rounded bg-black text-sky-300 font-mono-num font-bold">namkybet_username</code>
+                </div>
+            </div>
+
+            <button data-close-modal="adminModal" class="btn-press w-full mt-4 py-3 rounded-xl bg-gradient-to-r from-[#f5c542] to-amber-500 text-slate-950 font-black text-xs uppercase tracking-wider">
+                🔒 Đóng &amp; Ẩn Sạch Dấu Vết
+            </button>
+        </div>
+    </div>
+
+    <script>
+        /* =====================================================================
+           NAMKYBET - SẢNH CHÍNH GIÁNG SINH 2026 (MAIN LOBBY ENGINE)
+           100% Single-File | Shared LocalStorage Wallet | Web Audio API | Canvas FX
+        ===================================================================== */
+        (() => {
+            'use strict';
+
+            /* -----------------------------------------------------------------
+               1. CONSTANTS & STORAGE KEYS
+            ----------------------------------------------------------------- */
+            const KEY_BALANCE    = 'namkybet_balance';
+            const KEY_USERNAME   = 'namkybet_username';
+            const KEY_LAST_GIFT  = 'namkybet_last_gift';
+            const KEY_USED_CODES = 'namkybet_used_codes';
+            const KEY_MISSIONS   = 'namkybet_claimed_missions';
+            const KEY_MUTED      = 'namkybet_lobby_muted';
+
+            const ADMIN_PASS       = 'memaybeo123';
+            const DEFAULT_BALANCE  = 20_000_000;
+            const DEFAULT_USERNAME = 'Đại Gia VIP';
+            const BAILOUT_LIMIT    = 500_000;
+            const BAILOUT_AMOUNT   = 10_000_000;
+
+            const GIFTCODES = {
+                NOEL2026: 5_000_000,
+                NAMKYBET: 10_000_000,
+                TANTHU:   3_000_000,
+                TNDVIP:   50_000_000
+            };
+
+            const FUN_MISSIONS = [
+                { id: 'm_checkin',  icon: '🎄', title: 'Ghé Sảnh Noel 2026',          desc: 'Đăng nhập ngắm tuyết rơi cùng anh em',        reward: 1_500_000 },
+                { id: 'm_baonha',   icon: '🏠', title: 'Nghệ Nhân Báo Nhà',           desc: 'Từng cháy túi hoặc quyết tâm không bỏ cuộc',  reward: 2_500_000 },
+                { id: 'm_lose3',    icon: '💀', title: 'Thua Sạch 3 Lần Không Khóc',  desc: 'Tinh thần thép của dân chơi hệ Noel',         reward: 3_000_000 },
+                { id: 'm_all4',     icon: '🎰', title: 'Chơi Đủ 4 Sảnh Game',         desc: 'Tài Xỉu • Nổ Hũ • Sút Bóng • Aviator',        reward: 5_000_000 }
+            ];
+
+            const FAKE_TOP_PLAYERS = [
+                { name: 'ChủTịch_Quận1',    balance: 2_450_000_000 },
+                { name: 'MeoBeo_Noel99',    balance: 1_680_000_000 },
+                { name: 'AnhBa_CuChi',      balance: 920_000_000 },
+                { name: 'HoangLong_VIP',    balance: 645_000_000 },
+                { name: 'LinhXinh_2k8',     balance: 412_000_000 },
+                { name: 'TuanAnh_Aviator',  balance: 285_000_000 },
+                { name: 'CuongNoHu_500K',   balance: 164_000_000 },
+                { name: 'MinhDuc_BinhChanh',balance: 98_500_000 },
+                { name: 'KhangNeymar_10',   balance: 54_000_000 },
+                { name: 'DatTapChoi_SG',    balance: 18_500_000 }
+            ];
+
+            const BOT_NAMES = [
+                'anhba_cuchi', 'meobeo99', 'TuanAnh_2k9', 'LinhXinh_2k8',
+                'HoangLong_VIP', 'Cuong500K', 'DatBinhChanh', 'TrangHupHu',
+                'KhangNeymar', 'HuyPhiCong', 'ThaoNoel26', 'MinhQuan_Q1'
+            ];
+
+            const BOT_CHAT_POOL = [
+                'Bên Tài Xỉu đang bệt Tài 6 tay liên tiếp rồi kìa anh em, vào húp nhanh!! 🔥',
+                'Vừa sang Nổ Hũ quay phòng 50K vào Free Spin x10 ăn ngọt 4 củ 2 💎',
+                'Con Aviator nãy mới bay tới 28.40x mà mình chốt non ở 2.10x tiếc đứt ruột 🚀',
+                'Ai thử Neymar Sút Bóng chưa, đập xà ngang kêu KENG rơi vào lưới phê vãi 😂⚽',
+                'Nhập code NOEL2026 với NAMKYBET ở tab Sự Kiện lấy 15 củ vốn khởi nghiệp kìa mấy ông 🎁',
+                'Cháy túi bấm Báo Nhà lấy 10 củ gỡ tiếp, đêm Noel không ngủ 🏠🎄',
+                'Đêm nay hũ GRAND gần 390 củ rồi, ai đập vỡ chia lộc nha!',
+                'Tài Xỉu tay này tao linh cảm về Xỉu 100%, tin người một lần đi anh em!'
+            ];
+
+            const BOT_ROAST_REPLIES = [
+                'Gáy sớm ăn gì bạn ơi, coi chừng qua Tài Xỉu gãy cầu nha 😂',
+                'Chuẩn bài luôn bro, nãy tao vừa húp xong giờ đang run tay đây!',
+                'Thôi đừng tin cầu nữa, bấm Mở Quà Noel lấy hên trước đi 🎁',
+                'Đại gia nói câu nào uy tín câu đó, xin vía nổ hũ GRAND với!! 💎',
+                'Nghe mùi sắp phải bấm nút Báo Nhà (+10 Củ) rồi đó nha ông bạn 🏠🤣',
+                'Vào Aviator làm tay x50 chứng minh đẳng cấp đi bro ơi 🚀'
+            ];
+
+            const DEFAULT_MARQUEE_ITEMS = [
+                '🔥 [Tài Xỉu] anhba_cuchi vừa húp 45,000,000đ cầu Bệt Tài 8 tay!',
+                '💎 [Nổ Hũ] meobeo99 nổ hũ GRAND 388,500,000đ phòng 500K!',
+                '🚀 [Aviator] tuananh_2k9 chốt lời 32,400,000đ ở mốc 16.20x!',
+                '⚽ [Neymar Sút Bóng] long_saigon đóng thẳng Gôn #4 nổ Max Cap 75,000,000đ!',
+                '🎁 Sự kiện Giáng Sinh 2026: Nhập code NOEL2026, NAMKYBET nhận ngay lộc tân thủ!'
+            ];
+
+            /* -----------------------------------------------------------------
+               2. STATE
+            ----------------------------------------------------------------- */
+            const state = {
+                balance: DEFAULT_BALANCE,
+                username: DEFAULT_USERNAME,
+                lastGiftDate: '',
+                usedCodes: [],
+                claimedMissions: [],
+                muted: false,
+                activeTab: 'lobby',
+                grandPot: 388_542_900,
+                selectedDepositBank: 'MB Bank',
+                marqueeItems: [...DEFAULT_MARQUEE_ITEMS]
+            };
+
+            /* -----------------------------------------------------------------
+               3. WEB AUDIO API SYNTHESIZER (ZERO EXTERNAL FILES)
+            ----------------------------------------------------------------- */
+            class LobbyAudio {
+                constructor() { this.ctx = null; }
+
+                unlock() {
+                    try {
+                        if (!this.ctx) {
+                            const AC = window.AudioContext || window.webkitAudioContext;
+                            if (AC) this.ctx = new AC();
+                        }
+                        if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume();
+                    } catch (_) {}
+                }
+
+                ready() {
+                    if (state.muted) return false;
+                    this.unlock();
+                    return !!this.ctx;
+                }
+
+                playClick() {
+                    if (!this.ready()) return;
+                    const t = this.ctx.currentTime;
+                    const osc = this.ctx.createOscillator();
+                    const g = this.ctx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(1060, t);
+                    osc.frequency.exponentialRampToValueAtTime(520, t + 0.038);
+                    g.gain.setValueAtTime(0.13, t);
+                    g.gain.exponentialRampToValueAtTime(0.001, t + 0.042);
+                    osc.connect(g); g.connect(this.ctx.destination);
+                    osc.start(t); osc.stop(t + 0.045);
+                }
+
+                playCoins() {
+                    if (!this.ready()) return;
+                    const t = this.ctx.currentTime;
+                    [987.77, 1318.51, 1567.98, 1975.53].forEach((f, i) => {
+                        const osc = this.ctx.createOscillator();
+                        const g = this.ctx.createGain();
+                        osc.type = 'sine';
+                        osc.frequency.setValueAtTime(f, t + i * 0.055);
+                        g.gain.setValueAtTime(0.14, t + i * 0.055);
+                        g.gain.exponentialRampToValueAtTime(0.001, t + i * 0.055 + 0.22);
+                        osc.connect(g); g.connect(this.ctx.destination);
+                        osc.start(t + i * 0.055); osc.stop(t + i * 0.055 + 0.24);
+                    });
+                }
+
+                playJingleGift() {
+                    if (!this.ready()) return;
+                    const t = this.ctx.currentTime;
+                    const notes = [
+                        { f: 659.25, s: 0.00, d: 0.10 }, { f: 659.25, s: 0.11, d: 0.10 }, { f: 659.25, s: 0.22, d: 0.20 },
+                        { f: 659.25, s: 0.44, d: 0.10 }, { f: 783.99, s: 0.55, d: 0.10 }, { f: 523.25, s: 0.66, d: 0.12 },
+                        { f: 587.33, s: 0.80, d: 0.10 }, { f: 659.25, s: 0.91, d: 0.34 }
+                    ];
+                    notes.forEach(n => {
+                        const osc = this.ctx.createOscillator();
+                        const g = this.ctx.createGain();
+                        osc.type = 'triangle';
+                        osc.frequency.setValueAtTime(n.f, t + n.s);
+                        g.gain.setValueAtTime(0.18, t + n.s);
+                        g.gain.exponentialRampToValueAtTime(0.001, t + n.s + n.d);
+                        osc.connect(g); g.connect(this.ctx.destination);
+                        osc.start(t + n.s); osc.stop(t + n.s + n.d + 0.02);
+                    });
+                }
+
+                playEnterGame() {
+                    if (!this.ready()) return;
+                    const t = this.ctx.currentTime;
+                    [523.25, 659.25, 783.99, 1046.5].forEach((f, i) => {
+                        const osc = this.ctx.createOscillator();
+                        const g = this.ctx.createGain();
+                        osc.type = 'sine';
+                        osc.frequency.setValueAtTime(f, t + i * 0.04);
+                        g.gain.setValueAtTime(0.15, t + i * 0.04);
+                        g.gain.exponentialRampToValueAtTime(0.001, t + i * 0.04 + 0.18);
+                        osc.connect(g); g.connect(this.ctx.destination);
+                        osc.start(t + i * 0.04); osc.stop(t + i * 0.04 + 0.2);
+                    });
+                }
+
+                playError() {
+                    if (!this.ready()) return;
+                    const t = this.ctx.currentTime;
+                    const osc = this.ctx.createOscillator();
+                    const g = this.ctx.createGain();
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(220, t);
+                    osc.frequency.linearRampToValueAtTime(140, t + 0.16);
+                    g.gain.setValueAtTime(0.1, t);
+                    g.gain.exponentialRampToValueAtTime(0.001, t + 0.18);
+                    osc.connect(g); g.connect(this.ctx.destination);
+                    osc.start(t); osc.stop(t + 0.19);
+                }
+            }
+
+            const sfx = new LobbyAudio();
+
+            /* -----------------------------------------------------------------
+               4. DOM REFERENCES
+            ----------------------------------------------------------------- */
+            const el = {
+                soundBtn: document.getElementById('soundBtn'),
+                tndLogoBtn: document.getElementById('tndLogoBtn'),
+                editNameTrigger: document.getElementById('editNameTrigger'),
+                usernameDisplay: document.getElementById('usernameDisplay'),
+                vipBadge: document.getElementById('vipBadge'),
+                balanceDisplay: document.getElementById('balanceDisplay'),
+                quickPlusBtn: document.getElementById('quickPlusBtn'),
+                bailoutWrap: document.getElementById('bailoutWrap'),
+                bailoutBtn: document.getElementById('bailoutBtn'),
+                marqueeTrack: document.getElementById('marqueeTrack'),
+                bannerGiftBtn: document.getElementById('bannerGiftBtn'),
+                actDepositBtn: document.getElementById('actDepositBtn'),
+                actWithdrawBtn: document.getElementById('actWithdrawBtn'),
+                actDailyGiftBtn: document.getElementById('actDailyGiftBtn'),
+                actGiftcodeBtn: document.getElementById('actGiftcodeBtn'),
+                giftDotIndicator: document.getElementById('giftDotIndicator'),
+                navEventDot: document.getElementById('navEventDot'),
+                navChatDot: document.getElementById('navChatDot'),
+                grandPotDisplay: document.getElementById('grandPotDisplay'),
+                totalOnlineLobby: document.getElementById('totalOnlineLobby'),
+                onlineTaixiu: document.getElementById('online-taixiu'),
+                onlineNohu: document.getElementById('online-nohu'),
+                onlineSutbong: document.getElementById('online-sutbong'),
+                onlineAviator: document.getElementById('online-aviator'),
+                // Tabs
+                leaderboardList: document.getElementById('leaderboardList'),
+                myRankOutsideWrap: document.getElementById('myRankOutsideWrap'),
+                myRankOutsideCard: document.getElementById('myRankOutsideCard'),
+                eventGiftStatus: document.getElementById('eventGiftStatus'),
+                eventOpenGiftBtn: document.getElementById('eventOpenGiftBtn'),
+                eventCodeInput: document.getElementById('eventCodeInput'),
+                eventRedeemBtn: document.getElementById('eventRedeemBtn'),
+                missionsList: document.getElementById('missionsList'),
+                chatMessages: document.getElementById('chatMessages'),
+                chatForm: document.getElementById('chatForm'),
+                chatInput: document.getElementById('chatInput'),
+                chatOnlineNum: document.getElementById('chatOnlineNum'),
+                toastContainer: document.getElementById('toastContainer'),
+                // Modals
+                editNameModal: document.getElementById('editNameModal'),
+                editNameForm: document.getElementById('editNameForm'),
+                editNameInput: document.getElementById('editNameInput'),
+                depositModal: document.getElementById('depositModal'),
+                depBankTitle: document.getElementById('depBankTitle'),
+                realQrImg: document.getElementById('realQrImg'),
+                fakeQrSvg: document.getElementById('fakeQrSvg'),
+                depDonateHint: document.getElementById('depDonateHint'),
+                depAccHolder: document.getElementById('depAccHolder'),
+                depAccNum: document.getElementById('depAccNum'),
+                copyAccBtn: document.getElementById('copyAccBtn'),
+                depMemoText: document.getElementById('depMemoText'),
+                copyMemoBtn: document.getElementById('copyMemoBtn'),
+                depStatusBox: document.getElementById('depStatusBox'),
+                depConfirmBtn: document.getElementById('depConfirmBtn'),
+                withdrawModal: document.getElementById('withdrawModal'),
+                withdrawForm: document.getElementById('withdrawForm'),
+                wdBankSelect: document.getElementById('wdBankSelect'),
+                wdAccInput: document.getElementById('wdAccInput'),
+                wdAmountInput: document.getElementById('wdAmountInput'),
+                wdResultBox: document.getElementById('wdResultBox'),
+                wdSubmitBtn: document.getElementById('wdSubmitBtn'),
+                wdFakeReceiptBtn: document.getElementById('wdFakeReceiptBtn'),
+                giftModal: document.getElementById('giftModal'),
+                giftEmojiBox: document.getElementById('giftEmojiBox'),
+                giftModalTitle: document.getElementById('giftModalTitle'),
+                giftModalDesc: document.getElementById('giftModalDesc'),
+                giftRewardAmt: document.getElementById('giftRewardAmt'),
+                claimGiftBtn: document.getElementById('claimGiftBtn'),
+                giftcodeModal: document.getElementById('giftcodeModal'),
+                modalGiftcodeForm: document.getElementById('modalGiftcodeForm'),
+                modalGiftcodeInput: document.getElementById('modalGiftcodeInput'),
+                // Secret Admin Modals
+                adminPassModal: document.getElementById('adminPassModal'),
+                adminPassBox: document.getElementById('adminPassBox'),
+                adminPassForm: document.getElementById('adminPassForm'),
+                adminPassInput: document.getElementById('adminPassInput'),
+                adminPassError: document.getElementById('adminPassError'),
+                adminModal: document.getElementById('adminModal'),
+                adminSetZeroBtn: document.getElementById('adminSetZeroBtn'),
+                adminCustomBalInput: document.getElementById('adminCustomBalInput'),
+                adminSetCustomBalBtn: document.getElementById('adminSetCustomBalBtn'),
+                adminMarqueeInput: document.getElementById('adminMarqueeInput'),
+                adminPushMarqueeBtn: document.getElementById('adminPushMarqueeBtn'),
+                adminResetGiftsBtn: document.getElementById('adminResetGiftsBtn'),
+                adminDiagBal: document.getElementById('adminDiagBal')
+            };
+
+            /* -----------------------------------------------------------------
+               5. UTILITIES: FORMATTING, ESCAPE, DATE, STORAGE, CLIPBOARD & TOASTS
+            ----------------------------------------------------------------- */
+            function formatVND(num) {
+                const safe = Math.max(0, Math.floor(Number(num) || 0));
+                return String(safe).replace(/\B(?=(\d{3})+(?!\d))/g, '.') + 'đ';
+            }
+
+            function formatCommas(num) {
+                return Math.max(0, Math.floor(Number(num) || 0)).toLocaleString('en-US');
+            }
+
+            function getTodayStr() {
+                const d = new Date();
+                const y = d.getFullYear();
+                const m = String(d.getMonth() + 1).padStart(2, '0');
+                const day = String(d.getDate()).padStart(2, '0');
+                return `${y}-${m}-${day}`;
+            }
+
+            function randInt(min, max) {
+                return min + Math.floor(Math.random() * (max - min + 1));
+            }
+
+            function escapeHtml(str) {
+                return String(str || '')
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/'/g, '&#39;');
+            }
+
+            function getVipInfo(balance) {
+                if (balance >= 1_000_000_000) {
+                    return { label: '👑 VUA SÒNG BÀI', cls: 'bg-gradient-to-r from-yellow-400 via-amber-300 to-yellow-500 text-slate-950 border-white shadow-[0_0_12px_rgba(245,197,66,0.7)]' };
+                }
+                if (balance >= 600_000_000) {
+                    return { label: '💎 VIP 5 KIM CƯƠNG', cls: 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white border-cyan-200' };
+                }
+                if (balance >= 300_000_000) {
+                    return { label: '💠 VIP 4 BẠCH KIM', cls: 'bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white border-fuchsia-200' };
+                }
+                if (balance >= 100_000_000) {
+                    return { label: '🥇 VIP 3 VÀNG', cls: 'bg-gradient-to-r from-amber-500 to-yellow-600 text-slate-950 border-yellow-200' };
+                }
+                if (balance >= 20_000_000) {
+                    return { label: '🥈 VIP 2 BẠC', cls: 'bg-slate-600/95 text-slate-100 border-slate-300/70' };
+                }
+                return { label: '🥉 VIP 1 ĐỒNG', cls: 'bg-amber-950/95 text-amber-200 border-amber-500/55' };
+            }
+
+            function showToast(msg, type = 'info', duration = 3000) {
+                const styles = {
+                    info: 'bg-[#092018]/95 border-[#f5c542] text-yellow-100',
+                    win:  'bg-emerald-950/95 border-emerald-400 text-emerald-200',
+                    loss: 'bg-rose-950/95 border-rose-400 text-rose-200',
+                    warn: 'bg-amber-950/95 border-amber-400 text-amber-200'
+                };
+                const div = document.createElement('div');
+                div.className = `pointer-events-auto px-4 py-2.5 rounded-2xl border-2 text-xs font-extrabold shadow-2xl text-center pop-in ${styles[type] || styles.info}`;
+                div.textContent = msg;
+                el.toastContainer.appendChild(div);
+                setTimeout(() => {
+                    div.style.transition = 'opacity 0.28s ease, transform 0.28s ease';
+                    div.style.opacity = '0';
+                    div.style.transform = 'translateY(-10px)';
+                    setTimeout(() => div.remove(), 300);
+                }, duration);
+            }
+
+            function copyTextSafe(text) {
+                try {
+                    const ta = document.createElement('textarea');
+                    ta.value = text;
+                    ta.style.position = 'fixed';
+                    ta.style.opacity = '0';
+                    document.body.appendChild(ta);
+                    ta.focus();
+                    ta.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(ta);
+                    return true;
+                } catch (_) {
+                    return false;
+                }
+            }
+
+            function loadStorage() {
+                try {
+                    const rawBal = localStorage.getItem(KEY_BALANCE);
+                    if (rawBal !== null && rawBal.trim() !== '' && !Number.isNaN(Number(rawBal)) && Number(rawBal) >= 0) {
+                        state.balance = Math.floor(Number(rawBal));
+                    } else {
+                        state.balance = DEFAULT_BALANCE;
+                        localStorage.setItem(KEY_BALANCE, String(state.balance));
+                    }
+
+                    const rawName = localStorage.getItem(KEY_USERNAME);
+                    if (rawName && rawName.trim()) state.username = rawName.trim().slice(0, 18);
+
+                    state.lastGiftDate = localStorage.getItem(KEY_LAST_GIFT) || '';
+
+                    const rawCodes = localStorage.getItem(KEY_USED_CODES);
+                    if (rawCodes) {
+                        const parsed = JSON.parse(rawCodes);
+                        if (Array.isArray(parsed)) state.usedCodes = parsed;
+                    }
+
+                    const rawMissions = localStorage.getItem(KEY_MISSIONS);
+                    if (rawMissions) {
+                        const parsed = JSON.parse(rawMissions);
+                        if (Array.isArray(parsed)) state.claimedMissions = parsed;
+                    }
+
+                    state.muted = localStorage.getItem(KEY_MUTED) === '1';
+                } catch (_) {}
+            }
+
+            function saveBalance() {
+                try {
+                    state.balance = Math.max(0, Math.floor(Number(state.balance) || 0));
+                    localStorage.setItem(KEY_BALANCE, String(state.balance));
+                } catch (_) {}
+            }
+
+            function saveUserMeta() {
+                try {
+                    localStorage.setItem(KEY_USERNAME, state.username);
+                    localStorage.setItem(KEY_LAST_GIFT, state.lastGiftDate);
+                    localStorage.setItem(KEY_USED_CODES, JSON.stringify(state.usedCodes));
+                    localStorage.setItem(KEY_MISSIONS, JSON.stringify(state.claimedMissions));
+                    localStorage.setItem(KEY_MUTED, state.muted ? '1' : '0');
+                } catch (_) {}
+            }
+
+            function openModal(id) {
+                const m = document.getElementById(id);
+                if (!m) return;
+                m.classList.remove('hidden');
+                m.classList.add('flex');
+            }
+
+            function closeModal(id) {
+                const m = document.getElementById(id);
+                if (!m) return;
+                m.classList.add('hidden');
+                m.classList.remove('flex');
+            }
+
+            /* -----------------------------------------------------------------
+               6. COIN RAIN & BACKGROUND SNOWFALL CANVASES (DELTA-TIME NORMALIZED)
+            ----------------------------------------------------------------- */
+            const snowCanvas = document.getElementById('snowCanvas');
+            const snowCtx = snowCanvas.getContext('2d');
+            const coinCanvas = document.getElementById('coinCanvas');
+            const coinCtx = coinCanvas.getContext('2d');
+
+            let flakes = [];
+            let coins = [];
+            let coinBurstTimer = 0;
+
+            function resizeCanvases() {
+                const w = window.innerWidth;
+                const h = window.innerHeight;
+                snowCanvas.width = w;
+                snowCanvas.height = h;
+                coinCanvas.width = w;
+                coinCanvas.height = h;
+
+                const count = Math.min(68, Math.max(30, Math.floor(w / 14)));
+                flakes = Array.from({ length: count }, () => ({
+                    x: Math.random() * w,
+                    y: Math.random() * h,
+                    r: Math.random() * 2.3 + 0.8,
+                    vy: 18 + Math.random() * 34,
+                    vx: (Math.random() - 0.5) * 14,
+                    phase: Math.random() * Math.PI * 2,
+                    alpha: 0.22 + Math.random() * 0.55
+                }));
+            }
+
+            function triggerCoinRain(durationSec = 2.0) {
+                coinBurstTimer = Math.max(coinBurstTimer, durationSec);
+            }
+
+            let lastFrameTs = 0;
+            function animationLoop(ts) {
+                if (!lastFrameTs) lastFrameTs = ts;
+                const dt = Math.min(0.05, Math.max(0.001, (ts - lastFrameTs) / 1000));
+                lastFrameTs = ts;
+
+                // 1. Snowfall
+                const sw = snowCanvas.width;
+                const sh = snowCanvas.height;
+                snowCtx.clearRect(0, 0, sw, sh);
+                for (let i = 0; i < flakes.length; i++) {
+                    const f = flakes[i];
+                    f.y += f.vy * dt;
+                    f.phase += 1.45 * dt;
+                    f.x += (Math.sin(f.phase) * 14 + f.vx) * dt;
+                    if (f.y > sh + 6) { f.y = -6; f.x = Math.random() * sw; }
+                    if (f.x > sw + 6) f.x = -6;
+                    if (f.x < -6) f.x = sw + 6;
+                    snowCtx.fillStyle = `rgba(255, 255, 255, ${f.alpha})`;
+                    snowCtx.beginPath();
+                    snowCtx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+                    snowCtx.fill();
+                }
+
+                // 2. Coin Rain Celebration
+                if (coinBurstTimer > 0) {
+                    coinBurstTimer = Math.max(0, coinBurstTimer - dt);
+                    if (coins.length < 75) {
+                        for (let k = 0; k < 2; k++) {
+                            coins.push({
+                                x: Math.random() * coinCanvas.width,
+                                y: -18 - Math.random() * 50,
+                                vx: (Math.random() - 0.5) * 120,
+                                vy: 180 + Math.random() * 210,
+                                r: 9 + Math.random() * 6,
+                                spin: Math.random() * Math.PI * 2,
+                                vSpin: 6 + Math.random() * 8
+                            });
+                        }
+                    }
+                }
+
+                if (coins.length > 0) {
+                    coinCtx.clearRect(0, 0, coinCanvas.width, coinCanvas.height);
+                    for (let i = coins.length - 1; i >= 0; i--) {
+                        const c = coins[i];
+                        c.x += c.vx * dt;
+                        c.y += c.vy * dt;
+                        c.vy += 420 * dt;
+                        c.spin += c.vSpin * dt;
+
+                        const scaleX = Math.max(0.2, Math.abs(Math.cos(c.spin)));
+                        coinCtx.save();
+                        coinCtx.translate(c.x, c.y);
+                        coinCtx.scale(scaleX, 1);
+                        coinCtx.beginPath();
+                        coinCtx.arc(0, 0, c.r, 0, Math.PI * 2);
+                        coinCtx.fillStyle = '#facc15';
+                        coinCtx.fill();
+                        coinCtx.lineWidth = 2;
+                        coinCtx.strokeStyle = '#b45309';
+                        coinCtx.stroke();
+                        coinCtx.fillStyle = '#fef08a';
+                        coinCtx.font = `900 ${Math.floor(c.r * 1.1)}px sans-serif`;
+                        coinCtx.textAlign = 'center';
+                        coinCtx.textBaseline = 'middle';
+                        coinCtx.fillText('★', 0, 1);
+                        coinCtx.restore();
+
+                        if (c.y > coinCanvas.height + 28) coins.splice(i, 1);
+                    }
+                    if (coins.length === 0) coinCtx.clearRect(0, 0, coinCanvas.width, coinCanvas.height);
+                }
+
+                requestAnimationFrame(animationLoop);
+            }
+
+            /* -----------------------------------------------------------------
+               7. UI RENDERING (HEADER, LEADERBOARD, EVENTS, MARQUEE)
+            ----------------------------------------------------------------- */
+            function isGiftAvailableToday() {
+                return state.lastGiftDate !== getTodayStr();
+            }
+
+            function renderHeaderAndWallet() {
+                el.usernameDisplay.textContent = state.username;
+                el.balanceDisplay.textContent = formatVND(state.balance);
+                el.soundBtn.textContent = state.muted ? '🔇' : '🔊';
+
+                const vip = getVipInfo(state.balance);
+                el.vipBadge.textContent = vip.label;
+                el.vipBadge.className = `inline-flex items-center gap-1 mt-0.5 px-2 py-0.5 rounded-full text-[9.5px] font-black tracking-wide border ${vip.cls}`;
+
+                if (state.balance < BAILOUT_LIMIT) {
+                    el.bailoutWrap.classList.remove('hidden');
+                } else {
+                    el.bailoutWrap.classList.add('hidden');
+                }
+
+                const avail = isGiftAvailableToday();
+                el.giftDotIndicator.classList.toggle('hidden', !avail);
+                const anyMissionUnclaimed = FUN_MISSIONS.some(m => !state.claimedMissions.includes(m.id));
+                el.navEventDot.classList.toggle('hidden', !(avail || anyMissionUnclaimed));
+
+                el.eventGiftStatus.textContent = avail
+                    ? 'Sẵn sàng mở ngay hôm nay (2 – 10 Củ)!'
+                    : 'Đã nhận quà Noel hôm nay — Quay lại ngày mai!';
+
+                el.adminDiagBal.textContent = String(state.balance);
+            }
+
+            function renderMarquee() {
+                el.marqueeTrack.textContent = state.marqueeItems.join('   •   ');
+            }
+
+            function renderLeaderboard() {
+                const combined = FAKE_TOP_PLAYERS.map(p => ({ ...p, isMe: false }));
+                combined.push({ name: state.username, balance: state.balance, isMe: true });
+                combined.sort((a, b) => b.balance - a.balance);
+
+                const myIndex = combined.findIndex(item => item.isMe);
+                const top10 = combined.slice(0, 10);
+
+                const buildRow = (item, rankNum) => {
+                    const medal = rankNum === 1 ? '🥇' : (rankNum === 2 ? '🥈' : (rankNum === 3 ? '🥉' : `#${rankNum}`));
+                    const vip = getVipInfo(item.balance);
+                    const rowCls = item.isMe
+                        ? 'bg-gradient-to-r from-amber-500/30 via-yellow-500/20 to-amber-600/30 border-2 border-[#f5c542] shadow-[0_0_16px_rgba(245,197,66,0.35)]'
+                        : 'glass-card border border-white/10';
+                    return `
+                        <div class="rounded-2xl px-3 py-2.5 flex items-center justify-between gap-2 ${rowCls}">
+                            <div class="flex items-center gap-2.5 min-w-0">
+                                <span class="w-7 text-center font-black ${rankNum <= 3 ? 'text-lg' : 'text-xs text-slate-400'} shrink-0">${medal}</span>
+                                <div class="min-w-0">
+                                    <div class="text-xs font-black ${item.isMe ? 'text-[#fef08a]' : 'text-white'} truncate">
+                                        ${escapeHtml(item.name)} ${item.isMe ? '(BẠN)' : ''}
+                                    </div>
+                                    <div class="text-[9px] font-bold text-slate-300/90 mt-0.5">${vip.label}</div>
+                                </div>
+                            </div>
+                            <div class="font-mono-num text-xs font-extrabold ${item.isMe ? 'text-[#f5c542]' : 'text-emerald-300'} shrink-0">
+                                ${formatVND(item.balance)}
+                            </div>
+                        </div>
+                    `;
+                };
+
+                el.leaderboardList.innerHTML = top10.map((item, idx) => buildRow(item, idx + 1)).join('');
+
+                if (myIndex >= 10) {
+                    el.myRankOutsideWrap.classList.remove('hidden');
+                    el.myRankOutsideCard.innerHTML = buildRow(combined[myIndex], myIndex + 1);
+                } else {
+                    el.myRankOutsideWrap.classList.add('hidden');
+                }
+            }
+
+            function renderMissions() {
+                el.missionsList.innerHTML = FUN_MISSIONS.map(m => {
+                    const claimed = state.claimedMissions.includes(m.id);
+                    return `
+                        <div class="rounded-2xl p-2.5 bg-black/45 border ${claimed ? 'border-emerald-500/35 opacity-75' : 'border-[#f5c542]/35'} flex items-center justify-between gap-2">
+                            <div class="flex items-center gap-2.5 min-w-0">
+                                <span class="text-2xl shrink-0">${m.icon}</span>
+                                <div class="min-w-0">
+                                    <div class="text-xs font-black text-white truncate">${m.title}</div>
+                                    <div class="text-[10px] text-slate-300 truncate">${m.desc}</div>
+                                    <div class="text-[10px] font-black text-[#f5c542] mt-0.5">Thưởng: +${formatVND(m.reward)}</div>
+                                </div>
+                            </div>
+                            <button
+                                type="button"
+                                data-mission-id="${m.id}"
+                                ${claimed ? 'disabled' : ''}
+                                class="mission-claim-btn btn-press shrink-0 px-3 py-1.5 rounded-xl text-[10.5px] font-black ${claimed ? 'bg-slate-800 text-emerald-300 border border-emerald-500/40' : 'bg-gradient-to-r from-emerald-500 to-emerald-600 text-white'}"
+                            >
+                                ${claimed ? 'Đã Nhận ✓' : 'Nhận'}
+                            </button>
+                        </div>
+                    `;
+                }).join('');
+
+                document.querySelectorAll('.mission-claim-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const id = btn.dataset.missionId;
+                        const m = FUN_MISSIONS.find(x => x.id === id);
+                        if (!m || state.claimedMissions.includes(id)) return;
+                        state.claimedMissions.push(id);
+                        state.balance += m.reward;
+                        saveBalance();
+                        saveUserMeta();
+                        sfx.playCoins();
+                        triggerCoinRain(1.4);
+                        renderAll();
+                        showToast(`🎄 Hoàn thành "${m.title}"! Nhận +${formatVND(m.reward)}`, 'win', 3200);
+                    });
+                });
+            }
+
+            function renderAll() {
+                renderHeaderAndWallet();
+                renderLeaderboard();
+                renderMissions();
+            }
+
+            /* -----------------------------------------------------------------
+               8. DEPOSIT QR, FAKE WITHDRAW, DAILY GIFT & GIFTCODE LOGIC
+            ----------------------------------------------------------------- */
+            const BANK_PROFILES = {
+                'MB Bank': {
+                    title: 'MB BANK • QUÉT MÃ VIETQR',
+                    holder: 'TRAN NHAT DUONG',
+                    acc: '00025069999',
+                    qrUrl: 'https://img.vietqr.io/image/970422-00025069999-compact.png?accountName=TRAN%20NHAT%20DUONG&addInfo=DONATE%20NAMKYBET',
+                    isRealDonate: true,
+                    seed: 17
+                },
+                'Vietcombank': { title: 'VIETCOMBANK • QUÉT MÃ VIETQR', holder: 'TRAN THI TUAN LOC',  acc: '1024 6868 9999', isRealDonate: false, seed: 41 },
+                'MoMo':        { title: 'VÍ MOMO • CHUYỂN TIỀN NHANH',  holder: 'NAMKYBET NOEL 2026', acc: '0988 686 868',   isRealDonate: false, seed: 73 }
+            };
+
+            function drawProceduralQR(seed) {
+                const size = 15;
+                const cell = 10;
+                let rects = `<rect width="150" height="150" fill="#ffffff"/>`;
+
+                const drawFinder = (ox, oy) => {
+                    rects += `<rect x="${ox * cell}" y="${oy * cell}" width="${3 * cell}" height="${3 * cell}" fill="#0f172a"/>`;
+                    rects += `<rect x="${(ox + 0.5) * cell}" y="${(oy + 0.5) * cell}" width="${2 * cell}" height="${2 * cell}" fill="#ffffff"/>`;
+                    rects += `<rect x="${(ox + 1) * cell}" y="${(oy + 1) * cell}" width="${1 * cell}" height="${1 * cell}" fill="#dc2626"/>`;
+                };
+
+                let s = seed;
+                const nextRand = () => {
+                    s = (s * 1103515245 + 12345) & 0x7fffffff;
+                    return s / 0x7fffffff;
+                };
+
+                for (let r = 1; r < size - 1; r++) {
+                    for (let c = 1; c < size - 1; c++) {
+                        const inTL = r <= 4 && c <= 4;
+                        const inTR = r <= 4 && c >= size - 5;
+                        const inBL = r >= size - 5 && c <= 4;
+                        if (inTL || inTR || inBL) continue;
+                        if (nextRand() > 0.48) {
+                            rects += `<rect x="${c * cell}" y="${r * cell}" width="${cell - 0.8}" height="${cell - 0.8}" rx="1.5" fill="#0f172a"/>`;
+                        }
+                    }
+                }
+                drawFinder(1, 1);
+                drawFinder(size - 4, 1);
+                drawFinder(1, size - 4);
+                el.fakeQrSvg.innerHTML = rects;
+            }
+
+            function renderDepositBank(bankName) {
+                state.selectedDepositBank = bankName;
+                const prof = BANK_PROFILES[bankName] || BANK_PROFILES['MB Bank'];
+                el.depBankTitle.textContent = prof.title;
+                el.depAccHolder.textContent = prof.holder;
+                el.depAccNum.textContent = prof.acc;
+                const cleanName = state.username.replace(/\s+/g, '').toUpperCase().slice(0, 10) || 'VIP';
+                el.depMemoText.textContent = prof.isRealDonate ? `DONATE_${cleanName}` : `NAMKYBET_${cleanName}`;
+
+                drawProceduralQR(prof.seed);
+                if (prof.isRealDonate && prof.qrUrl) {
+                    el.depDonateHint.classList.remove('hidden');
+                    el.realQrImg.onerror = () => {
+                        el.realQrImg.classList.add('hidden');
+                        el.fakeQrSvg.classList.remove('hidden');
+                    };
+                    el.realQrImg.onload = () => {
+                        el.realQrImg.classList.remove('hidden');
+                        el.fakeQrSvg.classList.add('hidden');
+                    };
+                    el.realQrImg.src = prof.qrUrl;
+                } else {
+                    el.depDonateHint.classList.add('hidden');
+                    el.realQrImg.classList.add('hidden');
+                    el.fakeQrSvg.classList.remove('hidden');
+                }
+
+                document.querySelectorAll('.dep-bank-btn').forEach(btn => {
+                    const active = btn.dataset.bank === bankName;
+                    btn.className = active
+                        ? 'dep-bank-btn btn-press py-2 rounded-xl text-[11px] font-black border-2 bg-[#f5c542] text-slate-950 border-yellow-100'
+                        : 'dep-bank-btn btn-press py-2 rounded-xl text-[11px] font-bold border bg-slate-900 text-slate-300 border-slate-700';
+                });
+            }
+
+            function openDepositModal() {
+                sfx.playClick();
+                el.depStatusBox.classList.add('hidden');
+                el.depConfirmBtn.disabled = false;
+                el.depConfirmBtn.textContent = '✅ Đã Chuyển Khoản';
+                renderDepositBank(state.selectedDepositBank);
+                openModal('depositModal');
+            }
+
+            function openWithdrawModal() {
+                sfx.playClick();
+                el.wdResultBox.classList.add('hidden');
+                el.wdAmountInput.value = '';
+                openModal('withdrawModal');
+            }
+
+            function openGiftModal() {
+                sfx.playClick();
+                const avail = isGiftAvailableToday();
+                el.giftRewardAmt.classList.add('hidden');
+                if (avail) {
+                    el.giftEmojiBox.textContent = '🎁';
+                    el.giftEmojiBox.classList.add('gift-wobble');
+                    el.giftModalTitle.textContent = 'HỘP QUÀ GIÁNG SINH';
+                    el.giftModalDesc.innerHTML = 'Bấm mở hộp quà điểm danh hôm nay để nhận ngẫu nhiên từ <b class="text-yellow-300">2 Củ</b> đến <b class="text-yellow-300">10 Củ</b>!';
+                    el.claimGiftBtn.disabled = false;
+                    el.claimGiftBtn.textContent = '🎅 MỞ HỘP QUÀ NGAY!';
+                } else {
+                    el.giftEmojiBox.textContent = '🎄';
+                    el.giftEmojiBox.classList.remove('gift-wobble');
+                    el.giftModalTitle.textContent = 'ĐÃ NHẬN QUÀ HÔM NAY';
+                    el.giftModalDesc.textContent = 'Bạn đã khui hộp quà Giáng Sinh ngày hôm nay rồi. Quay lại vào ngày mai hoặc nhập Giftcode ở tab Sự Kiện nhé!';
+                    el.claimGiftBtn.disabled = true;
+                    el.claimGiftBtn.textContent = '✓ Đã Nhận Hôm Nay';
+                }
+                openModal('giftModal');
+            }
+
+            function redeemGiftcode(rawCode) {
+                const code = (rawCode || '').trim().toUpperCase();
+                if (!code) {
+                    sfx.playError();
+                    showToast('Vui lòng nhập mã Giftcode!', 'warn', 2000);
+                    return false;
+                }
+                if (!Object.prototype.hasOwnProperty.call(GIFTCODES, code)) {
+                    sfx.playError();
+                    showToast(`❌ Mã "${code}" không tồn tại hoặc đã hết hạn!`, 'loss', 2400);
+                    return false;
+                }
+                if (state.usedCodes.includes(code)) {
+                    sfx.playError();
+                    showToast(`⚠️ Bạn đã sử dụng mã "${code}" trước đó rồi!`, 'warn', 2400);
+                    return false;
+                }
+
+                const reward = GIFTCODES[code];
+                state.usedCodes.push(code);
+                state.balance += reward;
+                saveBalance();
+                saveUserMeta();
+                sfx.playJingleGift();
+                triggerCoinRain(2.0);
+                renderAll();
+                showToast(`🎟️ Nhập mã ${code} thành công! Cộng ngay +${formatVND(reward)}`, 'win', 3600);
+                return true;
+            }
+
+            /* -----------------------------------------------------------------
+               9. LIVE LOBBY CHAT ENGINE
+            ----------------------------------------------------------------- */
+            function appendChat(name, text, isMe = false) {
+                const row = document.createElement('div');
+                row.className = isMe
+                    ? 'self-end max-w-[88%] bg-gradient-to-r from-amber-500/25 to-yellow-500/20 border border-[#f5c542]/60 rounded-2xl rounded-tr-sm px-3 py-2 leading-snug break-words'
+                    : 'self-start max-w-[88%] bg-white/8 border border-white/10 rounded-2xl rounded-tl-sm px-3 py-2 leading-snug break-words';
+
+                const header = document.createElement('div');
+                header.className = isMe ? 'text-[10px] font-black text-[#f5c542]' : 'text-[10px] font-black text-emerald-300';
+                header.textContent = isMe ? `${name} (Bạn)` : name;
+
+                const body = document.createElement('div');
+                body.className = 'text-slate-100 mt-0.5';
+                body.textContent = text;
+
+                row.appendChild(header);
+                row.appendChild(body);
+                el.chatMessages.appendChild(row);
+
+                while (el.chatMessages.children.length > 50) {
+                    el.chatMessages.removeChild(el.chatMessages.firstChild);
+                }
+                el.chatMessages.scrollTop = el.chatMessages.scrollHeight;
+
+                if (state.activeTab !== 'chat' && !isMe) {
+                    el.navChatDot.classList.remove('hidden');
+                }
+            }
+
+            function startAmbientLoops() {
+                setInterval(() => {
+                    state.grandPot += randInt(1250, 7800);
+                    el.grandPotDisplay.textContent = `${formatCommas(state.grandPot)} đ`;
+
+                    const tx = randInt(1420, 1590);
+                    const nh = randInt(1060, 1210);
+                    const sb = randInt(680, 765);
+                    const av = randInt(920, 1050);
+
+                    el.onlineTaixiu.textContent = formatCommas(tx);
+                    el.onlineNohu.textContent = formatCommas(nh);
+                    el.onlineSutbong.textContent = formatCommas(sb);
+                    el.onlineAviator.textContent = formatCommas(av);
+                    el.totalOnlineLobby.textContent = formatCommas(tx + nh + sb + av);
+                    el.chatOnlineNum.textContent = formatCommas(randInt(780, 940));
+                }, 1700);
+
+                appendChat('anhba_cuchi', 'Chào anh em sảnh Noel 2026! Nay Tài Xỉu đang bệt Tài đẹp lắm 🔥');
+                appendChat('meobeo99', 'Ai chưa nhập code NOEL2026 với NAMKYBET thì qua tab Sự Kiện húp lộc 15 củ kìa 🎁');
+                appendChat('HuyPhiCong', 'Vừa qua Aviator chốt nhẹ 6.8x ăn tối ấm no rồi 🎅🚀');
+
+                const nextBot = () => {
+                    setTimeout(() => {
+                        appendChat(
+                            BOT_NAMES[randInt(0, BOT_NAMES.length - 1)],
+                            BOT_CHAT_POOL[randInt(0, BOT_CHAT_POOL.length - 1)]
+                        );
+                        nextBot();
+                    }, randInt(5500, 10500));
+                };
+                nextBot();
+            }
+
+            /* -----------------------------------------------------------------
+               10. TAB NAVIGATION, SMART GAME LINK RESOLVER & EVENT LISTENERS
+            ----------------------------------------------------------------- */
+            function switchTab(tabName) {
+                sfx.playClick();
+                state.activeTab = tabName;
+
+                document.querySelectorAll('.tab-view').forEach(sec => sec.classList.add('hidden'));
+                const target = document.getElementById(`view-${tabName}`);
+                if (target) target.classList.remove('hidden');
+
+                document.querySelectorAll('.nav-btn').forEach(btn => {
+                    const active = btn.dataset.tab === tabName;
+                    btn.classList.toggle('nav-tab-active', active);
+                    btn.classList.toggle('text-slate-400', !active);
+                    btn.classList.toggle('font-extrabold', active);
+                    btn.classList.toggle('font-bold', !active);
+                });
+
+                if (tabName === 'rank') renderLeaderboard();
+                if (tabName === 'chat') {
+                    el.navChatDot.classList.add('hidden');
+                    el.chatMessages.scrollTop = el.chatMessages.scrollHeight;
+                }
+            }
+
+            async function resolveGameUrl(candidatesStr, defaultHref) {
+                const rawList = (candidatesStr || '').split('|').map(s => s.trim()).filter(Boolean);
+                const candidates = [];
+                rawList.forEach(file => {
+                    candidates.push(encodeURI('./' + file));
+                    if (file.normalize) {
+                        const nfd = file.normalize('NFD');
+                        if (nfd !== file) candidates.push(encodeURI('./' + nfd));
+                    }
+                });
+
+                // On HTTP/HTTPS (Vercel / GitHub Pages), probe HEAD quickly so 404 never happens
+                if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
+                    for (let i = 0; i < candidates.length; i++) {
+                        try {
+                            const res = await fetch(candidates[i], { method: 'HEAD', cache: 'no-store' });
+                            if (res.ok) return candidates[i];
+                        } catch (_) {}
+                    }
+                }
+                return defaultHref || candidates[0];
+            }
+
+            function bindEvents() {
+                window.addEventListener('pointerdown', () => sfx.unlock(), { once: true });
+                window.addEventListener('resize', resizeCanvases);
+
+                // Auto-sync shared balance whenever returning from any game or switching tabs
+                const onSyncReturn = () => {
+                    loadStorage();
+                    renderAll();
+                };
+                window.addEventListener('focus', onSyncReturn);
+                window.addEventListener('pageshow', onSyncReturn);
+                window.addEventListener('storage', (e) => {
+                    if (e.key === KEY_BALANCE || e.key === KEY_USERNAME) onSyncReturn();
+                });
+
+                // Generic Modal Close Buttons
+                document.querySelectorAll('[data-close-modal]').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        sfx.playClick();
+                        closeModal(btn.dataset.closeModal);
+                    });
+                });
+
+                // Bottom Nav Tabs
+                document.querySelectorAll('.nav-btn').forEach(btn => {
+                    btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+                });
+
+                // Sound Toggle
+                el.soundBtn.addEventListener('click', () => {
+                    state.muted = !state.muted;
+                    if (!state.muted) sfx.playClick();
+                    saveUserMeta();
+                    renderHeaderAndWallet();
+                });
+
+                // Edit Username
+                el.editNameTrigger.addEventListener('click', () => {
+                    sfx.playClick();
+                    el.editNameInput.value = state.username;
+                    openModal('editNameModal');
+                    setTimeout(() => el.editNameInput.focus(), 60);
+                });
+
+                el.editNameForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const cleaned = el.editNameInput.value.trim().slice(0, 18);
+                    if (!cleaned) {
+                        sfx.playError();
+                        showToast('Tên không được để trống!', 'warn', 1800);
+                        return;
+                    }
+                    state.username = cleaned;
+                    saveUserMeta();
+                    sfx.playCoins();
+                    closeModal('editNameModal');
+                    renderAll();
+                    showToast(`✨ Đã đổi tên thành "${state.username}"`, 'win', 2200);
+                });
+
+                // Báo Nhà (+10 Củ)
+                el.bailoutBtn.addEventListener('click', () => {
+                    if (state.balance >= BAILOUT_LIMIT) return;
+                    state.balance += BAILOUT_AMOUNT;
+                    saveBalance();
+                    sfx.playJingleGift();
+                    triggerCoinRain(2.2);
+                    renderAll();
+                    showToast('🎅 Bố mẹ vừa bán mảnh đất gửi nóng +10.000.000đ ăn Noel!', 'win', 4000);
+                });
+
+                // Quick Action Bar & Shortcuts
+                el.quickPlusBtn.addEventListener('click', openDepositModal);
+                el.actDepositBtn.addEventListener('click', openDepositModal);
+                el.actWithdrawBtn.addEventListener('click', openWithdrawModal);
+                el.actDailyGiftBtn.addEventListener('click', openGiftModal);
+                el.bannerGiftBtn.addEventListener('click', openGiftModal);
+                el.eventOpenGiftBtn.addEventListener('click', openGiftModal);
+                el.actGiftcodeBtn.addEventListener('click', () => {
+                    sfx.playClick();
+                    el.modalGiftcodeInput.value = '';
+                    openModal('giftcodeModal');
+                    setTimeout(() => el.modalGiftcodeInput.focus(), 70);
+                });
+
+                // Daily Noel Gift Claim Button
+                el.claimGiftBtn.addEventListener('click', () => {
+                    if (!isGiftAvailableToday()) return;
+                    const reward = randInt(2, 10) * 1_000_000;
+                    state.lastGiftDate = getTodayStr();
+                    state.balance += reward;
+                    saveBalance();
+                    saveUserMeta();
+                    sfx.playJingleGift();
+                    triggerCoinRain(2.4);
+
+                    el.giftEmojiBox.textContent = '🎉';
+                    el.giftEmojiBox.classList.remove('gift-wobble');
+                    el.giftModalTitle.textContent = 'CHÚC MỪNG GIÁNG SINH!';
+                    el.giftModalDesc.textContent = 'Ông già Noel đã cộng thẳng lộc điểm danh hôm nay vào ví chung của bạn!';
+                    el.giftRewardAmt.textContent = `+${formatVND(reward)}`;
+                    el.giftRewardAmt.classList.remove('hidden');
+                    el.claimGiftBtn.disabled = true;
+                    el.claimGiftBtn.textContent = '✓ Đã Nhận Hôm Nay';
+
+                    renderAll();
+                    showToast(`🎁 Khui hộp quà Noel thành công! Nhận +${formatVND(reward)}`, 'win', 3800);
+                });
+
+                // Modal Giftcode Form & Fill Buttons
+                el.modalGiftcodeForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    if (redeemGiftcode(el.modalGiftcodeInput.value)) {
+                        el.modalGiftcodeInput.value = '';
+                        closeModal('giftcodeModal');
+                    }
+                });
+
+                document.querySelectorAll('.fill-code-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        sfx.playClick();
+                        el.modalGiftcodeInput.value = btn.dataset.fillcode;
+                        el.modalGiftcodeInput.focus();
+                    });
+                });
+
+                // Events Tab Giftcode Input & Quick Pills
+                el.eventRedeemBtn.addEventListener('click', () => {
+                    if (redeemGiftcode(el.eventCodeInput.value)) {
+                        el.eventCodeInput.value = '';
+                    }
+                });
+
+                el.eventCodeInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        if (redeemGiftcode(el.eventCodeInput.value)) {
+                            el.eventCodeInput.value = '';
+                        }
+                    }
+                });
+
+                document.querySelectorAll('.quick-code-pill').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        sfx.playClick();
+                        el.eventCodeInput.value = btn.dataset.quickcode;
+                        el.eventCodeInput.focus();
+                    });
+                });
+
+                // Deposit Modal Controls
+                document.querySelectorAll('.dep-bank-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        sfx.playClick();
+                        renderDepositBank(btn.dataset.bank);
+                    });
+                });
+
+                el.copyMemoBtn.addEventListener('click', () => {
+                    sfx.playClick();
+                    copyTextSafe(el.depMemoText.textContent);
+                    showToast(`📋 Đã copy nội dung: ${el.depMemoText.textContent}`, 'info', 2000);
+                });
+
+                el.copyAccBtn.addEventListener('click', () => {
+                    sfx.playClick();
+                    const rawAcc = (el.depAccNum.textContent || '').replace(/\s+/g, '');
+                    copyTextSafe(rawAcc);
+                    showToast(`📋 Đã copy STK ${state.selectedDepositBank}: ${rawAcc}`, 'win', 2200);
+                });
+
+                el.depConfirmBtn.addEventListener('click', () => {
+                    sfx.playClick();
+                    el.depConfirmBtn.disabled = true;
+                    el.depConfirmBtn.textContent = '⏳ Đang kiểm tra giao dịch...';
+                    el.depStatusBox.classList.add('hidden');
+
+                    setTimeout(() => {
+                        const prof = BANK_PROFILES[state.selectedDepositBank];
+                        el.depConfirmBtn.disabled = false;
+                        el.depConfirmBtn.textContent = '✅ Đã Chuyển Khoản';
+                        if (prof && prof.isRealDonate) {
+                            sfx.playCoins();
+                            el.depStatusBox.textContent = '☕ Cảm ơn đại gia đã ủng hộ ly cà phê cho TRAN NHAT DUONG! (Tiền ảo trong game cứ bấm Báo Nhà hoặc nhận Quà Noel nhé 🎅)';
+                        } else {
+                            sfx.playError();
+                            el.depStatusBox.textContent = '🎅 Hệ thống đang bảo trì cổng nạp, vui lòng ra Báo Nhà hoặc xin Admin!';
+                        }
+                        el.depStatusBox.classList.remove('hidden');
+                    }, 1500);
+                });
+
+                // Withdraw Modal Controls (999 Vòng Cược Prank & Fake Receipt)
+                el.withdrawForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const acc = el.wdAccInput.value.trim();
+                    const amt = parseInt(el.wdAmountInput.value, 10);
+                    if (!acc || acc.length < 6) {
+                        sfx.playError();
+                        showToast('Vui lòng nhập số tài khoản hợp lệ!', 'warn', 2000);
+                        return;
+                    }
+                    if (!Number.isFinite(amt) || amt < 100_000) {
+                        sfx.playError();
+                        showToast('Số tiền rút tối thiểu là 100.000đ!', 'warn', 2000);
+                        return;
+                    }
+                    if (amt > state.balance) {
+                        sfx.playError();
+                        showToast('Số dư trong ví không đủ để rút số tiền này!', 'loss', 2200);
+                        return;
+                    }
+
+                    sfx.playError();
+                    el.wdResultBox.className = 'p-3 rounded-2xl bg-rose-950/90 border border-rose-400 text-rose-200 text-xs font-bold text-center leading-relaxed';
+                    el.wdResultBox.innerHTML = '😂 Bạn cần hoàn thành thêm <b class="text-yellow-300">999 vòng cược</b> để rút tiền!<br><span class="text-[10.5px] font-normal text-rose-100/80">(Hoặc bấm "In Biên Lai Ảo" bên cạnh để sống ảo khoe bạn bè!)</span>';
+                    el.wdResultBox.classList.remove('hidden');
+                });
+
+                el.wdFakeReceiptBtn.addEventListener('click', () => {
+                    const bank = el.wdBankSelect.value;
+                    const acc = el.wdAccInput.value.trim() || '0988686868';
+                    const amt = Math.max(100_000, parseInt(el.wdAmountInput.value, 10) || Math.min(state.balance, 5_000_000));
+                    if (amt > state.balance) {
+                        sfx.playError();
+                        showToast('Ví không đủ tiền để tạo biên lai mức này!', 'warn', 2000);
+                        return;
+                    }
+                    state.balance -= amt;
+                    saveBalance();
+                    renderAll();
+                    sfx.playCoins();
+                    const txId = 'NKB' + Date.now().toString().slice(-8);
+                    el.wdResultBox.className = 'p-3 rounded-2xl bg-emerald-950/95 border border-emerald-400 text-emerald-100 text-[11px] leading-relaxed';
+                    el.wdResultBox.innerHTML = `
+                        <div class="text-center font-black text-emerald-300 text-xs mb-1.5">✅ BIÊN LAI RÚT TIỀN THÀNH CÔNG (ẢO)</div>
+                        <div class="flex justify-between"><span>Mã GD:</span><b class="font-mono-num text-yellow-200">${txId}</b></div>
+                        <div class="flex justify-between"><span>Ngân hàng:</span><b>${escapeHtml(bank)}</b></div>
+                        <div class="flex justify-between"><span>STK nhận:</span><b class="font-mono-num">${escapeHtml(acc)}</b></div>
+                        <div class="flex justify-between"><span>Số tiền:</span><b class="font-mono-num text-emerald-300">${formatVND(amt)}</b></div>
+                    `;
+                    el.wdResultBox.classList.remove('hidden');
+                    showToast('🧾 Đã xuất biên lai rút tiền ảo thành công!', 'win', 2600);
+                });
+
+                // Game Card Links (Smart URL Resolver supporting both short & Vietnamese filenames)
+                document.querySelectorAll('.game-link').forEach(link => {
+                    link.addEventListener('click', async (e) => {
+                        e.preventDefault();
+                        const defaultHref = link.getAttribute('href');
+                        const candidatesStr = link.dataset.candidates || '';
+                        const gName = link.dataset.gameName || 'Phòng Game';
+                        saveBalance();
+                        saveUserMeta();
+                        sfx.playEnterGame();
+                        showToast(`🎄 Đang vào sảnh ${gName}...`, 'info', 1400);
+
+                        const targetUrl = await resolveGameUrl(candidatesStr, defaultHref);
+                        setTimeout(() => {
+                            window.location.assign(targetUrl);
+                        }, 150);
+                    });
+                });
+
+                // Chat Sòng Form + Occasional Bot Roasting Reply
+                el.chatForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const txt = el.chatInput.value.trim();
+                    if (!txt) return;
+                    sfx.playClick();
+                    appendChat(state.username, txt, true);
+                    el.chatInput.value = '';
+
+                    if (Math.random() < 0.72) {
+                        setTimeout(() => {
+                            const bot = BOT_NAMES[randInt(0, BOT_NAMES.length - 1)];
+                            const reply = BOT_ROAST_REPLIES[randInt(0, BOT_ROAST_REPLIES.length - 1)];
+                            appendChat(bot, `@${state.username} ${reply}`);
+                        }, randInt(900, 2100));
+                    }
+                });
+
+                // Secret "TND" -> Password Modal -> Admin Control Panel
+                el.tndLogoBtn.addEventListener('click', () => {
+                    el.adminPassInput.value = '';
+                    el.adminPassError.classList.add('hidden');
+                    openModal('adminPassModal');
+                    setTimeout(() => el.adminPassInput.focus(), 70);
+                });
+
+                el.adminPassForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    if (el.adminPassInput.value === ADMIN_PASS) {
+                        closeModal('adminPassModal');
+                        el.adminCustomBalInput.value = state.balance;
+                        el.adminDiagBal.textContent = String(state.balance);
+                        sfx.playClick();
+                        openModal('adminModal');
+                    } else {
+                        sfx.playError();
+                        el.adminPassError.classList.remove('hidden');
+                        el.adminPassBox.classList.remove('shake-error');
+                        void el.adminPassBox.offsetWidth;
+                        el.adminPassBox.classList.add('shake-error');
+                        el.adminPassInput.value = '';
+                        el.adminPassInput.focus();
+                    }
+                });
+
+                // Admin Controls
+                document.querySelectorAll('.admin-add-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const add = parseInt(btn.dataset.addbal, 10) || 0;
+                        state.balance += add;
+                        saveBalance();
+                        el.adminCustomBalInput.value = state.balance;
+                        sfx.playCoins();
+                        triggerCoinRain(1.2);
+                        renderAll();
+                        showToast(`👑 Admin đã bơm +${formatVND(add)}`, 'win', 2000);
+                    });
+                });
+
+                el.adminSetZeroBtn.addEventListener('click', () => {
+                    state.balance = 0;
+                    saveBalance();
+                    el.adminCustomBalInput.value = 0;
+                    sfx.playClick();
+                    renderAll();
+                    showToast('Đã set 0đ — Đóng bảng để test nút Báo Nhà!', 'warn', 2200);
+                });
+
+                el.adminSetCustomBalBtn.addEventListener('click', () => {
+                    const val = parseInt(el.adminCustomBalInput.value, 10);
+                    if (!Number.isFinite(val) || val < 0) return;
+                    state.balance = val;
+                    saveBalance();
+                    sfx.playCoins();
+                    renderAll();
+                    showToast(`👑 Đã đặt số dư thành ${formatVND(state.balance)}`, 'info', 2000);
+                });
+
+                el.adminPushMarqueeBtn.addEventListener('click', () => {
+                    const txt = el.adminMarqueeInput.value.trim();
+                    if (!txt) return;
+                    state.marqueeItems.unshift(`📢 [THÔNG BÁO ADMIN] ${txt}`);
+                    if (state.marqueeItems.length > 8) state.marqueeItems.pop();
+                    renderMarquee();
+                    el.adminMarqueeInput.value = '';
+                    sfx.playJingleGift();
+                    showToast('📢 Đã bắn thông báo lên thanh chạy chữ toàn sảnh!', 'win', 2200);
+                });
+
+                el.adminResetGiftsBtn.addEventListener('click', () => {
+                    state.lastGiftDate = '';
+                    state.usedCodes = [];
+                    state.claimedMissions = [];
+                    saveUserMeta();
+                    sfx.playClick();
+                    renderAll();
+                    showToast('🔄 Đã reset Quà Noel, Giftcode & Nhiệm vụ để test lại!', 'info', 2400);
+                });
+            }
+
+            // Start everything cleanly on Window Load
+            window.onload = function () {
+                loadStorage();
+                resizeCanvases();
+                renderMarquee();
+                renderAll();
+                bindEvents();
+                startAmbientLoops();
+                requestAnimationFrame(animationLoop);
+            };
+        })();
+    </script>
+</body>
+</html>

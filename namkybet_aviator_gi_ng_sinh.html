@@ -1,0 +1,2783 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NamKyBet 🎅 Aviator Giáng Sinh</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Be Vietnam Pro & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800;900&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* =====================================================================
+           NAMKYBET - AVIATOR GIÁNG SINH (CHRISTMAS DARK LUXURY THEME)
+           Mobile-First Responsive | Zero External Image/Audio Dependencies
+        ===================================================================== */
+        :root {
+            --bg-deep: #070d1e;
+            --bg-mid: #0f1b38;
+            --gold: #f5c542;
+            --crimson: #e11d48;
+            --emerald: #10b981;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        input {
+            user-select: text;
+        }
+
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            font-family: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
+            background: radial-gradient(circle at top center, #132248 0%, #0b1530 52%, #070d1e 100%);
+            color: #f8fafc;
+            min-height: 100vh;
+        }
+
+        .font-mono-num {
+            font-family: 'JetBrains Mono', 'Be Vietnam Pro', monospace;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Full-Screen Background Snowfall & Confetti Canvases */
+        #snowCanvas {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        #confettiCanvas {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 60;
+        }
+
+        /* Subtle Ambient Aurora Glow */
+        .aurora-bg {
+            position: fixed;
+            top: -120px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120vw;
+            height: 360px;
+            background:
+                radial-gradient(ellipse at 25% 40%, rgba(16, 185, 129, 0.16), transparent 60%),
+                radial-gradient(ellipse at 75% 30%, rgba(225, 29, 72, 0.15), transparent 60%),
+                radial-gradient(ellipse at 50% 60%, rgba(245, 197, 66, 0.1), transparent 55%);
+            filter: blur(36px);
+            pointer-events: none;
+            z-index: 0;
+            animation: auroraShift 12s ease-in-out infinite alternate;
+        }
+
+        @keyframes auroraShift {
+            0% { transform: translateX(-50%) scale(1); opacity: 0.8; }
+            100% { transform: translateX(-48%) scale(1.08); opacity: 1; }
+        }
+
+        .app-shell {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 28px;
+        }
+
+        /* =====================================================================
+           MARQUEE TICKER & CANDY CANE ACCENTS
+        ===================================================================== */
+        .marquee-wrap {
+            overflow: hidden;
+            white-space: nowrap;
+            background: linear-gradient(90deg, #881337, #e11d48, #9f1239, #881337);
+            border-bottom: 1.5px solid rgba(245, 197, 66, 0.75);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+        }
+
+        .marquee-track {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marqueeRun 34s linear infinite;
+            font-size: 11.5px;
+            font-weight: 700;
+            color: #fff8db;
+        }
+
+        @keyframes marqueeRun {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .candy-cane-strip {
+            height: 6px;
+            background: repeating-linear-gradient(
+                -45deg,
+                #ef4444 0px,
+                #ef4444 10px,
+                #ffffff 10px,
+                #ffffff 20px
+            );
+        }
+
+        .candy-cane-progress {
+            background: repeating-linear-gradient(
+                -45deg,
+                #ef4444 0px,
+                #ef4444 10px,
+                #ffffff 10px,
+                #ffffff 20px
+            );
+            background-size: 28px 28px;
+            animation: candySlide 0.8s linear infinite;
+        }
+
+        @keyframes candySlide {
+            0% { background-position: 0 0; }
+            100% { background-position: 28px 0; }
+        }
+
+        /* =====================================================================
+           LUXURY GLASS CARDS, FLIGHT CANVAS CONTAINER & BUTTONS
+        ===================================================================== */
+        .glass-card {
+            background: linear-gradient(160deg, rgba(19, 34, 70, 0.92), rgba(9, 17, 38, 0.96));
+            border: 1px solid rgba(245, 197, 66, 0.28);
+            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.48);
+        }
+
+        .flight-stage-card {
+            background: #070d1e;
+            border: 1.5px solid rgba(245, 197, 66, 0.45);
+            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.65), inset 0 0 32px rgba(15, 27, 56, 0.85);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .flight-canvas-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            min-height: 240px;
+            max-height: 410px;
+            overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .flight-canvas-wrap {
+                aspect-ratio: 16 / 8.5;
+                max-height: 420px;
+            }
+        }
+
+        #flightCanvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .btn-press {
+            transition: transform 0.1s ease, filter 0.14s ease, box-shadow 0.14s ease;
+        }
+        .btn-press:active:not(:disabled) {
+            transform: scale(0.96);
+            filter: brightness(1.1);
+        }
+        .btn-press:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Primary Betting Action States */
+        .cta-bet {
+            background: linear-gradient(180deg, #10b981 0%, #059669 60%, #047857 100%);
+            border: 2px solid #f5c542;
+            box-shadow: 0 6px 18px rgba(16, 185, 129, 0.4), inset 0 1.5px 2px rgba(255, 255, 255, 0.35);
+            color: #ffffff;
+        }
+
+        .cta-cancel {
+            background: linear-gradient(180deg, #e11d48 0%, #be123c 60%, #881337 100%);
+            border: 2px solid #fda4af;
+            box-shadow: 0 6px 16px rgba(225, 29, 72, 0.42), inset 0 1.5px 2px rgba(255, 255, 255, 0.28);
+            color: #ffffff;
+        }
+
+        .cta-cashout {
+            background: linear-gradient(180deg, #fbbf24 0%, #f59e0b 52%, #d97706 100%);
+            border: 2.5px solid #fef08a;
+            box-shadow: 0 0 22px rgba(245, 158, 11, 0.72), inset 0 2px 3px rgba(255, 255, 255, 0.55);
+            color: #1e1b4b;
+            animation: cashoutPulse 0.85s ease-in-out infinite alternate;
+        }
+
+        @keyframes cashoutPulse {
+            0% { box-shadow: 0 0 12px rgba(245, 197, 66, 0.55); transform: scale(1); }
+            100% { box-shadow: 0 0 26px rgba(251, 191, 36, 0.95); transform: scale(1.015); }
+        }
+
+        .cta-queue {
+            background: linear-gradient(180deg, #0284c7 0%, #0369a1 60%, #075985 100%);
+            border: 2px solid #7dd3fc;
+            box-shadow: 0 6px 16px rgba(2, 132, 199, 0.36), inset 0 1.5px 2px rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+        }
+
+        .cta-unqueue {
+            background: linear-gradient(180deg, #b91c1c 0%, #991b1b 100%);
+            border: 2px solid #f5c542;
+            box-shadow: 0 4px 14px rgba(185, 28, 28, 0.45);
+            color: #fef08a;
+        }
+
+        /* Toggle Switch Styling */
+        .switch-pill {
+            position: relative;
+            width: 34px;
+            height: 19px;
+            background: #1e293b;
+            border: 1px solid rgba(148, 163, 184, 0.45);
+            border-radius: 999px;
+            transition: background 0.2s ease, border-color 0.2s ease;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .switch-pill::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: #cbd5e1;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        .switch-pill.on {
+            background: #10b981;
+            border-color: #6ee7b7;
+        }
+        .switch-pill.on::after {
+            transform: translateX(15px);
+            background: #ffffff;
+        }
+
+        /* Bailout Pulse */
+        @keyframes bailoutGlow {
+            0%, 100% { box-shadow: 0 0 12px rgba(245, 197, 66, 0.65), 0 0 24px rgba(225, 29, 72, 0.5); transform: scale(1); }
+            50% { box-shadow: 0 0 24px rgba(245, 197, 66, 0.98), 0 0 38px rgba(225, 29, 72, 0.85); transform: scale(1.015); }
+        }
+        .bailout-pulse {
+            animation: bailoutGlow 1.2s ease-in-out infinite;
+        }
+
+        /* Animations */
+        @keyframes popIn {
+            0% { transform: scale(0.6); opacity: 0; }
+            72% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .pop-in {
+            animation: popIn 0.28s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes shakeErr {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-8px); }
+            40% { transform: translateX(8px); }
+            60% { transform: translateX(-6px); }
+            80% { transform: translateX(6px); }
+        }
+        .shake-error {
+            animation: shakeErr 0.34s ease;
+        }
+
+        /* Thin Scrollbars */
+        .thin-scroll::-webkit-scrollbar { height: 4px; width: 4px; }
+        .thin-scroll::-webkit-scrollbar-track { background: rgba(7, 13, 30, 0.55); border-radius: 99px; }
+        .thin-scroll::-webkit-scrollbar-thumb { background: rgba(245, 197, 66, 0.45); border-radius: 99px; }
+    </style>
+</head>
+<body>
+    <!-- Ambient Northern Lights, Snowfall & Confetti Canvases -->
+    <div class="aurora-bg" aria-hidden="true"></div>
+    <canvas id="snowCanvas"></canvas>
+    <canvas id="confettiCanvas"></canvas>
+
+    <!-- Floating Win Banner & Toast Stack (Zero alert() / confirm()) -->
+    <div id="toastContainer" class="fixed top-12 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-[440px] flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- Main App Shell -->
+    <div class="app-shell">
+
+        <!-- 1. TOP MARQUEE WINNER TICKER -->
+        <div class="marquee-wrap py-1.5">
+            <div class="marquee-track">
+                🎄 Chúc mừng TuanAnh_2k9 vừa chốt lời 42.500.000đ ở mốc 18.40x! &nbsp;&nbsp;•&nbsp;&nbsp;
+                🎅 MinhQuan_VIP húp trọn 15.000.000đ tại 5.00x! &nbsp;&nbsp;•&nbsp;&nbsp;
+                🚀 BaoLong_SG gồng lãi đỉnh cao chốt 64.200.000đ ở mốc 32.10x! &nbsp;&nbsp;•&nbsp;&nbsp;
+                ❄️ LinhNhi_2k8 vừa rút 8.400.000đ ngay trước khi xe tuần lộc nổ ở 4.25x! &nbsp;&nbsp;•&nbsp;&nbsp;
+                🎁 Chào đón Giáng Sinh cùng NamKyBet Aviator Noel — 2 tay cược độc lập, rút tiền siêu tốc!
+            </div>
+        </div>
+
+        <!-- 2. HEADER BAR -->
+        <header class="px-3 pt-2.5 pb-1.5 flex items-center justify-between gap-2">
+            <!-- Left: Back to Lobby & Brand -->
+            <div class="flex items-center gap-2 min-w-0">
+                <a href="index.html" id="backLobbyBtn" aria-label="Về Sảnh Chính" class="btn-press px-2.5 h-9 rounded-xl bg-rose-900/90 border border-[#f5c542]/75 text-yellow-200 font-black text-[11px] flex items-center gap-1 shrink-0 shadow">
+                    <span>🏠</span><span>Sảnh</span>
+                </a>
+                <div class="w-9 h-9 rounded-2xl bg-gradient-to-br from-rose-600 to-red-900 border border-[#f5c542]/80 hidden sm:flex items-center justify-center text-xl shadow-lg shrink-0">
+                    🎅
+                </div>
+                <div class="min-w-0 leading-tight">
+                    <div class="text-sm sm:text-base font-black tracking-wide bg-gradient-to-r from-yellow-200 via-[#f5c542] to-rose-400 bg-clip-text text-transparent truncate">
+                        NAMKYBET
+                    </div>
+                    <div class="text-[10px] font-extrabold tracking-widest text-emerald-300/95 uppercase">
+                        AVIATOR NOEL
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Balance Pill, Sound Toggle, Discreet "TND" Secret Admin Trigger -->
+            <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+                <div class="px-2.5 sm:px-3 py-1.5 rounded-2xl bg-[#0b1530]/95 border border-[#f5c542]/55 shadow-md flex items-center gap-1.5">
+                    <span class="text-sm leading-none">💰</span>
+                    <span id="balanceDisplay" class="font-mono-num text-sm sm:text-base font-extrabold text-[#f5c542] tracking-tight">
+                        20.000.000đ
+                    </span>
+                </div>
+
+                <button id="soundBtn" aria-label="Bật tắt âm thanh" class="btn-press w-9 h-9 rounded-xl bg-[#0f1b38]/90 border border-[#f5c542]/45 text-base flex items-center justify-center shadow">
+                    🔊
+                </button>
+
+                <!-- Discreet "TND" Watermark Badge (Opens Secret Password Modal) -->
+                <button id="tndLogoBtn" title="TND" class="btn-press px-2 h-9 rounded-xl bg-slate-900/70 border border-slate-700/80 hover:border-[#f5c542]/45 text-[10px] font-black tracking-widest text-slate-400/90 flex items-center justify-center">
+                    TND
+                </button>
+            </div>
+        </header>
+
+        <!-- 3. BÁO NHÀ (+10 CỦ) RESCUE BANNER (SHOWN ONLY WHEN BALANCE < 100,000đ & NO ACTIVE/QUEUED BETS) -->
+        <div id="bailoutBanner" class="px-3 pb-2 hidden">
+            <button id="bailoutBtn" class="btn-press bailout-pulse w-full py-2.5 px-4 rounded-2xl bg-gradient-to-r from-[#e11d48] via-amber-500 to-[#e11d48] border-2 border-[#fef08a] text-white font-black text-xs sm:text-sm tracking-wide flex items-center justify-center gap-2 shadow-xl">
+                <span>🆘 BÁO NHÀ (+10 CỦ)</span>
+            </button>
+        </div>
+
+        <!-- 4. HISTORY BAR (SOI CẦU - LAST 20 CRASH MULTIPLIERS) -->
+        <section class="px-3 pb-2">
+            <div class="glass-card rounded-2xl px-2.5 py-1.5 flex items-center gap-2">
+                <span class="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider shrink-0">Cầu:</span>
+                <div id="historyBar" class="flex items-center gap-1.5 overflow-x-auto thin-scroll py-0.5 flex-1">
+                    <!-- Populated via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. MAIN AVIATOR FLIGHT CANVAS STAGE -->
+        <section class="px-3">
+            <div class="flight-stage-card rounded-3xl">
+                <!-- Candy Cane Top Accent Border -->
+                <div class="candy-cane-strip w-full"></div>
+
+                <div class="flight-canvas-wrap" id="flightCanvasWrap">
+                    <canvas id="flightCanvas"></canvas>
+
+                    <!-- WAITING PHASE OVERLAY (COUNTDOWN BAR) -->
+                    <div id="waitingOverlay" class="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none px-4">
+                        <div class="bg-[#070d1e]/80 backdrop-blur-sm border border-[#f5c542]/50 rounded-3xl px-5 py-3.5 text-center shadow-2xl max-w-xs w-full">
+                            <div class="text-xs sm:text-sm font-black tracking-widest text-[#f5c542] uppercase">
+                                🎅 CHỜ CẤT CÁNH...
+                            </div>
+                            <div id="waitTimerText" class="font-mono-num text-2xl sm:text-3xl font-extrabold text-white mt-0.5">
+                                5.0s
+                            </div>
+                            <div class="w-full h-3 rounded-full bg-slate-900 border border-[#f5c542]/50 overflow-hidden mt-2">
+                                <div id="waitProgressBar" class="h-full candy-cane-progress rounded-full transition-none" style="width: 100%;"></div>
+                            </div>
+                            <div class="text-[10px] font-semibold text-slate-300 mt-1.5">
+                                Đặt cược ngay trước khi xe tuần lộc bay!
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FLYING & CRASHED CENTER MULTIPLIER DISPLAY -->
+                    <div id="multiplierOverlay" class="hidden absolute inset-0 z-10 flex-col items-center justify-center pointer-events-none px-3">
+                        <div id="crashedLabel" class="hidden mb-1 px-4 py-1 rounded-full bg-rose-600/95 border border-rose-200 text-white font-black text-xs sm:text-base tracking-widest uppercase shadow-lg">
+                            💥 BAY MẤT TIÊU!
+                        </div>
+                        <div id="multiplierText" class="font-mono-num text-5xl sm:text-7xl font-extrabold tracking-tight text-white drop-shadow-[0_6px_22px_rgba(0,0,0,0.85)] transition-transform duration-75">
+                            1.00x
+                        </div>
+                    </div>
+
+                    <!-- Subtle Round ID / Phase Tag Top-Left -->
+                    <div class="absolute top-2.5 left-3 z-10 pointer-events-none flex items-center gap-1.5">
+                        <span id="phaseDot" class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                        <span id="roundTag" class="text-[10px] font-extrabold text-slate-300/90 bg-[#070d1e]/75 px-2 py-0.5 rounded-full border border-white/10">
+                            Phiên #1024
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. TWO INDEPENDENT BETTING PANELS (CƯỢC 1 & CƯỢC 2) -->
+        <section class="px-3 mt-2.5 grid grid-cols-1 md:grid-cols-2 gap-2.5" id="betPanelsGrid">
+            <!-- Rendered cleanly via JS for Panel 0 (CƯỢC 1) and Panel 1 (CƯỢC 2) -->
+        </section>
+
+        <!-- 7. LIVE BOTS & CHAT TABS -->
+        <section class="px-3 mt-3">
+            <div class="glass-card rounded-3xl overflow-hidden">
+                <!-- Tab Bar -->
+                <div class="grid grid-cols-2 bg-[#070d1e]/75 p-1.5 gap-1.5 border-b border-[#f5c542]/20">
+                    <button id="tabBetsBtn" class="btn-press py-2 px-3 rounded-2xl text-xs font-black tracking-wide bg-gradient-to-r from-rose-600 to-red-700 text-white border border-[#f5c542]/70 shadow">
+                        👥 Cược Trực Tiếp (<span id="liveBettorCount">14</span>)
+                    </button>
+                    <button id="tabChatBtn" class="btn-press py-2 px-3 rounded-2xl text-xs font-extrabold tracking-wide bg-slate-900/75 text-slate-300 border border-slate-700/70 flex items-center justify-center gap-1.5">
+                        <span>💬 Chat Sòng</span>
+                        <span id="chatUnreadBadge" class="hidden px-1.5 py-0.5 rounded-full bg-rose-600 text-white text-[9px] font-black">Mới</span>
+                    </button>
+                </div>
+
+                <!-- TAB 1: LIVE BETS LIST -->
+                <div id="tabBetsContent" class="p-2.5">
+                    <div class="flex items-center justify-between text-[11px] font-bold text-slate-300 px-1 pb-2 border-b border-white/10">
+                        <span>Tổng cược phiên: <b id="totalPoolDisplay" class="text-[#f5c542] font-mono-num">0đ</b></span>
+                        <span class="text-emerald-400">Đã chốt: <b id="cashedOutCountDisplay">0</b></span>
+                    </div>
+                    <div class="grid grid-cols-12 text-[10px] font-bold text-slate-400 uppercase px-2 py-1.5">
+                        <span class="col-span-4">Người chơi</span>
+                        <span class="col-span-3 text-right">Cược</span>
+                        <span class="col-span-2 text-center">Mốc x</span>
+                        <span class="col-span-3 text-right">Ăn tiền</span>
+                    </div>
+                    <div id="liveBetsList" class="max-h-60 overflow-y-auto thin-scroll flex flex-col gap-1 pr-0.5">
+                        <!-- Rendered dynamically -->
+                    </div>
+                </div>
+
+                <!-- TAB 2: CHAT SÒNG -->
+                <div id="tabChatContent" class="hidden">
+                    <div id="chatMessages" class="h-60 overflow-y-auto thin-scroll p-3 flex flex-col gap-2 text-xs bg-[#060b19]/75">
+                        <!-- Chat rows rendered dynamically -->
+                    </div>
+                    <form id="chatForm" class="p-2 flex items-center gap-1.5 bg-[#0a132a] border-t border-white/10">
+                        <input
+                            id="chatInput"
+                            type="text"
+                            maxlength="120"
+                            placeholder="Gáy với anh em trong sòng Noel..."
+                            class="flex-1 bg-[#060b19] border border-slate-700 focus:border-[#f5c542] focus:outline-none rounded-xl px-3 py-2 text-xs text-white"
+                        />
+                        <button type="submit" class="btn-press px-4 py-2 rounded-xl bg-[#f5c542] text-slate-950 font-black text-xs">
+                            Gửi
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-[10px] text-slate-500 mt-4 px-4">
+            NamKyBet Aviator Noel Edition • Game mô phỏng giải trí bằng tiền ảo, không quy đổi tiền thật.
+        </footer>
+    </div>
+
+    <!-- =====================================================================
+         SECRET PASSWORD PROMPT MODAL (CLICK "TND" IN TOP-RIGHT CORNER)
+    ===================================================================== -->
+    <div id="adminPassModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-md p-4">
+        <div id="adminPassBox" class="w-full max-w-xs rounded-3xl bg-[#070d1e] border-2 border-slate-700 p-5 shadow-2xl pop-in">
+            <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-black tracking-widest text-slate-400 uppercase">TND ACCESS</span>
+                <button id="closePassBtn" class="w-7 h-7 rounded-full bg-slate-800 text-slate-300 text-xs font-bold">✕</button>
+            </div>
+            <form id="adminPassForm" class="space-y-3">
+                <input
+                    id="adminPassInput"
+                    type="password"
+                    autocomplete="off"
+                    placeholder="Nhập mật khẩu..."
+                    class="w-full bg-black border border-slate-700 focus:border-[#f5c542] focus:outline-none rounded-xl px-3.5 py-2.5 text-sm font-bold text-white"
+                />
+                <div id="adminPassError" class="text-[11px] font-bold text-rose-400 hidden">
+                    ❌ Sai mật khẩu truy cập!
+                </div>
+                <button type="submit" class="btn-press w-full py-2.5 rounded-xl bg-gradient-to-r from-[#f5c542] to-amber-500 text-slate-950 font-black text-xs uppercase tracking-wider">
+                    Xác Nhận
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         SECRET ADMIN CONTROL PANEL (UNLOCKED WITH "memaybeo123")
+         Zero trace left on main UI when closed!
+    ===================================================================== -->
+    <div id="adminModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/85 backdrop-blur-md p-3">
+        <div class="w-full max-w-md rounded-3xl bg-gradient-to-b from-slate-900 via-[#091124] to-black border-2 border-[#f5c542]/85 p-4 shadow-2xl max-h-[92vh] overflow-y-auto thin-scroll">
+            <div class="flex items-start justify-between border-b border-[#f5c542]/30 pb-2.5 gap-2">
+                <div>
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <span class="text-[10px] font-bold text-rose-400 uppercase tracking-widest">TND BACKDOOR</span>
+                        <span id="adminOverrideBadge" class="text-[10px] font-black px-2 py-0.5 rounded-full bg-emerald-950 border border-emerald-400/60 text-emerald-300">
+                            Đang chạy: Auto (Thuật toán)
+                        </span>
+                    </div>
+                    <h2 class="text-base font-black text-[#f5c542] tracking-wide mt-0.5">
+                        👑 ADMIN CONTROL PANEL
+                    </h2>
+                </div>
+                <button id="closeAdminTopBtn" class="w-8 h-8 rounded-full bg-slate-800 text-slate-300 font-bold shrink-0">✕</button>
+            </div>
+
+            <!-- 1. EMERGENCY MID-FLIGHT CRASH BUTTON -->
+            <div class="mt-3">
+                <button id="emergencyCrashBtn" class="btn-press w-full py-3 px-4 rounded-2xl bg-gradient-to-r from-rose-700 via-red-600 to-rose-700 border-2 border-rose-300 text-white font-black text-xs sm:text-sm tracking-wider shadow-lg">
+                    💥 CHO NỔ NGAY LẬP TỨC!
+                </button>
+                <div id="emergencyStatusHint" class="text-[10px] text-center text-slate-400 mt-1">
+                    Bấm khi xe tuần lộc đang bay để hốt sạch tiền trên bàn ngay lập tức.
+                </div>
+            </div>
+
+            <!-- 2. FORCE NEXT ROUND CRASH POINT -->
+            <div class="mt-3 bg-slate-900/85 p-3 rounded-2xl border border-[#f5c542]/25">
+                <div class="text-xs font-extrabold text-yellow-200 mb-2">🎯 Ép Điểm Nổ Ván Kế Tiếp (1 ván):</div>
+                <div class="grid grid-cols-2 gap-1.5">
+                    <button data-preset="auto" class="admin-preset-btn btn-press col-span-2 py-2 px-2.5 rounded-xl border text-xs font-black">🤖 Auto (Thuật toán)</button>
+                    <button data-preset="1.00" class="admin-preset-btn btn-press py-2 px-2.5 rounded-xl border text-xs font-black">💥 Nổ ngay 1.00x</button>
+                    <button data-preset="1.25" class="admin-preset-btn btn-press py-2 px-2.5 rounded-xl border text-xs font-black">😈 Nổ non 1.25x</button>
+                    <button data-preset="10.00" class="admin-preset-btn btn-press py-2 px-2.5 rounded-xl border text-xs font-black">🔥 Bay cao 10.00x</button>
+                    <button data-preset="50.00" class="admin-preset-btn btn-press py-2 px-2.5 rounded-xl border text-xs font-black">🚀 Tới nóc 50.00x</button>
+                </div>
+
+                <div class="flex gap-1.5 mt-2.5">
+                    <input
+                        id="adminCustomCrashInput"
+                        type="number"
+                        step="0.01"
+                        min="1.00"
+                        max="500"
+                        placeholder="Nhập mốc x tùy chỉnh (vd: 3.69)"
+                        class="flex-1 bg-black border border-[#f5c542]/45 rounded-xl px-3 py-2 text-xs font-bold text-[#f5c542] focus:outline-none focus:border-[#f5c542]"
+                    />
+                    <button id="adminApplyCustomCrashBtn" class="btn-press px-3.5 py-2 rounded-xl bg-[#f5c542] text-slate-950 font-black text-xs">
+                        Áp dụng
+                    </button>
+                </div>
+            </div>
+
+            <!-- 3. TWO RIGGING SLIDERS -->
+            <div class="mt-3 bg-slate-900/85 p-3 rounded-2xl border border-[#f5c542]/25 space-y-3">
+                <div>
+                    <div class="flex items-center justify-between text-xs font-extrabold mb-1">
+                        <span class="text-yellow-200">🎯 Tỉ lệ bịp cược nhỏ (&lt; 500K):</span>
+                        <span id="rigSmallVal" class="text-emerald-400 text-sm font-black font-mono-num">10%</span>
+                    </div>
+                    <input id="rigSmallSlider" type="range" min="0" max="100" value="10" class="w-full accent-emerald-400 cursor-pointer">
+                </div>
+
+                <div class="pt-2 border-t border-slate-800">
+                    <div class="flex items-center justify-between text-xs font-extrabold mb-1">
+                        <span class="text-yellow-200">🔥 Tỉ lệ bịp cược to (&gt;= 500K):</span>
+                        <span id="rigBigVal" class="text-rose-400 text-sm font-black font-mono-num">30%</span>
+                    </div>
+                    <input id="rigBigSlider" type="range" min="0" max="100" value="30" class="w-full accent-rose-500 cursor-pointer">
+                </div>
+            </div>
+
+            <!-- 4. WALLET MANAGER -->
+            <div class="mt-3 bg-slate-900/85 p-3 rounded-2xl border border-[#f5c542]/25">
+                <div class="text-xs font-extrabold text-yellow-200 mb-2">💵 Quản Lý Ví Tiền:</div>
+                <div class="flex gap-2">
+                    <input
+                        id="adminBalInput"
+                        type="number"
+                        min="0"
+                        step="10000"
+                        placeholder="Nhập số tiền VND..."
+                        class="flex-1 bg-black border border-[#f5c542]/45 rounded-xl px-3 py-2 text-xs font-bold text-[#f5c542] focus:outline-none focus:border-[#f5c542]"
+                    />
+                    <button id="adminSetBalBtn" class="btn-press px-3.5 py-2 rounded-xl bg-[#f5c542] text-slate-950 font-black text-xs">
+                        Set Tiền
+                    </button>
+                </div>
+                <div class="grid grid-cols-3 gap-1.5 mt-2">
+                    <button id="adminAdd10M" class="btn-press py-2 rounded-xl bg-emerald-950 border border-emerald-500/50 text-[11px] font-extrabold text-emerald-300">+10 Củ</button>
+                    <button id="adminAdd50M" class="btn-press py-2 rounded-xl bg-amber-950 border border-amber-500/50 text-[11px] font-extrabold text-amber-300">+50 Củ</button>
+                    <button id="adminSetZero" class="btn-press py-2 rounded-xl bg-rose-950 border border-rose-500/50 text-[11px] font-extrabold text-rose-300">Set 0đ</button>
+                </div>
+            </div>
+
+            <button id="hideAdminBtn" class="btn-press w-full mt-4 py-3 rounded-xl bg-gradient-to-r from-[#f5c542] to-amber-500 text-slate-950 font-black text-xs uppercase tracking-wider">
+                🔒 Đóng &amp; Ẩn Sạch Dấu Vết
+            </button>
+        </div>
+    </div>
+
+    <script>
+        /* =====================================================================
+           NAMKYBET - AVIATOR GIÁNG SINH (SANTA CRASH ENGINE)
+           Single-File HTML5 Canvas + Web Audio API + Delta-Time Normalized Loop
+        ===================================================================== */
+        (() => {
+            'use strict';
+
+            /* -----------------------------------------------------------------
+               1. CONSTANTS, BOT POOL & INITIAL HISTORY
+            ----------------------------------------------------------------- */
+            const STORAGE_KEY = 'namkybet_aviator_noel_v1';
+            const SHARED_BALANCE_KEY = 'namkybet_balance';
+            const SHARED_USERNAME_KEY = 'namkybet_username';
+            const ADMIN_PASS = 'memaybeo123';
+            const STARTING_BALANCE = 20_000_000;
+            const MIN_BET = 10_000;
+            const BAILOUT_THRESHOLD = 100_000;
+            const BAILOUT_AMOUNT = 10_000_000;
+            const BIG_BET_THRESHOLD = 500_000;
+            const WAIT_DURATION = 5.0;   // seconds
+            const CRASH_DURATION = 3.2;  // seconds
+            const MAX_MULTIPLIER = 150.00;
+
+            const PRESET_CHIPS = [
+                { label: '100K', val: 100_000 },
+                { label: '200K', val: 200_000 },
+                { label: '500K', val: 500_000 },
+                { label: '1M',   val: 1_000_000 },
+                { label: '5M',   val: 5_000_000 }
+            ];
+
+            const INITIAL_HISTORY = [
+                2.45, 1.18, 14.82, 1.64, 3.90, 1.03,
+                6.25, 1.41, 22.60, 1.92, 4.15, 1.00
+            ];
+
+            const BOT_PLAYERS = [
+                'TuanAnh_2k9', 'BaoLong_SG', 'HoangNam99', 'MinhQuan_VIP',
+                'LinhNhi_2k8', 'DatCuchi', 'KhaBanhFake', 'CuongAllIn',
+                'ThaoNoel26', 'HuyPhiCong', 'DucBinhChanh', 'TrangHupHu',
+                'KhangGongLai', 'NamKyPro'
+            ];
+
+            const BOT_CHAT_IDLE = [
+                'Ông già Noel nay bay êm quá, nãy giờ húp 3 tay 2.5x rồi 🎅🔥',
+                'Ai bật Auto Rút 1.50x cày cơm gạo như tao không?',
+                'Cầu tím đang đẹp vãi, tay sau gồng thử lên 10x xem sao 🚀',
+                'Đặt 2 tay đi anh em: tay 1 chốt 1.8x hoàn vốn, tay 2 thả trôi săn hũ!',
+                'Đêm Noel lạnh mà nhìn hệ số chạy tim đập thình thịch ❄️',
+                'Cháy túi có nút Báo Nhà +10 củ lo rồi, sợ đếch gì 🆘',
+                'Con tuần lộc này cứ thấy tao đánh 1 củ là đòi nổ non 😭',
+                'Mới thấy có ông chốt 18x xong, ước gì tới lượt mình!'
+            ];
+
+            const BAILOUT_TOASTS = [
+                '🎅 Bố mẹ vừa bán mảnh đất gửi thêm 10 củ ăn Noel!',
+                '🏠 Ông già Noel vừa ứng nóng 10 củ tiền lì xì, gồng cho khôn nhé!',
+                '💸 Gia đình đã chuyển khoản 10 củ cứu trợ, chốt lời sớm đừng tham!'
+            ];
+
+            /* -----------------------------------------------------------------
+               2. GAME STATE
+            ----------------------------------------------------------------- */
+            const state = {
+                balance: STARTING_BALANCE,
+                roundId: 1024,
+                phase: 'WAITING', // 'WAITING' | 'FLYING' | 'CRASHED'
+                phaseTime: 0,
+                countdownLeft: WAIT_DURATION,
+                currentMult: 1.00,
+                crashPoint: 2.00,
+                lastTickSecond: 5,
+                muted: false,
+                activeTab: 'bets', // 'bets' | 'chat'
+                history: [...INITIAL_HISTORY],
+                // Two completely independent betting panels
+                panels: [
+                    {
+                        id: 0,
+                        label: 'CƯỢC 1',
+                        betAmount: 100_000,
+                        autoBet: false,
+                        autoCashout: false,
+                        autoTarget: 2.00,
+                        status: 'idle', // 'idle' | 'placed' | 'active' | 'queued'
+                        placedBet: 0,
+                        queuedBet: 0,
+                        cashedOutThisRound: false,
+                        cashedMult: 0,
+                        cashedPayout: 0
+                    },
+                    {
+                        id: 1,
+                        label: 'CƯỢC 2',
+                        betAmount: 200_000,
+                        autoBet: false,
+                        autoCashout: true,
+                        autoTarget: 2.00,
+                        status: 'idle',
+                        placedBet: 0,
+                        queuedBet: 0,
+                        cashedOutThisRound: false,
+                        cashedMult: 0,
+                        cashedPayout: 0
+                    }
+                ],
+                bots: [],
+                // Secret Admin Control settings
+                admin: {
+                    nextCrashOverride: null, // null = Auto, or exact number >= 1.00
+                    rigSmallPct: 10,         // < 500K
+                    rigBigPct: 30            // >= 500K
+                }
+            };
+
+            /* -----------------------------------------------------------------
+               3. CANVAS ANIMATION STATE
+            ----------------------------------------------------------------- */
+            const fx = {
+                time: 0,
+                beamAngle: 0,
+                sleighX: 0,
+                sleighY: 0,
+                sleighAngle: 0,
+                crashFlyX: 0,
+                crashFlyY: 0,
+                crashFlyVx: 0,
+                crashFlyVy: 0,
+                exhaust: [],
+                explosions: [],
+                stars: [],
+                clouds: [],
+                snow: [],
+                confetti: []
+            };
+
+            /* -----------------------------------------------------------------
+               4. WEB AUDIO API SYNTHESIZER (ZERO EXTERNAL SOUND FILES)
+            ----------------------------------------------------------------- */
+            class AudioEngine {
+                constructor() { this.ctx = null; }
+
+                unlock() {
+                    try {
+                        if (!this.ctx) {
+                            const AC = window.AudioContext || window.webkitAudioContext;
+                            if (AC) this.ctx = new AC();
+                        }
+                        if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume();
+                    } catch (_) {}
+                }
+
+                ready() {
+                    if (state.muted) return false;
+                    this.unlock();
+                    return !!this.ctx;
+                }
+
+                playClick() {
+                    if (!this.ready()) return;
+                    const t = this.ctx.currentTime;
+                    const osc = this.ctx.createOscillator();
+                    const g = this.ctx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(1020, t);
+                    osc.frequency.exponentialRampToValueAtTime(520, t + 0.035);
+                    g.gain.setValueAtTime(0.11, t);
+                    g.gain.exponentialRampToValueAtTime(0.001, t + 0.04);
+                    osc.connect(g); g.connect(this.ctx.destination);
+                    osc.start(t); osc.stop(t + 0.045);
+                }
+
+                playCountdownTick() {
+                    if (!this.ready()) return;
+                    const t = this.ctx.currentTime;
+                    const osc = this.ctx.createOscillator();
+                    const g = this.ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(660, t);
+                    osc.frequency.exponentialRampToValueAtTime(440, t + 0.05);
+                    g.gain.setValueAtTime(0.08, t);
+                    g.gain.exponentialRampToValueAtTime(0.001, t + 0.06);
+                    osc.connect(g); g.connect(this.ctx.destination);
+                    osc.start(t); osc.stop(t + 0.065);
+                }
+
+                playTakeoff() {
+                    if (!this.ready()) return;
+                    const t = this.ctx.currentTime;
+                    // Smooth rising turbine whoosh
+                    const osc = this.ctx.createOscillator();
+                    const g = this.ctx.createGain();
+                    osc.type = 'sawtooth';
+                    const lp = this.ctx.createBiquadFilter();
+                    lp.type = 'lowpass';
+                    lp.frequency.setValueAtTime(240, t);
+                    lp.frequency.exponentialRampToValueAtTime(1400, t + 0.45);
+                    osc.frequency.setValueAtTime(110, t);
+                    osc.frequency.exponentialRampToValueAtTime(320, t + 0.45);
+                    g.gain.setValueAtTime(0.09, t);
+                    g.gain.exponentialRampToValueAtTime(0.001, t + 0.5);
+                    osc.connect(lp); lp.connect(g); g.connect(this.ctx.destination);
+                    osc.start(t); osc.stop(t + 0.52);
+
+                    // Subtle festive sleigh bell
+                    const bell = this.ctx.createOscillator();
+                    const bg = this.ctx.createGain();
+                    bell.type = 'sine';
+                    bell.frequency.setValueAtTime(2637, t + 0.04);
+                    bg.gain.setValueAtTime(0.07, t + 0.04);
+                    bg.gain.exponentialRampToValueAtTime(0.001, t + 0.25);
+                    bell.connect(bg); bg.connect(this.ctx.destination);
+                    bell.start(t + 0.04); bell.stop(t + 0.27);
+                }
+
+                playCashout() {
+                    if (!this.ready()) return;
+                    const t = this.ctx.currentTime;
+                    [880, 1174.66, 1567.98].forEach((f, idx) => {
+                        const osc = this.ctx.createOscillator();
+                        const g = this.ctx.createGain();
+                        osc.type = 'triangle';
+                        osc.frequency.setValueAtTime(f, t + idx * 0.055);
+                        g.gain.setValueAtTime(0.16, t + idx * 0.055);
+                        g.gain.exponentialRampToValueAtTime(0.001, t + idx * 0.055 + 0.22);
+                        osc.connect(g); g.connect(this.ctx.destination);
+                        osc.start(t + idx * 0.055); osc.stop(t + idx * 0.055 + 0.24);
+                    });
+                }
+
+                playBigWinJingle() {
+                    if (!this.ready()) return;
+                    const t = this.ctx.currentTime;
+                    const notes = [
+                        { f: 659.25, s: 0.00, d: 0.10 },
+                        { f: 659.25, s: 0.11, d: 0.10 },
+                        { f: 659.25, s: 0.22, d: 0.20 },
+                        { f: 659.25, s: 0.44, d: 0.10 },
+                        { f: 783.99, s: 0.55, d: 0.10 },
+                        { f: 523.25, s: 0.66, d: 0.12 },
+                        { f: 587.33, s: 0.80, d: 0.10 },
+                        { f: 659.25, s: 0.91, d: 0.34 }
+                    ];
+                    notes.forEach(n => {
+                        const osc = this.ctx.createOscillator();
+                        const g = this.ctx.createGain();
+                        osc.type = 'triangle';
+                        osc.frequency.setValueAtTime(n.f, t + n.s);
+                        g.gain.setValueAtTime(0.18, t + n.s);
+                        g.gain.exponentialRampToValueAtTime(0.001, t + n.s + n.d);
+                        osc.connect(g); g.connect(this.ctx.destination);
+                        osc.start(t + n.s); osc.stop(t + n.s + n.d + 0.02);
+                    });
+                }
+
+                playCrash() {
+                    if (!this.ready()) return;
+                    const t = this.ctx.currentTime;
+
+                    // Explosion sub boom
+                    const sub = this.ctx.createOscillator();
+                    const sg = this.ctx.createGain();
+                    sub.type = 'sawtooth';
+                    sub.frequency.setValueAtTime(160, t);
+                    sub.frequency.exponentialRampToValueAtTime(28, t + 0.38);
+                    sg.gain.setValueAtTime(0.28, t);
+                    sg.gain.exponentialRampToValueAtTime(0.001, t + 0.4);
+                    sub.connect(sg); sg.connect(this.ctx.destination);
+                    sub.start(t); sub.stop(t + 0.42);
+
+                    // Filtered noise puff
+                    const len = Math.floor(this.ctx.sampleRate * 0.28);
+                    const buf = this.ctx.createBuffer(1, len, this.ctx.sampleRate);
+                    const d = buf.getChannelData(0);
+                    for (let i = 0; i < len; i++) {
+                        d[i] = (Math.random() * 2 - 1) * Math.exp(-i / (len * 0.28));
+                    }
+                    const noise = this.ctx.createBufferSource();
+                    noise.buffer = buf;
+                    const lp = this.ctx.createBiquadFilter();
+                    lp.type = 'lowpass';
+                    lp.frequency.value = 900;
+                    const ng = this.ctx.createGain();
+                    ng.gain.setValueAtTime(0.24, t);
+                    ng.gain.exponentialRampToValueAtTime(0.001, t + 0.28);
+                    noise.connect(lp); lp.connect(ng); ng.connect(this.ctx.destination);
+                    noise.start(t);
+
+                    // Downward fly-away synth whistle
+                    const wh = this.ctx.createOscillator();
+                    const wg = this.ctx.createGain();
+                    wh.type = 'sine';
+                    wh.frequency.setValueAtTime(920, t + 0.05);
+                    wh.frequency.exponentialRampToValueAtTime(210, t + 0.48);
+                    wg.gain.setValueAtTime(0.11, t + 0.05);
+                    wg.gain.exponentialRampToValueAtTime(0.001, t + 0.5);
+                    wh.connect(wg); wg.connect(this.ctx.destination);
+                    wh.start(t + 0.05); wh.stop(t + 0.52);
+                }
+            }
+
+            const sfx = new AudioEngine();
+
+            /* -----------------------------------------------------------------
+               5. DOM REFERENCES
+            ----------------------------------------------------------------- */
+            const el = {
+                backLobbyBtn: document.getElementById('backLobbyBtn'),
+                snowCanvas: document.getElementById('snowCanvas'),
+                confettiCanvas: document.getElementById('confettiCanvas'),
+                flightCanvasWrap: document.getElementById('flightCanvasWrap'),
+                flightCanvas: document.getElementById('flightCanvas'),
+                balanceDisplay: document.getElementById('balanceDisplay'),
+                soundBtn: document.getElementById('soundBtn'),
+                tndLogoBtn: document.getElementById('tndLogoBtn'),
+                bailoutBanner: document.getElementById('bailoutBanner'),
+                bailoutBtn: document.getElementById('bailoutBtn'),
+                historyBar: document.getElementById('historyBar'),
+                waitingOverlay: document.getElementById('waitingOverlay'),
+                waitTimerText: document.getElementById('waitTimerText'),
+                waitProgressBar: document.getElementById('waitProgressBar'),
+                multiplierOverlay: document.getElementById('multiplierOverlay'),
+                crashedLabel: document.getElementById('crashedLabel'),
+                multiplierText: document.getElementById('multiplierText'),
+                phaseDot: document.getElementById('phaseDot'),
+                roundTag: document.getElementById('roundTag'),
+                betPanelsGrid: document.getElementById('betPanelsGrid'),
+                tabBetsBtn: document.getElementById('tabBetsBtn'),
+                tabChatBtn: document.getElementById('tabChatBtn'),
+                tabBetsContent: document.getElementById('tabBetsContent'),
+                tabChatContent: document.getElementById('tabChatContent'),
+                liveBettorCount: document.getElementById('liveBettorCount'),
+                totalPoolDisplay: document.getElementById('totalPoolDisplay'),
+                cashedOutCountDisplay: document.getElementById('cashedOutCountDisplay'),
+                liveBetsList: document.getElementById('liveBetsList'),
+                chatUnreadBadge: document.getElementById('chatUnreadBadge'),
+                chatMessages: document.getElementById('chatMessages'),
+                chatForm: document.getElementById('chatForm'),
+                chatInput: document.getElementById('chatInput'),
+                toastContainer: document.getElementById('toastContainer'),
+                // Secret Password & Admin Modals
+                adminPassModal: document.getElementById('adminPassModal'),
+                adminPassBox: document.getElementById('adminPassBox'),
+                adminPassForm: document.getElementById('adminPassForm'),
+                adminPassInput: document.getElementById('adminPassInput'),
+                adminPassError: document.getElementById('adminPassError'),
+                closePassBtn: document.getElementById('closePassBtn'),
+                adminModal: document.getElementById('adminModal'),
+                adminOverrideBadge: document.getElementById('adminOverrideBadge'),
+                emergencyCrashBtn: document.getElementById('emergencyCrashBtn'),
+                emergencyStatusHint: document.getElementById('emergencyStatusHint'),
+                adminCustomCrashInput: document.getElementById('adminCustomCrashInput'),
+                adminApplyCustomCrashBtn: document.getElementById('adminApplyCustomCrashBtn'),
+                rigSmallSlider: document.getElementById('rigSmallSlider'),
+                rigSmallVal: document.getElementById('rigSmallVal'),
+                rigBigSlider: document.getElementById('rigBigSlider'),
+                rigBigVal: document.getElementById('rigBigVal'),
+                adminBalInput: document.getElementById('adminBalInput'),
+                adminSetBalBtn: document.getElementById('adminSetBalBtn'),
+                adminAdd10M: document.getElementById('adminAdd10M'),
+                adminAdd50M: document.getElementById('adminAdd50M'),
+                adminSetZero: document.getElementById('adminSetZero'),
+                closeAdminTopBtn: document.getElementById('closeAdminTopBtn'),
+                hideAdminBtn: document.getElementById('hideAdminBtn')
+            };
+
+            const fCtx = el.flightCanvas.getContext('2d');
+            const snowCtx = el.snowCanvas.getContext('2d');
+            const confCtx = el.confettiCanvas.getContext('2d');
+
+            let flightW = 420;
+            let flightH = 260;
+
+            /* -----------------------------------------------------------------
+               6. UTILITIES: CRYPTO RNG, FORMATTERS, STORAGE, TOASTS
+            ----------------------------------------------------------------- */
+            function getPlayerName() {
+                try {
+                    const n = localStorage.getItem(SHARED_USERNAME_KEY);
+                    if (n && n.trim()) return n.trim();
+                } catch (_) {}
+                return 'Bạn (VIP)';
+            }
+
+            function secureRand() {
+                if (window.crypto && window.crypto.getRandomValues) {
+                    const buf = new Uint32Array(1);
+                    window.crypto.getRandomValues(buf);
+                    return buf[0] / 4294967296;
+                }
+                return Math.random();
+            }
+
+            function secureInt(min, max) {
+                return min + Math.floor(secureRand() * (max - min + 1));
+            }
+
+            function formatDots(num) {
+                const safe = Math.max(0, Math.floor(Number(num) || 0));
+                return String(safe).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+            }
+
+            function formatVND(num) {
+                return formatDots(num) + 'đ';
+            }
+
+            function formatMult(val) {
+                return (Math.max(1, Number(val) || 1)).toFixed(2) + 'x';
+            }
+
+            function showToast(msg, type = 'info', duration = 3000) {
+                const styles = {
+                    info: 'bg-[#0b1530]/95 border-[#f5c542]/80 text-yellow-100',
+                    win:  'bg-emerald-950/95 border-emerald-400 text-emerald-200',
+                    loss: 'bg-rose-950/95 border-rose-400 text-rose-200',
+                    warn: 'bg-amber-950/95 border-amber-400 text-amber-200'
+                };
+                const div = document.createElement('div');
+                div.className = `pointer-events-auto px-4 py-2.5 rounded-2xl border-2 text-xs sm:text-sm font-extrabold shadow-2xl text-center pop-in ${styles[type] || styles.info}`;
+                div.textContent = msg;
+                el.toastContainer.appendChild(div);
+                setTimeout(() => {
+                    div.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                    div.style.opacity = '0';
+                    div.style.transform = 'translateY(-10px)';
+                    setTimeout(() => div.remove(), 320);
+                }, duration);
+            }
+
+            function saveState() {
+                try {
+                    const cleanBal = Math.max(0, Math.floor(Number(state.balance) || 0));
+                    state.balance = cleanBal;
+                    localStorage.setItem(SHARED_BALANCE_KEY, String(cleanBal));
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+                        balance: cleanBal,
+                        history: state.history.slice(0, 20),
+                        roundId: state.roundId,
+                        muted: state.muted,
+                        admin: {
+                            rigSmallPct: state.admin.rigSmallPct,
+                            rigBigPct: state.admin.rigBigPct
+                        }
+                    }));
+                } catch (_) {}
+            }
+
+            function syncSharedBalance() {
+                try {
+                    const rawShared = localStorage.getItem(SHARED_BALANCE_KEY);
+                    if (rawShared !== null && rawShared.trim() !== '' && !Number.isNaN(Number(rawShared)) && Number(rawShared) >= 0) {
+                        state.balance = Math.floor(Number(rawShared));
+                    } else {
+                        localStorage.setItem(SHARED_BALANCE_KEY, String(Math.max(0, Math.floor(state.balance))));
+                    }
+                } catch (_) {}
+            }
+
+            function loadState() {
+                try {
+                    const raw = localStorage.getItem(STORAGE_KEY);
+                    if (raw) {
+                        const data = JSON.parse(raw);
+                        if (typeof data.balance === 'number' && data.balance >= 0) state.balance = Math.floor(data.balance);
+                        if (Array.isArray(data.history) && data.history.length > 0) state.history = data.history.slice(0, 20);
+                        if (typeof data.roundId === 'number' && data.roundId > 0) state.roundId = Math.floor(data.roundId);
+                        if (typeof data.muted === 'boolean') state.muted = data.muted;
+                        if (data.admin) {
+                            if (typeof data.admin.rigSmallPct === 'number') {
+                                state.admin.rigSmallPct = Math.max(0, Math.min(100, data.admin.rigSmallPct));
+                            }
+                            if (typeof data.admin.rigBigPct === 'number') {
+                                state.admin.rigBigPct = Math.max(0, Math.min(100, data.admin.rigBigPct));
+                            }
+                        }
+                    }
+                } catch (_) {}
+                syncSharedBalance();
+            }
+
+            /* -----------------------------------------------------------------
+               7. CRASH MATH & HOUSE EDGE ("BỊP") ALGORITHM
+            ----------------------------------------------------------------- */
+            /**
+             * Authentic smooth accelerating Aviator multiplier curve:
+             * - 1.00x at t = 0s
+             * - ~2.00x at t ~ 9.7s
+             * - ~5.00x at t ~ 18.1s
+             * - ~10.00x at t ~ 23.4s
+             */
+            function multiplierAtElapsed(sec) {
+                const raw = Math.exp(0.053 * sec + 0.00195 * sec * sec);
+                return Math.min(MAX_MULTIPLIER, Math.max(1.00, raw));
+            }
+
+            /**
+             * Pure fair heavy-tailed Aviator crash generator:
+             * ~3% instant 1.00x, else floor((0.97 / (1 - u)) * 100) / 100 capped at 150.00x
+             */
+            function generateFairCrashPoint() {
+                if (secureRand() < 0.03) return 1.00;
+                const u = Math.min(0.9999, secureRand());
+                const raw = 0.97 / (1 - u);
+                return Math.min(MAX_MULTIPLIER, Math.max(1.00, Math.floor(raw * 100) / 100));
+            }
+
+            /**
+             * Computes crash point at takeoff (WAITING -> FLYING):
+             * 1. Honors Admin one-shot crash override first.
+             * 2. If total active player bet == 0 -> pure authentic Aviator crash curve.
+             * 3. If total active player bet > 0 -> applies rigSmallPct (<500K) or rigBigPct (>=500K).
+             *    - For big bets (>=500K) when rigged: 50% chance to slyly crash right before Auto Cashout
+             *      if target is in [1.15x, 3.50x]; otherwise early crash in [1.00x, 1.45x].
+             *    - For small bets (<500K) when rigged: early crash in [1.00x, 1.22x].
+             */
+            function computeRoundCrashPoint() {
+                // 1. Check Admin one-shot forced override
+                if (state.admin.nextCrashOverride !== null) {
+                    const forced = Math.min(500, Math.max(1.00, Math.floor(state.admin.nextCrashOverride * 100) / 100));
+                    state.admin.nextCrashOverride = null;
+                    syncAdminUI();
+                    return forced;
+                }
+
+                // Sum total active player bets this round
+                let totalBet = 0;
+                const autoTargets = [];
+                state.panels.forEach(p => {
+                    if (p.status === 'active' && p.placedBet > 0) {
+                        totalBet += p.placedBet;
+                        if (p.autoCashout && p.autoTarget >= 1.15 && p.autoTarget <= 3.50) {
+                            autoTargets.push(p.autoTarget);
+                        }
+                    }
+                });
+
+                // 2. Spectator round -> pure fair authentic curve
+                if (totalBet <= 0) {
+                    return generateFairCrashPoint();
+                }
+
+                // 3. Active player round -> dual-tier house rig check
+                const isBigBet = totalBet >= BIG_BET_THRESHOLD;
+                const rigChance = isBigBet ? state.admin.rigBigPct : state.admin.rigSmallPct;
+
+                if (secureRand() * 100 < rigChance) {
+                    if (isBigBet) {
+                        // Sly Auto Cashout snipe (50% chance when player sets target 1.15x - 3.50x)
+                        if (autoTargets.length > 0 && secureRand() < 0.50) {
+                            const lowestTarget = Math.min(...autoTargets);
+                            const snipe = lowestTarget - (0.02 + secureRand() * 0.08);
+                            return Math.max(1.00, Math.floor(snipe * 100) / 100);
+                        }
+                        // Otherwise crash early between 1.00x and 1.45x
+                        const earlyBig = 1.00 + secureRand() * 0.45;
+                        return Math.max(1.00, Math.floor(earlyBig * 100) / 100);
+                    } else {
+                        // Small bet rigged: crash early between 1.00x and 1.22x
+                        const earlySmall = 1.00 + secureRand() * 0.22;
+                        return Math.max(1.00, Math.floor(earlySmall * 100) / 100);
+                    }
+                }
+
+                // Not rigged -> authentic fair heavy-tailed Aviator curve
+                return generateFairCrashPoint();
+            }
+
+            /* -----------------------------------------------------------------
+               8. TWO INDEPENDENT BETTING PANELS (BUILD & INTERACTIONS)
+            ----------------------------------------------------------------- */
+            const panelRefs = [];
+
+            function buildBetPanels() {
+                el.betPanelsGrid.innerHTML = '';
+                panelRefs.length = 0;
+
+                state.panels.forEach((p, idx) => {
+                    const card = document.createElement('div');
+                    card.className = 'glass-card rounded-3xl p-3 flex flex-col gap-2';
+                    card.innerHTML = `
+                        <!-- Panel Header & Auto Toggles -->
+                        <div class="flex items-center justify-between gap-2 flex-wrap">
+                            <span class="px-2.5 py-0.5 rounded-full bg-rose-950/90 border border-[#f5c542]/50 text-[10px] font-black text-[#f5c542] tracking-wider">
+                                ${p.label}
+                            </span>
+
+                            <div class="flex items-center gap-2.5 flex-wrap">
+                                <!-- Auto Bet Toggle -->
+                                <label class="flex items-center gap-1.5 cursor-pointer text-[10.5px] font-bold text-slate-300">
+                                    <span>Auto Cược</span>
+                                    <button type="button" id="p${idx}-autoBetBtn" class="switch-pill ${p.autoBet ? 'on' : ''}" aria-label="Bật tắt Auto Cược"></button>
+                                </label>
+
+                                <!-- Auto Cashout Toggle + Multiplier Input -->
+                                <div class="flex items-center gap-1.5">
+                                    <span class="text-[10.5px] font-bold text-slate-300">Auto Rút</span>
+                                    <button type="button" id="p${idx}-autoCashBtn" class="switch-pill ${p.autoCashout ? 'on' : ''}" aria-label="Bật tắt Auto Rút"></button>
+                                    <div class="flex items-center bg-[#060b19] border border-[#f5c542]/45 rounded-lg px-1.5 py-0.5">
+                                        <input
+                                            id="p${idx}-autoTargetInput"
+                                            type="number"
+                                            min="1.01"
+                                            max="150"
+                                            step="0.10"
+                                            value="${p.autoTarget.toFixed(2)}"
+                                            class="font-mono-num w-11 bg-transparent text-center text-[11px] font-extrabold text-[#f5c542] focus:outline-none"
+                                        />
+                                        <span class="text-[10px] font-black text-slate-400">x</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bet Stepper & Quick Chips -->
+                        <div class="grid grid-cols-12 gap-2 items-stretch">
+                            <!-- Left: Input + Chips -->
+                            <div class="col-span-12 sm:col-span-6 flex flex-col gap-1.5">
+                                <div class="flex items-center gap-1">
+                                    <button type="button" id="p${idx}-minusBtn" class="btn-press w-9 h-9 rounded-xl bg-slate-900 border border-[#f5c542]/40 text-[#f5c542] text-lg font-black flex items-center justify-center shrink-0">−</button>
+                                    <div class="flex-1 h-9 rounded-xl bg-[#060b19] border border-[#f5c542]/45 focus-within:border-[#f5c542] flex items-center px-2">
+                                        <input
+                                            id="p${idx}-betInput"
+                                            type="text"
+                                            inputmode="numeric"
+                                            autocomplete="off"
+                                            value="${formatDots(p.betAmount)}"
+                                            class="font-mono-num w-full bg-transparent text-center text-sm font-extrabold text-[#f5c542] focus:outline-none"
+                                        />
+                                        <span class="text-[10px] font-bold text-slate-400 ml-0.5">đ</span>
+                                    </div>
+                                    <button type="button" id="p${idx}-plusBtn" class="btn-press w-9 h-9 rounded-xl bg-slate-900 border border-[#f5c542]/40 text-[#f5c542] text-lg font-black flex items-center justify-center shrink-0">+</button>
+                                </div>
+
+                                <div class="grid grid-cols-3 gap-1">
+                                    ${PRESET_CHIPS.map(c => `
+                                        <button type="button" data-val="${c.val}" class="p${idx}-chip btn-press py-1 rounded-lg bg-slate-900/90 border border-slate-700/90 hover:border-[#f5c542]/60 text-[10px] font-extrabold text-slate-200">${c.label}</button>
+                                    `).join('')}
+                                    <button type="button" id="p${idx}-allInBtn" class="btn-press py-1 rounded-lg bg-gradient-to-r from-rose-700 to-amber-600 border border-[#f5c542]/70 text-[10px] font-black text-white">All-in</button>
+                                </div>
+                            </div>
+
+                            <!-- Right: Big Tactile Primary Action CTA -->
+                            <div class="col-span-12 sm:col-span-6 flex">
+                                <button type="button" id="p${idx}-actionBtn" class="btn-press cta-bet w-full min-h-[68px] rounded-2xl px-3 py-2 flex flex-col items-center justify-center leading-tight">
+                                    <span id="p${idx}-actionMain" class="text-sm sm:text-base font-black tracking-wide uppercase">ĐẶT CƯỢC</span>
+                                    <span id="p${idx}-actionSub" class="font-mono-num text-xs font-extrabold opacity-95 mt-0.5">${formatVND(p.betAmount)}</span>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+
+                    el.betPanelsGrid.appendChild(card);
+
+                    const refs = {
+                        autoBetBtn: document.getElementById(`p${idx}-autoBetBtn`),
+                        autoCashBtn: document.getElementById(`p${idx}-autoCashBtn`),
+                        autoTargetInput: document.getElementById(`p${idx}-autoTargetInput`),
+                        minusBtn: document.getElementById(`p${idx}-minusBtn`),
+                        plusBtn: document.getElementById(`p${idx}-plusBtn`),
+                        betInput: document.getElementById(`p${idx}-betInput`),
+                        allInBtn: document.getElementById(`p${idx}-allInBtn`),
+                        actionBtn: document.getElementById(`p${idx}-actionBtn`),
+                        actionMain: document.getElementById(`p${idx}-actionMain`),
+                        actionSub: document.getElementById(`p${idx}-actionSub`),
+                        chips: card.querySelectorAll(`.p${idx}-chip`)
+                    };
+                    panelRefs.push(refs);
+
+                    // Bind Panel Controls
+                    refs.autoBetBtn.addEventListener('click', () => {
+                        sfx.playClick();
+                        p.autoBet = !p.autoBet;
+                        refs.autoBetBtn.classList.toggle('on', p.autoBet);
+                        if (p.autoBet && state.phase === 'WAITING' && p.status === 'idle') {
+                            placePanelBetNow(idx, true);
+                        }
+                    });
+
+                    refs.autoCashBtn.addEventListener('click', () => {
+                        sfx.playClick();
+                        p.autoCashout = !p.autoCashout;
+                        refs.autoCashBtn.classList.toggle('on', p.autoCashout);
+                    });
+
+                    refs.autoTargetInput.addEventListener('change', () => {
+                        let v = parseFloat(refs.autoTargetInput.value);
+                        if (!Number.isFinite(v) || v < 1.01) v = 1.01;
+                        if (v > MAX_MULTIPLIER) v = MAX_MULTIPLIER;
+                        p.autoTarget = Math.floor(v * 100) / 100;
+                        refs.autoTargetInput.value = p.autoTarget.toFixed(2);
+                    });
+
+                    refs.betInput.addEventListener('input', () => {
+                        const digits = refs.betInput.value.replace(/[^\d]/g, '');
+                        if (!digits) { refs.betInput.value = ''; return; }
+                        const val = parseInt(digits, 10);
+                        if (Number.isFinite(val)) {
+                            p.betAmount = val;
+                            refs.betInput.value = formatDots(val);
+                            updatePanelButton(idx);
+                        }
+                    });
+
+                    refs.betInput.addEventListener('blur', () => {
+                        sanitizePanelBet(idx);
+                        updatePanelButton(idx);
+                    });
+
+                    refs.minusBtn.addEventListener('click', () => {
+                        if (p.status !== 'idle') return;
+                        sfx.playClick();
+                        const step = p.betAmount > 1_000_000 ? 500_000 : (p.betAmount > 100_000 ? 100_000 : 10_000);
+                        p.betAmount = Math.max(MIN_BET, p.betAmount - step);
+                        refs.betInput.value = formatDots(p.betAmount);
+                        updatePanelButton(idx);
+                    });
+
+                    refs.plusBtn.addEventListener('click', () => {
+                        if (p.status !== 'idle') return;
+                        sfx.playClick();
+                        const step = p.betAmount >= 1_000_000 ? 500_000 : (p.betAmount >= 100_000 ? 100_000 : 50_000);
+                        const cap = Math.max(MIN_BET, state.balance);
+                        p.betAmount = Math.min(cap, p.betAmount + step);
+                        refs.betInput.value = formatDots(p.betAmount);
+                        updatePanelButton(idx);
+                    });
+
+                    refs.chips.forEach(chip => {
+                        chip.addEventListener('click', () => {
+                            if (p.status !== 'idle') return;
+                            sfx.playClick();
+                            const val = parseInt(chip.dataset.val, 10) || 100_000;
+                            p.betAmount = val;
+                            refs.betInput.value = formatDots(val);
+                            updatePanelButton(idx);
+                        });
+                    });
+
+                    refs.allInBtn.addEventListener('click', () => {
+                        if (p.status !== 'idle') return;
+                        sfx.playClick();
+                        if (state.balance < MIN_BET) {
+                            showToast('Không đủ số dư tối thiểu 10K để All-in! Bấm Báo Nhà nhé 🆘', 'warn', 2200);
+                            return;
+                        }
+                        p.betAmount = state.balance;
+                        refs.betInput.value = formatDots(p.betAmount);
+                        updatePanelButton(idx);
+                    });
+
+                    refs.actionBtn.addEventListener('click', () => handlePanelPrimaryClick(idx));
+                });
+            }
+
+            function sanitizePanelBet(idx) {
+                const p = state.panels[idx];
+                const refs = panelRefs[idx];
+                const digits = (refs.betInput.value || '').replace(/[^\d]/g, '');
+                let val = parseInt(digits, 10);
+                if (!Number.isFinite(val) || val < MIN_BET) val = MIN_BET;
+                p.betAmount = val;
+                refs.betInput.value = formatDots(val);
+            }
+
+            function placePanelBetNow(idx, isAuto = false) {
+                const p = state.panels[idx];
+                sanitizePanelBet(idx);
+                if (state.balance < p.betAmount) {
+                    if (!isAuto) {
+                        showToast(
+                            state.balance < BAILOUT_THRESHOLD
+                                ? 'Cháy túi rồi! Bấm nút BÁO NHÀ (+10 CỦ) ở trên nhé 🆘'
+                                : `Không đủ số dư! Ví còn ${formatVND(state.balance)}`,
+                            'warn', 2400
+                        );
+                    }
+                    return false;
+                }
+                state.balance -= p.betAmount;
+                p.placedBet = p.betAmount;
+                p.status = 'placed';
+                p.cashedOutThisRound = false;
+                p.cashedMult = 0;
+                p.cashedPayout = 0;
+                if (!isAuto) sfx.playClick();
+                saveState();
+                renderAllUI();
+                renderLiveBets();
+                return true;
+            }
+
+            function queuePanelBetNextRound(idx) {
+                const p = state.panels[idx];
+                sanitizePanelBet(idx);
+                if (state.balance < p.betAmount) {
+                    showToast(`Không đủ số dư để đặt trước ${formatVND(p.betAmount)}!`, 'warn', 2200);
+                    return;
+                }
+                state.balance -= p.betAmount;
+                p.queuedBet = p.betAmount;
+                p.status = 'queued';
+                sfx.playClick();
+                saveState();
+                renderAllUI();
+            }
+
+            function cashoutPanel(idx, exactMult = null) {
+                const p = state.panels[idx];
+                if (state.phase !== 'FLYING' || p.status !== 'active') return;
+
+                const usedMult = exactMult !== null ? exactMult : Math.floor(state.currentMult * 100) / 100;
+                const payout = Math.floor(p.placedBet * usedMult);
+
+                state.balance += payout;
+                p.cashedOutThisRound = true;
+                p.cashedMult = usedMult;
+                p.cashedPayout = payout;
+                p.status = 'idle';
+
+                if (usedMult >= 5.0) {
+                    sfx.playBigWinJingle();
+                    launchConfetti(48);
+                } else {
+                    sfx.playCashout();
+                }
+
+                showToast(`🎉 ${p.label} CHỐT LỜI +${formatVND(payout)} @ ${formatMult(usedMult)}!`, 'win', 3200);
+                saveState();
+                renderAllUI();
+                renderLiveBets();
+            }
+
+            function handlePanelPrimaryClick(idx) {
+                sfx.unlock();
+                const p = state.panels[idx];
+
+                if (state.phase === 'WAITING') {
+                    if (p.status === 'idle') {
+                        placePanelBetNow(idx, false);
+                    } else if (p.status === 'placed') {
+                        // Cancel bet and refund
+                        state.balance += p.placedBet;
+                        p.placedBet = 0;
+                        p.status = 'idle';
+                        sfx.playClick();
+                        saveState();
+                        renderAllUI();
+                        renderLiveBets();
+                    }
+                } else if (state.phase === 'FLYING') {
+                    if (p.status === 'active') {
+                        cashoutPanel(idx, null);
+                    } else if (p.status === 'idle') {
+                        queuePanelBetNextRound(idx);
+                    } else if (p.status === 'queued') {
+                        state.balance += p.queuedBet;
+                        p.queuedBet = 0;
+                        p.status = 'idle';
+                        sfx.playClick();
+                        saveState();
+                        renderAllUI();
+                    }
+                } else if (state.phase === 'CRASHED') {
+                    if (p.status === 'idle') {
+                        queuePanelBetNextRound(idx);
+                    } else if (p.status === 'queued') {
+                        state.balance += p.queuedBet;
+                        p.queuedBet = 0;
+                        p.status = 'idle';
+                        sfx.playClick();
+                        saveState();
+                        renderAllUI();
+                    }
+                }
+            }
+
+            function updatePanelButton(idx) {
+                const p = state.panels[idx];
+                const refs = panelRefs[idx];
+                if (!refs) return;
+
+                const lockInputs = p.status !== 'idle';
+                refs.betInput.disabled = lockInputs;
+                refs.minusBtn.disabled = lockInputs;
+                refs.plusBtn.disabled = lockInputs;
+                refs.allInBtn.disabled = lockInputs;
+                refs.chips.forEach(c => c.disabled = lockInputs);
+
+                refs.actionBtn.classList.remove('cta-bet', 'cta-cancel', 'cta-cashout', 'cta-queue', 'cta-unqueue');
+
+                if (state.phase === 'WAITING') {
+                    if (p.status === 'placed') {
+                        refs.actionBtn.classList.add('cta-cancel');
+                        refs.actionMain.textContent = 'HỦY CƯỢC';
+                        refs.actionSub.textContent = `Hoàn ${formatVND(p.placedBet)}`;
+                    } else {
+                        refs.actionBtn.classList.add('cta-bet');
+                        refs.actionMain.textContent = 'ĐẶT CƯỢC';
+                        refs.actionSub.textContent = formatVND(p.betAmount);
+                    }
+                } else if (state.phase === 'FLYING') {
+                    if (p.status === 'active') {
+                        const liveWin = Math.floor(p.placedBet * state.currentMult);
+                        refs.actionBtn.classList.add('cta-cashout');
+                        refs.actionMain.textContent = 'RÚT TIỀN';
+                        refs.actionSub.textContent = formatVND(liveWin);
+                    } else if (p.status === 'queued') {
+                        refs.actionBtn.classList.add('cta-unqueue');
+                        refs.actionMain.textContent = 'HỦY ĐẶT TRƯỚC';
+                        refs.actionSub.textContent = `Ván sau: ${formatVND(p.queuedBet)}`;
+                    } else {
+                        refs.actionBtn.classList.add('cta-queue');
+                        refs.actionMain.textContent = 'ĐẶT VÁN SAU';
+                        refs.actionSub.textContent = formatVND(p.betAmount);
+                    }
+                } else {
+                    // CRASHED
+                    if (p.status === 'queued') {
+                        refs.actionBtn.classList.add('cta-unqueue');
+                        refs.actionMain.textContent = 'HỦY ĐẶT TRƯỚC';
+                        refs.actionSub.textContent = `Ván sau: ${formatVND(p.queuedBet)}`;
+                    } else {
+                        refs.actionBtn.classList.add('cta-queue');
+                        refs.actionMain.textContent = 'ĐẶT VÁN SAU';
+                        refs.actionSub.textContent = formatVND(p.betAmount);
+                    }
+                }
+            }
+
+            /* -----------------------------------------------------------------
+               9. SIMULATED LIVE BOTS & CHAT ENGINE
+            ----------------------------------------------------------------- */
+            function generateRoundBots() {
+                const betPool = [50_000, 100_000, 150_000, 200_000, 300_000, 500_000, 1_000_000, 2_000_000, 3_000_000, 5_000_000];
+                state.bots = BOT_PLAYERS.map(name => {
+                    const bet = betPool[secureInt(0, betPool.length - 1)];
+                    // Staggered realistic target cashouts
+                    const r = secureRand();
+                    let target;
+                    if (r < 0.35) target = 1.15 + secureRand() * 0.65;
+                    else if (r < 0.72) target = 1.80 + secureRand() * 2.40;
+                    else if (r < 0.92) target = 4.20 + secureRand() * 6.80;
+                    else target = 11.00 + secureRand() * 25.00;
+
+                    return {
+                        name,
+                        bet,
+                        target: Math.floor(target * 100) / 100,
+                        cashedOut: false,
+                        won: 0
+                    };
+                });
+            }
+
+            function updateBotsDuringFlight() {
+                let changed = false;
+                for (let i = 0; i < state.bots.length; i++) {
+                    const bot = state.bots[i];
+                    if (!bot.cashedOut && state.currentMult >= bot.target) {
+                        bot.cashedOut = true;
+                        bot.won = Math.floor(bot.bet * bot.target);
+                        changed = true;
+                    }
+                }
+                if (changed) renderLiveBets();
+            }
+
+            function renderLiveBets() {
+                const rows = [];
+                let totalPool = 0;
+                let cashedCount = 0;
+                let bettorCount = state.bots.length;
+
+                // Pin Player's active or cashed-out bets at the very top!
+                const myName = getPlayerName();
+                state.panels.forEach(p => {
+                    if (p.placedBet > 0 && (p.status === 'placed' || p.status === 'active' || p.cashedOutThisRound)) {
+                        bettorCount++;
+                        totalPool += p.placedBet;
+                        if (p.cashedOutThisRound) cashedCount++;
+                        rows.push({
+                            isMe: true,
+                            name: `${myName} (${p.label})`,
+                            bet: p.placedBet,
+                            cashedOut: p.cashedOutThisRound,
+                            mult: p.cashedMult,
+                            won: p.cashedPayout
+                        });
+                    }
+                });
+
+                // Add simulated Vietnamese bots
+                const sortedBots = state.bots.slice().sort((a, b) => {
+                    if (a.cashedOut !== b.cashedOut) return a.cashedOut ? -1 : 1;
+                    return b.bet - a.bet;
+                });
+
+                sortedBots.forEach(b => {
+                    totalPool += b.bet;
+                    if (b.cashedOut) cashedCount++;
+                    rows.push({
+                        isMe: false,
+                        name: b.name,
+                        bet: b.bet,
+                        cashedOut: b.cashedOut,
+                        mult: b.target,
+                        won: b.won
+                    });
+                });
+
+                el.liveBettorCount.textContent = String(bettorCount);
+                el.totalPoolDisplay.textContent = formatVND(totalPool);
+                el.cashedOutCountDisplay.textContent = String(cashedCount);
+
+                el.liveBetsList.innerHTML = rows.map(r => {
+                    const rowBg = r.cashedOut
+                        ? 'bg-emerald-950/75 border-emerald-500/50'
+                        : (r.isMe ? 'bg-amber-950/55 border-[#f5c542]/50' : 'bg-[#070d1e]/65 border-white/5');
+                    const nameColor = r.isMe ? 'text-[#f5c542] font-black' : 'text-slate-200 font-bold';
+                    const multBadge = r.cashedOut
+                        ? `<span class="px-1.5 py-0.5 rounded-md text-[10px] font-black font-mono-num ${getPillColorClass(r.mult)}">${formatMult(r.mult)}</span>`
+                        : `<span class="text-slate-500">—</span>`;
+                    const wonText = r.cashedOut
+                        ? `<span class="text-emerald-300 font-black font-mono-num">${formatVND(r.won)}</span>`
+                        : `<span class="text-slate-500">—</span>`;
+
+                    return `
+                        <div class="grid grid-cols-12 items-center px-2 py-1.5 rounded-xl border text-[11px] ${rowBg}">
+                            <span class="col-span-4 truncate ${nameColor}">${r.name}</span>
+                            <span class="col-span-3 text-right font-mono-num text-slate-300 font-semibold">${formatDots(r.bet)}</span>
+                            <span class="col-span-2 text-center">${multBadge}</span>
+                            <span class="col-span-3 text-right truncate">${wonText}</span>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            function appendChat(name, text, isMe = false) {
+                const row = document.createElement('div');
+                row.className = 'leading-snug break-words bg-[#0b1530]/60 px-2.5 py-1.5 rounded-xl border border-white/5';
+                const spanName = document.createElement('span');
+                spanName.className = isMe ? 'text-[#f5c542] font-black mr-1' : 'text-sky-300 font-bold mr-1';
+                spanName.textContent = `${name}:`;
+                const spanMsg = document.createElement('span');
+                spanMsg.className = 'text-slate-200';
+                spanMsg.textContent = text;
+                row.appendChild(spanName);
+                row.appendChild(spanMsg);
+
+                el.chatMessages.appendChild(row);
+                while (el.chatMessages.children.length > 45) {
+                    el.chatMessages.removeChild(el.chatMessages.firstChild);
+                }
+                el.chatMessages.scrollTop = el.chatMessages.scrollHeight;
+
+                if (state.activeTab !== 'chat' && !isMe) {
+                    el.chatUnreadBadge.classList.remove('hidden');
+                }
+            }
+
+            function postCrashBotReaction(crashVal) {
+                const bot = BOT_PLAYERS[secureInt(0, BOT_PLAYERS.length - 1)];
+                if (crashVal <= 1.02) {
+                    appendChat(bot, `ĐM NỔ NGAY ${formatMult(crashVal)}!! Ông già Noel điểu vãi hốt sạch cả sòng 😭💥`);
+                } else if (crashVal >= 15.0) {
+                    appendChat(bot, `Á ĐÙ BAY TỚI ${formatMult(crashVal)} LUÔN KÌA!! Ai gồng tới cuối mua mẹ xe hơi rồi 🚀🎅`);
+                } else if (crashVal >= 5.0) {
+                    appendChat(bot, `Cầu tím hồng ${formatMult(crashVal)} quá đã, vừa chốt kịp ăn Noel ấm no 🎄🔥`);
+                } else if (secureRand() < 0.45) {
+                    appendChat(bot, BOT_CHAT_IDLE[secureInt(0, BOT_CHAT_IDLE.length - 1)]);
+                }
+            }
+
+            function startAmbientChatLoop() {
+                appendChat('TuanAnh_2k9', 'Anh em vào sòng Aviator Noel làm vài vòng gỡ quà Giáng Sinh nào 🎅🎄');
+                appendChat('MinhQuan_VIP', 'Tao đặt 2 tay: tay 1 Auto Rút 2.00x cho chắc, tay 2 gồng lên mây!');
+                appendChat('DatCuchi', 'Cháy túi bấm Báo Nhà +10 củ là lại hồi sinh ngay 😂');
+
+                const schedule = () => {
+                    setTimeout(() => {
+                        const bot = BOT_PLAYERS[secureInt(0, BOT_PLAYERS.length - 1)];
+                        const msg = BOT_CHAT_IDLE[secureInt(0, BOT_CHAT_IDLE.length - 1)];
+                        appendChat(bot, msg);
+                        schedule();
+                    }, secureInt(6500, 12000));
+                };
+                schedule();
+            }
+
+            /* -----------------------------------------------------------------
+               10. ROUND STATE MACHINE (WAITING -> FLYING -> CRASHED -> LOOP)
+            ----------------------------------------------------------------- */
+            function enterWaitingPhase() {
+                state.phase = 'WAITING';
+                state.phaseTime = 0;
+                state.countdownLeft = WAIT_DURATION;
+                state.lastTickSecond = 5;
+                state.currentMult = 1.00;
+                state.roundId++;
+
+                fx.exhaust = [];
+                fx.explosions = [];
+
+                // Convert queued bets into placed bets & run Auto Bet
+                state.panels.forEach((p, idx) => {
+                    p.cashedOutThisRound = false;
+                    p.cashedMult = 0;
+                    p.cashedPayout = 0;
+
+                    if (p.status === 'queued' && p.queuedBet > 0) {
+                        p.placedBet = p.queuedBet;
+                        p.queuedBet = 0;
+                        p.status = 'placed';
+                    } else {
+                        p.placedBet = 0;
+                        p.status = 'idle';
+                        if (p.autoBet) {
+                            placePanelBetNow(idx, true);
+                        }
+                    }
+                });
+
+                generateRoundBots();
+                el.waitingOverlay.classList.remove('hidden');
+                el.multiplierOverlay.classList.add('hidden');
+                el.multiplierOverlay.classList.remove('flex');
+                el.crashedLabel.classList.add('hidden');
+                el.phaseDot.className = 'w-2 h-2 rounded-full bg-amber-400 animate-pulse';
+
+                renderAllUI();
+                renderLiveBets();
+            }
+
+            function enterFlyingPhase() {
+                state.phase = 'FLYING';
+                state.phaseTime = 0;
+                state.currentMult = 1.00;
+
+                // Lock placed bets into active bets
+                state.panels.forEach(p => {
+                    if (p.status === 'placed' && p.placedBet > 0) {
+                        p.status = 'active';
+                    }
+                });
+
+                // Compute round crash point via Crash Math & House Edge Algorithm
+                state.crashPoint = computeRoundCrashPoint();
+
+                el.waitingOverlay.classList.add('hidden');
+                el.multiplierOverlay.classList.remove('hidden');
+                el.multiplierOverlay.classList.add('flex');
+                el.crashedLabel.classList.add('hidden');
+                el.phaseDot.className = 'w-2 h-2 rounded-full bg-emerald-400 animate-ping';
+
+                sfx.playTakeoff();
+                renderAllUI();
+                renderLiveBets();
+
+                // Instant 1.00x crash check
+                if (state.crashPoint <= 1.00) {
+                    triggerCrash(1.00);
+                }
+            }
+
+            function triggerCrash(finalMult) {
+                if (state.phase !== 'FLYING') return;
+
+                state.phase = 'CRASHED';
+                state.phaseTime = 0;
+                state.currentMult = Math.max(1.00, Math.floor(finalMult * 100) / 100);
+
+                // Uncashed active bets lose automatically
+                state.panels.forEach(p => {
+                    if (p.status === 'active') {
+                        p.status = 'idle';
+                    }
+                });
+
+                // Record to History Bar (max 20)
+                state.history.unshift(state.currentMult);
+                if (state.history.length > 20) state.history.pop();
+
+                // Spawn explosion particles & launch sleigh rapidly off-screen
+                fx.crashFlyX = fx.sleighX;
+                fx.crashFlyY = fx.sleighY;
+                fx.crashFlyVx = 680;
+                fx.crashFlyVy = -320;
+                spawnCrashExplosion(fx.sleighX, fx.sleighY);
+
+                el.crashedLabel.classList.remove('hidden');
+                el.phaseDot.className = 'w-2 h-2 rounded-full bg-rose-500';
+                sfx.playCrash();
+
+                saveState();
+                renderAllUI();
+                renderHistory();
+                renderLiveBets();
+                syncAdminUI();
+
+                setTimeout(() => postCrashBotReaction(state.currentMult), 700);
+            }
+
+            /* -----------------------------------------------------------------
+               11. UI RENDERING (BALANCE, HISTORY, BÁO NHÀ, MULTIPLIER STYLE)
+            ----------------------------------------------------------------- */
+            function getPillColorClass(mult) {
+                if (mult >= 10.0) {
+                    return 'bg-gradient-to-r from-pink-600/90 to-amber-500/90 border border-yellow-200/80 text-white shadow-[0_0_10px_rgba(236,72,153,0.55)]';
+                }
+                if (mult >= 2.0) {
+                    return 'bg-purple-600/85 border border-purple-300/60 text-purple-50';
+                }
+                return 'bg-sky-600/80 border border-sky-300/55 text-sky-50';
+            }
+
+            function renderHistory() {
+                el.historyBar.innerHTML = '';
+                state.history.forEach((m, idx) => {
+                    const pill = document.createElement('span');
+                    pill.className = `shrink-0 px-2.5 py-0.5 rounded-full text-[11px] font-black font-mono-num ${getPillColorClass(m)} ${idx === 0 ? 'ring-2 ring-[#f5c542]/80' : ''}`;
+                    pill.textContent = formatMult(m);
+                    el.historyBar.appendChild(pill);
+                });
+            }
+
+            function updateMultiplierDisplay() {
+                el.multiplierText.textContent = formatMult(state.currentMult);
+
+                if (state.phase === 'CRASHED') {
+                    el.multiplierText.style.color = '#fb7185';
+                    el.multiplierText.style.textShadow = '0 0 28px rgba(225, 29, 72, 0.9), 0 4px 14px rgba(0,0,0,0.9)';
+                    el.multiplierText.style.transform = 'scale(1.04)';
+                    return;
+                }
+
+                const m = state.currentMult;
+                const subtleScale = 1 + Math.min(0.14, Math.log10(m) * 0.08);
+                el.multiplierText.style.transform = `scale(${subtleScale.toFixed(3)})`;
+
+                if (m >= 10.0) {
+                    el.multiplierText.style.color = '#fde047';
+                    el.multiplierText.style.textShadow = '0 0 32px rgba(236, 72, 153, 0.95), 0 0 16px rgba(245, 197, 66, 0.9)';
+                } else if (m >= 2.0) {
+                    el.multiplierText.style.color = '#e9d5ff';
+                    el.multiplierText.style.textShadow = '0 0 26px rgba(168, 85, 247, 0.9), 0 0 12px rgba(245, 197, 66, 0.55)';
+                } else {
+                    el.multiplierText.style.color = '#f0f9ff';
+                    el.multiplierText.style.textShadow = '0 0 20px rgba(56, 189, 248, 0.75), 0 4px 14px rgba(0,0,0,0.85)';
+                }
+            }
+
+            function checkBailoutVisibility() {
+                const anyLocked = state.panels.some(p =>
+                    p.status === 'placed' || p.status === 'active' || p.status === 'queued'
+                );
+                if (state.balance < BAILOUT_THRESHOLD && !anyLocked) {
+                    el.bailoutBanner.classList.remove('hidden');
+                } else {
+                    el.bailoutBanner.classList.add('hidden');
+                }
+            }
+
+            function renderAllUI() {
+                el.balanceDisplay.textContent = formatVND(state.balance);
+                el.soundBtn.textContent = state.muted ? '🔇' : '🔊';
+                el.roundTag.textContent = `Phiên #${state.roundId}`;
+
+                updatePanelButton(0);
+                updatePanelButton(1);
+                updateMultiplierDisplay();
+                checkBailoutVisibility();
+            }
+
+            /* -----------------------------------------------------------------
+               12. BÁO NHÀ RESCUE & CONFETTI CELEBRATION
+            ----------------------------------------------------------------- */
+            function launchConfetti(count = 75) {
+                const colors = ['#f5c542', '#e11d48', '#10b981', '#38bdf8', '#a855f7', '#ffffff'];
+                for (let i = 0; i < count; i++) {
+                    fx.confetti.push({
+                        x: Math.random() * window.innerWidth,
+                        y: -20 - Math.random() * 140,
+                        vx: (Math.random() - 0.5) * 160,
+                        vy: 140 + Math.random() * 200,
+                        w: 6 + Math.random() * 6,
+                        h: 4 + Math.random() * 5,
+                        rot: Math.random() * Math.PI * 2,
+                        vRot: (Math.random() - 0.5) * 9,
+                        color: colors[Math.floor(Math.random() * colors.length)]
+                    });
+                }
+            }
+
+            function handleBailout() {
+                sfx.unlock();
+                const anyLocked = state.panels.some(p =>
+                    p.status === 'placed' || p.status === 'active' || p.status === 'queued'
+                );
+                if (state.balance >= BAILOUT_THRESHOLD || anyLocked) return;
+
+                state.balance += BAILOUT_AMOUNT;
+                sfx.playBigWinJingle();
+                launchConfetti(85);
+                saveState();
+                renderAllUI();
+                showToast(BAILOUT_TOASTS[secureInt(0, BAILOUT_TOASTS.length - 1)], 'win', 4200);
+            }
+
+            /* -----------------------------------------------------------------
+               13. SECRET ADMIN CONTROL PANEL ("TND" -> "memaybeo123")
+            ----------------------------------------------------------------- */
+            function openPassModal() {
+                el.adminPassInput.value = '';
+                el.adminPassError.classList.add('hidden');
+                el.adminPassModal.classList.remove('hidden');
+                el.adminPassModal.classList.add('flex');
+                setTimeout(() => el.adminPassInput.focus(), 70);
+            }
+
+            function closePassModal() {
+                el.adminPassModal.classList.add('hidden');
+                el.adminPassModal.classList.remove('flex');
+                el.adminPassInput.value = '';
+            }
+
+            function syncAdminUI() {
+                const ov = state.admin.nextCrashOverride;
+
+                if (ov === null) {
+                    el.adminOverrideBadge.textContent = `Đang chạy: Auto (${state.admin.rigSmallPct}% / ${state.admin.rigBigPct}%)`;
+                    el.adminOverrideBadge.className = 'text-[10px] font-black px-2 py-0.5 rounded-full bg-emerald-950 border border-emerald-400/60 text-emerald-300';
+                } else {
+                    el.adminOverrideBadge.textContent = `Ép ván tới nổ tại: ${formatMult(ov)}`;
+                    el.adminOverrideBadge.className = 'text-[10px] font-black px-2 py-0.5 rounded-full bg-rose-950 border border-rose-400 text-yellow-200';
+                }
+
+                document.querySelectorAll('.admin-preset-btn').forEach(btn => {
+                    const pVal = btn.dataset.preset;
+                    const active = (pVal === 'auto' && ov === null) || (pVal !== 'auto' && ov !== null && Math.abs(parseFloat(pVal) - ov) < 0.005);
+                    btn.className = active
+                        ? `admin-preset-btn btn-press ${pVal === 'auto' ? 'col-span-2' : ''} py-2 px-2.5 rounded-xl border-2 text-xs font-black bg-[#f5c542] text-slate-950 border-yellow-100 shadow`
+                        : `admin-preset-btn btn-press ${pVal === 'auto' ? 'col-span-2' : ''} py-2 px-2.5 rounded-xl border text-xs font-extrabold bg-slate-950 text-slate-300 border-slate-700`;
+                });
+
+                const canEmergency = state.phase === 'FLYING';
+                el.emergencyCrashBtn.disabled = !canEmergency;
+                el.emergencyStatusHint.textContent = canEmergency
+                    ? `Xe tuần lộc đang bay ở ${formatMult(state.currentMult)} — Bấm để cho nổ ngay!`
+                    : 'Nút này sẽ sáng khi xe tuần lộc đang trong giai đoạn BAY.';
+
+                el.rigSmallSlider.value = state.admin.rigSmallPct;
+                el.rigSmallVal.textContent = `${state.admin.rigSmallPct}%`;
+                el.rigBigSlider.value = state.admin.rigBigPct;
+                el.rigBigVal.textContent = `${state.admin.rigBigPct}%`;
+                el.adminBalInput.value = state.balance;
+            }
+
+            function openAdminPanel() {
+                syncAdminUI();
+                el.adminModal.classList.remove('hidden');
+                el.adminModal.classList.add('flex');
+                sfx.playClick();
+            }
+
+            function closeAdminPanel() {
+                el.adminModal.classList.add('hidden');
+                el.adminModal.classList.remove('flex');
+                saveState();
+                renderAllUI();
+            }
+
+            /* -----------------------------------------------------------------
+               14. CANVAS INITIALIZATION & PROCEDURAL ARTWORK RENDERER
+            ----------------------------------------------------------------- */
+            function resizeAllCanvases() {
+                // Full-screen snow & confetti canvases
+                el.snowCanvas.width = window.innerWidth;
+                el.snowCanvas.height = window.innerHeight;
+                el.confettiCanvas.width = window.innerWidth;
+                el.confettiCanvas.height = window.innerHeight;
+
+                const snowCount = Math.min(68, Math.max(30, Math.floor(window.innerWidth / 16)));
+                fx.snow = Array.from({ length: snowCount }, () => ({
+                    x: Math.random() * window.innerWidth,
+                    y: Math.random() * window.innerHeight,
+                    r: Math.random() * 2.2 + 0.8,
+                    vy: Math.random() * 34 + 16,
+                    vx: (Math.random() - 0.5) * 14,
+                    phase: Math.random() * Math.PI * 2,
+                    alpha: Math.random() * 0.55 + 0.2
+                }));
+
+                // Main flight canvas with crisp DPR scaling
+                const rect = el.flightCanvasWrap.getBoundingClientRect();
+                const dpr = Math.min(window.devicePixelRatio || 1, 2.5);
+                flightW = Math.max(280, Math.floor(rect.width));
+                flightH = Math.max(220, Math.floor(rect.height));
+                el.flightCanvas.width = Math.floor(flightW * dpr);
+                el.flightCanvas.height = Math.floor(flightH * dpr);
+                fCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+                // Stars & winter clouds inside flight canvas
+                fx.stars = Array.from({ length: 54 }, () => ({
+                    x: Math.random() * flightW,
+                    y: Math.random() * flightH * 0.78,
+                    r: Math.random() * 1.5 + 0.4,
+                    tw: Math.random() * Math.PI * 2
+                }));
+
+                fx.clouds = Array.from({ length: 5 }, (_, i) => ({
+                    x: (flightW / 4) * i + Math.random() * 40,
+                    y: 35 + Math.random() * (flightH * 0.42),
+                    scale: 0.65 + Math.random() * 0.55,
+                    speed: 14 + Math.random() * 16
+                }));
+            }
+
+            function spawnExhaustParticle(x, y) {
+                const colors = ['#f5c542', '#fb7185', '#fef08a', '#ffffff'];
+                fx.exhaust.push({
+                    x, y,
+                    vx: -(60 + Math.random() * 85),
+                    vy: (Math.random() - 0.35) * 42,
+                    r: 2 + Math.random() * 3,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    life: 0.42 + Math.random() * 0.3,
+                    maxLife: 0.72
+                });
+            }
+
+            function spawnCrashExplosion(x, y) {
+                const sparkColors = ['#ef4444', '#f5c542', '#fb923c', '#ffffff', '#f43f5e'];
+                for (let i = 0; i < 34; i++) {
+                    const ang = Math.random() * Math.PI * 2;
+                    const spd = 45 + Math.random() * 170;
+                    fx.explosions.push({
+                        x, y,
+                        vx: Math.cos(ang) * spd,
+                        vy: Math.sin(ang) * spd,
+                        r: 2.5 + Math.random() * 4.5,
+                        color: sparkColors[Math.floor(Math.random() * sparkColors.length)],
+                        isSmoke: false,
+                        life: 0.55 + Math.random() * 0.45,
+                        maxLife: 1.0
+                    });
+                }
+                for (let i = 0; i < 14; i++) {
+                    const ang = Math.random() * Math.PI * 2;
+                    const spd = 15 + Math.random() * 55;
+                    fx.explosions.push({
+                        x, y,
+                        vx: Math.cos(ang) * spd,
+                        vy: Math.sin(ang) * spd - 15,
+                        r: 10 + Math.random() * 14,
+                        color: 'rgba(148, 163, 184, 0.42)',
+                        isSmoke: true,
+                        life: 0.9 + Math.random() * 0.5,
+                        maxLife: 1.4
+                    });
+                }
+            }
+
+            /**
+             * Draws Santa Claus piloting a sleek red turbo Christmas reindeer plane / sleigh
+             */
+            function drawSantaPlane(ctx, x, y, angleRad, scale = 1, jetActive = true) {
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.rotate(angleRad);
+                ctx.scale(scale, scale);
+
+                // Glowing Turbo Jet Exhaust Flame
+                if (jetActive) {
+                    const flameLen = 22 + Math.sin(fx.time * 48) * 7;
+                    const fGrad = ctx.createLinearGradient(-22, 2, -22 - flameLen, 2);
+                    fGrad.addColorStop(0, '#ffffff');
+                    fGrad.addColorStop(0.3, '#f5c542');
+                    fGrad.addColorStop(0.7, '#f97316');
+                    fGrad.addColorStop(1, 'rgba(225, 29, 72, 0)');
+                    ctx.fillStyle = fGrad;
+                    ctx.beginPath();
+                    ctx.moveTo(-20, -4);
+                    ctx.lineTo(-22 - flameLen, 2);
+                    ctx.lineTo(-20, 8);
+                    ctx.closePath();
+                    ctx.fill();
+                }
+
+                // Golden Sleigh Runner / Skid Underneath
+                ctx.strokeStyle = '#f5c542';
+                ctx.lineWidth = 3;
+                ctx.lineCap = 'round';
+                ctx.beginPath();
+                ctx.moveTo(-22, 14);
+                ctx.lineTo(18, 14);
+                ctx.quadraticCurveTo(28, 14, 29, 6);
+                ctx.stroke();
+
+                // Runner Struts
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(-10, 14); ctx.lineTo(-8, 8);
+                ctx.moveTo(10, 14); ctx.lineTo(12, 8);
+                ctx.stroke();
+
+                // Santa Claus Inside Cockpit (Head, Beard, Santa Hat)
+                // Red coat torso
+                ctx.fillStyle = '#be123c';
+                ctx.beginPath();
+                ctx.arc(-2, -6, 8, Math.PI, 0);
+                ctx.fill();
+                // Face
+                ctx.fillStyle = '#fed7aa';
+                ctx.beginPath();
+                ctx.arc(0, -13, 6.5, 0, Math.PI * 2);
+                ctx.fill();
+                // Fluffy White Beard
+                ctx.fillStyle = '#ffffff';
+                ctx.beginPath();
+                ctx.arc(2, -10.5, 5.2, 0, Math.PI);
+                ctx.fill();
+                // Pilot Goggles
+                ctx.fillStyle = '#38bdf8';
+                ctx.strokeStyle = '#1e293b';
+                ctx.lineWidth = 1.4;
+                ctx.beginPath();
+                ctx.roundRect(1, -16, 6, 3.8, 1.5);
+                ctx.fill(); ctx.stroke();
+                // Santa Hat trailing backward in wind
+                ctx.fillStyle = '#e11d48';
+                ctx.beginPath();
+                ctx.moveTo(-6, -16);
+                ctx.quadraticCurveTo(-14, -27, -23, -19);
+                ctx.lineTo(-2, -19);
+                ctx.closePath();
+                ctx.fill();
+                ctx.fillStyle = '#ffffff';
+                ctx.beginPath();
+                ctx.roundRect(-7, -19, 13, 3.6, 2);
+                ctx.fill();
+                ctx.beginPath();
+                ctx.arc(-23, -19, 3.2, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Sleek Crimson Turbo Sleigh/Plane Fuselage
+                const bodyGrad = ctx.createLinearGradient(0, -10, 0, 10);
+                bodyGrad.addColorStop(0, '#fb7185');
+                bodyGrad.addColorStop(0.35, '#e11d48');
+                bodyGrad.addColorStop(1, '#881337');
+                ctx.fillStyle = bodyGrad;
+                ctx.strokeStyle = '#f5c542';
+                ctx.lineWidth = 1.8;
+                ctx.beginPath();
+                ctx.moveTo(-22, -2);
+                ctx.quadraticCurveTo(-18, -10, -8, -7);
+                ctx.lineTo(14, -7);
+                ctx.quadraticCurveTo(28, -5, 31, 2);
+                ctx.quadraticCurveTo(26, 10, 12, 10);
+                ctx.lineTo(-16, 10);
+                ctx.quadraticCurveTo(-24, 9, -22, -2);
+                ctx.closePath();
+                ctx.fill();
+                ctx.stroke();
+
+                // Gold Racing Stripe & Christmas Star Emblem
+                ctx.fillStyle = '#f5c542';
+                ctx.fillRect(-14, 1, 34, 2.5);
+
+                // Festive Tail Wing
+                ctx.fillStyle = '#10b981';
+                ctx.strokeStyle = '#fef08a';
+                ctx.lineWidth = 1.4;
+                ctx.beginPath();
+                ctx.moveTo(-16, -4);
+                ctx.lineTo(-27, -15);
+                ctx.lineTo(-19, -15);
+                ctx.lineTo(-9, -4);
+                ctx.closePath();
+                ctx.fill();
+                ctx.stroke();
+
+                // Rudolph Glowing Red Nose Cone + Mini Antlers on Nose
+                ctx.strokeStyle = '#d97706';
+                ctx.lineWidth = 1.8;
+                ctx.beginPath();
+                ctx.moveTo(22, -5); ctx.lineTo(25, -13);
+                ctx.moveTo(24, -10); ctx.lineTo(28, -12);
+                ctx.stroke();
+
+                ctx.fillStyle = '#ef4444';
+                ctx.shadowColor = '#ef4444';
+                ctx.shadowBlur = 10;
+                ctx.beginPath();
+                ctx.arc(31.5, 1.5, 3.6, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.shadowBlur = 0;
+
+                // Spinning Front Propeller Blur
+                if (jetActive) {
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.72)';
+                    ctx.lineWidth = 2;
+                    const propH = 8 + Math.sin(fx.time * 70) * 5;
+                    ctx.beginPath();
+                    ctx.moveTo(35, 1.5 - propH);
+                    ctx.lineTo(35, 1.5 + propH);
+                    ctx.stroke();
+                }
+
+                ctx.restore();
+            }
+
+            function renderFlightCanvas() {
+                const w = flightW;
+                const h = flightH;
+                const padL = 34;
+                const padB = 26;
+                const originX = padL;
+                const originY = h - padB;
+
+                // 1. Deep Night Radar / Starry Sky Background
+                const bgGrad = fCtx.createLinearGradient(0, 0, 0, h);
+                bgGrad.addColorStop(0, '#050a18');
+                bgGrad.addColorStop(0.6, '#0b1530');
+                bgGrad.addColorStop(1, '#122249');
+                fCtx.fillStyle = bgGrad;
+                fCtx.fillRect(0, 0, w, h);
+
+                // 2. Rotating Subtle Northern Lights / Sunbeams during Flight
+                fCtx.save();
+                fCtx.translate(originX, originY);
+                fCtx.rotate(fx.beamAngle);
+                const rayCount = 14;
+                const maxR = Math.hypot(w, h) * 1.15;
+                for (let i = 0; i < rayCount; i++) {
+                    const a0 = (i * Math.PI * 2) / rayCount;
+                    const a1 = a0 + (Math.PI / rayCount) * 0.65;
+                    const isGreen = i % 2 === 0;
+                    fCtx.fillStyle = state.phase === 'CRASHED'
+                        ? 'rgba(225, 29, 72, 0.045)'
+                        : (isGreen ? 'rgba(16, 185, 129, 0.045)' : 'rgba(245, 197, 66, 0.038)');
+                    fCtx.beginPath();
+                    fCtx.moveTo(0, 0);
+                    fCtx.arc(0, 0, maxR, a0, a1);
+                    fCtx.closePath();
+                    fCtx.fill();
+                }
+                fCtx.restore();
+
+                // 3. Twinkling Stars
+                for (let i = 0; i < fx.stars.length; i++) {
+                    const st = fx.stars[i];
+                    const a = 0.35 + 0.55 * Math.sin(fx.time * 2.2 + st.tw);
+                    fCtx.fillStyle = `rgba(255, 250, 224, ${a})`;
+                    fCtx.beginPath();
+                    fCtx.arc(st.x, st.y, st.r, 0, Math.PI * 2);
+                    fCtx.fill();
+                }
+
+                // 4. Drifting Soft Winter Clouds
+                fCtx.fillStyle = 'rgba(226, 232, 240, 0.07)';
+                for (let i = 0; i < fx.clouds.length; i++) {
+                    const c = fx.clouds[i];
+                    fCtx.beginPath();
+                    fCtx.arc(c.x, c.y, 18 * c.scale, 0, Math.PI * 2);
+                    fCtx.arc(c.x + 16 * c.scale, c.y - 4 * c.scale, 15 * c.scale, 0, Math.PI * 2);
+                    fCtx.arc(c.x - 15 * c.scale, c.y + 2 * c.scale, 13 * c.scale, 0, Math.PI * 2);
+                    fCtx.fill();
+                }
+
+                // 5. Coordinate Axes & Moving Distance / Altitude Ticks
+                fCtx.strokeStyle = 'rgba(148, 163, 184, 0.25)';
+                fCtx.lineWidth = 1.2;
+                fCtx.beginPath();
+                fCtx.moveTo(originX, 12);
+                fCtx.lineTo(originX, originY);
+                fCtx.lineTo(w - 10, originY);
+                fCtx.stroke();
+
+                const scrollSpeed = state.phase === 'FLYING' ? fx.time * 42 : 0;
+                // X-axis moving dots
+                fCtx.fillStyle = 'rgba(245, 197, 66, 0.45)';
+                for (let i = 0; i < 8; i++) {
+                    const tx = originX + 24 + (((i * 64) - (scrollSpeed % 64) + 512) % (w - originX - 24));
+                    fCtx.beginPath();
+                    fCtx.arc(tx, originY + 9, 2, 0, Math.PI * 2);
+                    fCtx.fill();
+                }
+                // Y-axis moving ticks
+                fCtx.fillStyle = 'rgba(56, 189, 248, 0.45)';
+                for (let i = 0; i < 6; i++) {
+                    const ty = originY - 22 - (((i * 46) - ((scrollSpeed * 0.65) % 46) + 276) % (originY - 30));
+                    fCtx.fillRect(originX - 10, ty, 5, 2);
+                }
+
+                // Snowy Runway Strip at Bottom
+                const runGrad = fCtx.createLinearGradient(0, originY, 0, h);
+                runGrad.addColorStop(0, 'rgba(241, 245, 249, 0.16)');
+                runGrad.addColorStop(1, 'rgba(15, 27, 56, 0.5)');
+                fCtx.fillStyle = runGrad;
+                fCtx.fillRect(originX, originY, w - originX, h - originY);
+
+                // 6. PHASE-SPECIFIC FLIGHT CURVE & SANTA PLANE
+                if (state.phase === 'WAITING') {
+                    // Sleigh idling gently on snowy runway
+                    const idleBob = Math.sin(fx.time * 5.2) * 2.5;
+                    drawSantaPlane(fCtx, originX + 36, originY - 16 + idleBob, -0.05, 0.92, false);
+                } else if (state.phase === 'FLYING') {
+                    // Smooth progression across canvas, cruising + gently bobbing at peak height
+                    const tNorm = Math.min(1, state.phaseTime / 7.2);
+                    const easeX = 1 - Math.pow(1 - tNorm, 2.2);
+                    const easeY = 1 - Math.pow(1 - tNorm, 2.4);
+
+                    const cruiseBobX = tNorm >= 0.85 ? Math.sin(fx.time * 2.1) * 10 : 0;
+                    const cruiseBobY = tNorm >= 0.75 ? Math.sin(fx.time * 3.1) * 11 : 0;
+
+                    const endX = originX + 30 + easeX * (w - originX - 96) + cruiseBobX;
+                    const endY = originY - 14 - easeY * (originY - 68) + cruiseBobY;
+
+                    fx.sleighX = endX;
+                    fx.sleighY = endY;
+
+                    // Control point for sexy exponential curve
+                    const cpX = originX + (endX - originX) * 0.62;
+                    const cpY = originY - (originY - endY) * 0.16;
+
+                    // Translucent Crimson-Gold Gradient Fill under Curve
+                    const fillGrad = fCtx.createLinearGradient(0, endY, 0, originY);
+                    fillGrad.addColorStop(0, 'rgba(225, 29, 72, 0.42)');
+                    fillGrad.addColorStop(0.55, 'rgba(245, 197, 66, 0.16)');
+                    fillGrad.addColorStop(1, 'rgba(225, 29, 72, 0.02)');
+
+                    fCtx.fillStyle = fillGrad;
+                    fCtx.beginPath();
+                    fCtx.moveTo(originX, originY);
+                    fCtx.quadraticCurveTo(cpX, cpY, endX, endY);
+                    fCtx.lineTo(endX, originY);
+                    fCtx.closePath();
+                    fCtx.fill();
+
+                    // Glowing Red-Gold Curve Stroke + Candy-Cane Dashed Highlight
+                    const lineGrad = fCtx.createLinearGradient(originX, originY, endX, endY);
+                    lineGrad.addColorStop(0, '#e11d48');
+                    lineGrad.addColorStop(0.55, '#f59e0b');
+                    lineGrad.addColorStop(1, '#fef08a');
+
+                    fCtx.save();
+                    fCtx.shadowColor = '#f43f5e';
+                    fCtx.shadowBlur = 14;
+                    fCtx.strokeStyle = lineGrad;
+                    fCtx.lineWidth = 4.5;
+                    fCtx.lineCap = 'round';
+                    fCtx.beginPath();
+                    fCtx.moveTo(originX, originY);
+                    fCtx.quadraticCurveTo(cpX, cpY, endX, endY);
+                    fCtx.stroke();
+
+                    // White Candy-Cane dash accent along curve
+                    fCtx.shadowBlur = 0;
+                    fCtx.strokeStyle = 'rgba(255, 255, 255, 0.65)';
+                    fCtx.lineWidth = 2;
+                    fCtx.setLineDash([8, 12]);
+                    fCtx.lineDashOffset = -fx.time * 65;
+                    fCtx.beginPath();
+                    fCtx.moveTo(originX, originY);
+                    fCtx.quadraticCurveTo(cpX, cpY, endX, endY);
+                    fCtx.stroke();
+                    fCtx.restore();
+
+                    // Exhaust Sparkles
+                    for (let i = 0; i < fx.exhaust.length; i++) {
+                        const p = fx.exhaust[i];
+                        fCtx.globalAlpha = Math.max(0, p.life / p.maxLife);
+                        fCtx.fillStyle = p.color;
+                        fCtx.beginPath();
+                        fCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                        fCtx.fill();
+                    }
+                    fCtx.globalAlpha = 1;
+
+                    // Tangent pitch angle at curve tip
+                    const tanX = endX - cpX;
+                    const tanY = endY - cpY;
+                    fx.sleighAngle = Math.max(-0.55, Math.min(-0.08, Math.atan2(tanY, tanX) * 0.62));
+
+                    drawSantaPlane(fCtx, endX, endY, fx.sleighAngle, 1.0, true);
+                } else if (state.phase === 'CRASHED') {
+                    // Draw explosion puffs & sparks
+                    for (let i = 0; i < fx.explosions.length; i++) {
+                        const p = fx.explosions[i];
+                        fCtx.globalAlpha = Math.max(0, p.life / p.maxLife);
+                        fCtx.fillStyle = p.color;
+                        fCtx.beginPath();
+                        fCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                        fCtx.fill();
+                    }
+                    fCtx.globalAlpha = 1;
+
+                    // Sleigh zooming rapidly off-screen upper-right
+                    if (fx.crashFlyX < w + 120 && fx.crashFlyY > -120) {
+                        drawSantaPlane(fCtx, fx.crashFlyX, fx.crashFlyY, -0.45, 0.95, true);
+                    }
+                }
+            }
+
+            function renderSnowAndConfetti(dt) {
+                // Background Snowfall
+                const sw = el.snowCanvas.width;
+                const sh = el.snowCanvas.height;
+                snowCtx.clearRect(0, 0, sw, sh);
+                for (let i = 0; i < fx.snow.length; i++) {
+                    const f = fx.snow[i];
+                    f.y += f.vy * dt;
+                    f.phase += 1.4 * dt;
+                    f.x += (Math.sin(f.phase) * 14 + f.vx) * dt;
+                    if (f.y > sh + 6) { f.y = -6; f.x = Math.random() * sw; }
+                    if (f.x > sw + 6) f.x = -6;
+                    if (f.x < -6) f.x = sw + 6;
+                    snowCtx.fillStyle = `rgba(255, 255, 255, ${f.alpha})`;
+                    snowCtx.beginPath();
+                    snowCtx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+                    snowCtx.fill();
+                }
+
+                // Celebration Confetti
+                if (fx.confetti.length > 0) {
+                    const cw = el.confettiCanvas.width;
+                    const ch = el.confettiCanvas.height;
+                    confCtx.clearRect(0, 0, cw, ch);
+                    for (let i = fx.confetti.length - 1; i >= 0; i--) {
+                        const c = fx.confetti[i];
+                        c.x += c.vx * dt;
+                        c.y += c.vy * dt;
+                        c.rot += c.vRot * dt;
+                        confCtx.save();
+                        confCtx.translate(c.x, c.y);
+                        confCtx.rotate(c.rot);
+                        confCtx.fillStyle = c.color;
+                        confCtx.fillRect(-c.w / 2, -c.h / 2, c.w, c.h);
+                        confCtx.restore();
+                        if (c.y > ch + 30) fx.confetti.splice(i, 1);
+                    }
+                    if (fx.confetti.length === 0) confCtx.clearRect(0, 0, cw, ch);
+                }
+            }
+
+            /* -----------------------------------------------------------------
+               15. MAIN DELTA-TIME NORMALIZED GAME LOOP (60Hz / 120Hz / 144Hz)
+            ----------------------------------------------------------------- */
+            let lastTimestamp = 0;
+            let exhaustAccum = 0;
+
+            function tick(ts) {
+                if (!lastTimestamp) lastTimestamp = ts;
+                const dt = Math.min(0.05, Math.max(0.001, (ts - lastTimestamp) / 1000));
+                lastTimestamp = ts;
+
+                fx.time += dt;
+
+                // Drift winter clouds inside flight canvas
+                const cloudMult = state.phase === 'FLYING' ? 2.4 : 0.45;
+                for (let i = 0; i < fx.clouds.length; i++) {
+                    const c = fx.clouds[i];
+                    c.x -= c.speed * cloudMult * dt;
+                    if (c.x < -60) {
+                        c.x = flightW + 60;
+                        c.y = 28 + Math.random() * (flightH * 0.44);
+                    }
+                }
+
+                if (state.phase === 'WAITING') {
+                    state.phaseTime += dt;
+                    state.countdownLeft = Math.max(0, WAIT_DURATION - state.phaseTime);
+
+                    const secCeil = Math.ceil(state.countdownLeft);
+                    if (secCeil <= 3 && secCeil > 0 && secCeil < state.lastTickSecond) {
+                        state.lastTickSecond = secCeil;
+                        sfx.playCountdownTick();
+                    }
+
+                    el.waitTimerText.textContent = `${state.countdownLeft.toFixed(1)}s`;
+                    el.waitProgressBar.style.width = `${(state.countdownLeft / WAIT_DURATION) * 100}%`;
+
+                    if (state.phaseTime >= WAIT_DURATION) {
+                        enterFlyingPhase();
+                    }
+                } else if (state.phase === 'FLYING') {
+                    state.phaseTime += dt;
+                    fx.beamAngle += 0.16 * dt;
+
+                    const nextMult = multiplierAtElapsed(state.phaseTime);
+
+                    // Auto Cashout check BEFORE crash if crashPoint >= autoTarget
+                    state.panels.forEach((p, idx) => {
+                        if (p.status === 'active' && p.autoCashout) {
+                            if (state.crashPoint >= p.autoTarget && nextMult >= p.autoTarget) {
+                                cashoutPanel(idx, p.autoTarget);
+                            }
+                        }
+                    });
+
+                    if (nextMult >= state.crashPoint) {
+                        triggerCrash(state.crashPoint);
+                    } else {
+                        state.currentMult = nextMult;
+                        updateMultiplierDisplay();
+                        updatePanelButton(0);
+                        updatePanelButton(1);
+                        updateBotsDuringFlight();
+
+                        // Sync Admin modal live hint if open
+                        if (!el.adminModal.classList.contains('hidden')) {
+                            el.emergencyStatusHint.textContent = `Xe tuần lộc đang bay ở ${formatMult(state.currentMult)} — Bấm để cho nổ ngay!`;
+                        }
+
+                        // Emit golden snow/flame exhaust
+                        exhaustAccum += dt;
+                        if (exhaustAccum >= 0.028) {
+                            exhaustAccum = 0;
+                            spawnExhaustParticle(fx.sleighX - 24, fx.sleighY + 4);
+                        }
+                    }
+
+                    // Update exhaust particles
+                    for (let i = fx.exhaust.length - 1; i >= 0; i--) {
+                        const p = fx.exhaust[i];
+                        p.x += p.vx * dt;
+                        p.y += p.vy * dt;
+                        p.life -= dt;
+                        if (p.life <= 0) fx.exhaust.splice(i, 1);
+                    }
+                } else if (state.phase === 'CRASHED') {
+                    state.phaseTime += dt;
+                    fx.crashFlyX += fx.crashFlyVx * dt;
+                    fx.crashFlyY += fx.crashFlyVy * dt;
+
+                    for (let i = fx.explosions.length - 1; i >= 0; i--) {
+                        const p = fx.explosions[i];
+                        p.x += p.vx * dt;
+                        p.y += p.vy * dt;
+                        if (!p.isSmoke) p.vy += 120 * dt;
+                        p.life -= dt;
+                        if (p.life <= 0) fx.explosions.splice(i, 1);
+                    }
+
+                    if (state.phaseTime >= CRASH_DURATION) {
+                        enterWaitingPhase();
+                    }
+                }
+
+                renderFlightCanvas();
+                renderSnowAndConfetti(dt);
+
+                requestAnimationFrame(tick);
+            }
+
+            /* -----------------------------------------------------------------
+               16. EVENT BINDINGS & BOOTSTRAP
+            ----------------------------------------------------------------- */
+            function bindEvents() {
+                window.addEventListener('pointerdown', () => sfx.unlock(), { once: true });
+                window.addEventListener('resize', resizeAllCanvases);
+
+                // Safe return to Lobby: refund unstarted/queued bets & sync shared balance
+                el.backLobbyBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    state.panels.forEach(p => {
+                        if (p.status === 'placed' && p.placedBet > 0) {
+                            state.balance += p.placedBet;
+                            p.placedBet = 0;
+                            p.status = 'idle';
+                        } else if (p.status === 'queued' && p.queuedBet > 0) {
+                            state.balance += p.queuedBet;
+                            p.queuedBet = 0;
+                            p.status = 'idle';
+                        }
+                    });
+                    saveState();
+                    window.location.assign('index.html');
+                });
+
+                const onSyncReturn = () => {
+                    const anyLocked = state.panels.some(p => p.status === 'placed' || p.status === 'active' || p.status === 'queued');
+                    if (!anyLocked) {
+                        syncSharedBalance();
+                        renderAllUI();
+                    }
+                };
+                window.addEventListener('focus', onSyncReturn);
+                window.addEventListener('pageshow', onSyncReturn);
+                window.addEventListener('storage', (e) => {
+                    if (e.key === SHARED_BALANCE_KEY) onSyncReturn();
+                });
+
+                el.soundBtn.addEventListener('click', () => {
+                    state.muted = !state.muted;
+                    if (!state.muted) sfx.playClick();
+                    saveState();
+                    renderAllUI();
+                });
+
+                el.bailoutBtn.addEventListener('click', handleBailout);
+
+                // Tabs: Live Bets vs Chat Sòng
+                el.tabBetsBtn.addEventListener('click', () => {
+                    sfx.playClick();
+                    state.activeTab = 'bets';
+                    el.tabBetsContent.classList.remove('hidden');
+                    el.tabChatContent.classList.add('hidden');
+                    el.tabBetsBtn.className = 'btn-press py-2 px-3 rounded-2xl text-xs font-black tracking-wide bg-gradient-to-r from-rose-600 to-red-700 text-white border border-[#f5c542]/70 shadow';
+                    el.tabChatBtn.className = 'btn-press py-2 px-3 rounded-2xl text-xs font-extrabold tracking-wide bg-slate-900/75 text-slate-300 border border-slate-700/70 flex items-center justify-center gap-1.5';
+                });
+
+                el.tabChatBtn.addEventListener('click', () => {
+                    sfx.playClick();
+                    state.activeTab = 'chat';
+                    el.tabBetsContent.classList.add('hidden');
+                    el.tabChatContent.classList.remove('hidden');
+                    el.chatUnreadBadge.classList.add('hidden');
+                    el.tabChatBtn.className = 'btn-press py-2 px-3 rounded-2xl text-xs font-black tracking-wide bg-gradient-to-r from-rose-600 to-red-700 text-white border border-[#f5c542]/70 shadow flex items-center justify-center gap-1.5';
+                    el.tabBetsBtn.className = 'btn-press py-2 px-3 rounded-2xl text-xs font-extrabold tracking-wide bg-slate-900/75 text-slate-300 border border-slate-700/70';
+                    el.chatMessages.scrollTop = el.chatMessages.scrollHeight;
+                });
+
+                el.chatForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const txt = el.chatInput.value.trim();
+                    if (!txt) return;
+                    appendChat(getPlayerName(), txt, true);
+                    el.chatInput.value = '';
+                });
+
+                // Secret "TND" -> Password Modal -> Admin Control Panel
+                el.tndLogoBtn.addEventListener('click', openPassModal);
+                el.closePassBtn.addEventListener('click', closePassModal);
+
+                el.adminPassForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    if (el.adminPassInput.value === ADMIN_PASS) {
+                        closePassModal();
+                        openAdminPanel();
+                    } else {
+                        el.adminPassError.classList.remove('hidden');
+                        el.adminPassBox.classList.remove('shake-error');
+                        void el.adminPassBox.offsetWidth;
+                        el.adminPassBox.classList.add('shake-error');
+                        el.adminPassInput.value = '';
+                        el.adminPassInput.focus();
+                    }
+                });
+
+                // Emergency Mid-Flight Crash Button
+                el.emergencyCrashBtn.addEventListener('click', () => {
+                    if (state.phase === 'FLYING') {
+                        triggerCrash(state.currentMult);
+                        showToast(`💥 Admin đã cho nổ ngay tại ${formatMult(state.currentMult)}!`, 'loss', 2200);
+                    }
+                });
+
+                // Preset Next Round Crash Point Buttons
+                document.querySelectorAll('.admin-preset-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const val = btn.dataset.preset;
+                        state.admin.nextCrashOverride = val === 'auto' ? null : parseFloat(val);
+                        syncAdminUI();
+                    });
+                });
+
+                el.adminApplyCustomCrashBtn.addEventListener('click', () => {
+                    const val = parseFloat(el.adminCustomCrashInput.value);
+                    if (!Number.isFinite(val) || val < 1.00) {
+                        showToast('Nhập hệ số hợp lệ từ 1.00 trở lên!', 'warn', 1800);
+                        return;
+                    }
+                    state.admin.nextCrashOverride = Math.min(500, Math.floor(val * 100) / 100);
+                    el.adminCustomCrashInput.value = '';
+                    syncAdminUI();
+                    showToast(`👑 Đã ép ván kế tiếp nổ đúng ${formatMult(state.admin.nextCrashOverride)}`, 'info', 2000);
+                });
+
+                // Dual Rigging Sliders
+                el.rigSmallSlider.addEventListener('input', () => {
+                    state.admin.rigSmallPct = parseInt(el.rigSmallSlider.value, 10) || 0;
+                    syncAdminUI();
+                    saveState();
+                });
+
+                el.rigBigSlider.addEventListener('input', () => {
+                    state.admin.rigBigPct = parseInt(el.rigBigSlider.value, 10) || 0;
+                    syncAdminUI();
+                    saveState();
+                });
+
+                // Wallet Manager
+                el.adminSetBalBtn.addEventListener('click', () => {
+                    const val = parseInt(el.adminBalInput.value, 10);
+                    if (!Number.isFinite(val) || val < 0) return;
+                    state.balance = val;
+                    syncAdminUI();
+                    renderAllUI();
+                    saveState();
+                    showToast(`👑 Đã đặt số dư thành ${formatVND(state.balance)}`, 'info', 1800);
+                });
+
+                el.adminAdd10M.addEventListener('click', () => {
+                    state.balance += 10_000_000;
+                    syncAdminUI(); renderAllUI(); saveState();
+                });
+
+                el.adminAdd50M.addEventListener('click', () => {
+                    state.balance += 50_000_000;
+                    syncAdminUI(); renderAllUI(); saveState();
+                });
+
+                el.adminSetZero.addEventListener('click', () => {
+                    state.balance = 0;
+                    syncAdminUI(); renderAllUI(); saveState();
+                    showToast('Đã set 0đ (Đóng bảng để test nút Báo Nhà)', 'warn', 2000);
+                });
+
+                el.closeAdminTopBtn.addEventListener('click', closeAdminPanel);
+                el.hideAdminBtn.addEventListener('click', closeAdminPanel);
+            }
+
+            // Boot on Window Load
+            window.onload = function () {
+                loadState();
+                buildBetPanels();
+                resizeAllCanvases();
+                bindEvents();
+                renderHistory();
+                startAmbientChatLoop();
+                enterWaitingPhase();
+                requestAnimationFrame(tick);
+            };
+        })();
+    </script>
+</body>
+</html>
